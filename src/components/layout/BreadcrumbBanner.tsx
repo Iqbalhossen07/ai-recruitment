@@ -9,14 +9,18 @@ interface BreadcrumbBannerProps {
 
 export default function BreadcrumbBanner({ title, subtitle, paths }: BreadcrumbBannerProps) {
   return (
-    <section className="relative py-16 px-4 sm:px-6 lg:px-8 text-center overflow-hidden border-b border-gray-100 bg-white">
-      <Image 
-        src="/breadcrumb-bg.jpg" 
-        alt="Background" 
-        fill 
-        className="object-cover -z-10 opacity-20"
-        priority
-      />
+    <section className="relative py-16 px-4 sm:px-6 lg:px-8 text-center border-b border-gray-100">
+      <div className="absolute inset-0 z-0">
+        <Image 
+          src="/breadcrumb-bg.jpg" 
+          alt="Background" 
+          fill 
+          className="object-cover opacity-60"
+          priority
+        />
+        {/* Subtle white overlay to ensure text remains readable */}
+        <div className="absolute inset-0 bg-white/40"></div>
+      </div>
       <div className="max-w-4xl mx-auto relative z-10">
         <h1 className="text-3xl md:text-5xl font-bold text-black mb-4">
           {title}
