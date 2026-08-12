@@ -1,12 +1,20 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       
       {/* 1. Hero Section */}
-      <section className="bg-primary-light py-20 px-4 sm:px-6 lg:px-8 text-center">
-        <div className="max-w-4xl mx-auto">
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8 text-center overflow-hidden">
+        <Image 
+          src="/hero-bg.jpg" 
+          alt="Hero Background" 
+          fill 
+          className="object-cover -z-10 opacity-20"
+          priority
+        />
+        <div className="max-w-4xl mx-auto relative z-10">
           <h1 className="text-4xl md:text-6xl font-bold text-black mb-6">
             Find Your Dream Job with AI
           </h1>
@@ -96,8 +104,13 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {[1, 2, 3].map((i) => (
             <div key={i} className="bg-white border border-gray-200 rounded-md overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-              <div className="h-48 bg-gray-200 w-full flex items-center justify-center">
-                <span className="text-gray-400">Image Placeholder</span>
+              <div className="h-48 w-full relative bg-primary-light">
+                <Image 
+                  src="/blog-1.jpg" 
+                  alt="AI Resume Building" 
+                  fill 
+                  className="object-cover"
+                />
               </div>
               <div className="p-6">
                 <span className="text-xs font-semibold text-primary">Career Tips</span>
