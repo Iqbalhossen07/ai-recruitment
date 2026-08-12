@@ -119,6 +119,35 @@ export default async function Home() {
         </div>
       </section>
 
+      {/* 2. Featured Jobs Section */}
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">Featured Jobs</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+              Discover the latest opportunities available right now.
+            </p>
+          </div>
+          
+          {recentJobs.length === 0 ? (
+            <div className="text-center text-gray-500 py-10">No jobs available right now.</div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {recentJobs.map((job) => (
+                <JobCard key={job.id} job={job} />
+              ))}
+            </div>
+          )}
+
+          <div className="mt-12 text-center">
+            <Link href="/jobs" className="inline-flex items-center justify-center space-x-2 bg-transparent text-primary border border-primary px-8 py-3 rounded-md font-semibold hover:bg-primary hover:text-white transition-colors duration-300">
+              <span>View All Jobs</span>
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* 3. Why Choose Us */}
       <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50 border-y border-gray-100">
         <div className="max-w-7xl mx-auto text-center">
@@ -165,35 +194,6 @@ export default async function Home() {
                 Remove human bias from the initial screening process. Our AI evaluates every application purely on merit and skills.
               </p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 3. Recent Jobs Section */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">Latest Opportunities</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-              Check out the most recent job openings from top companies.
-            </p>
-          </div>
-          
-          {recentJobs.length === 0 ? (
-            <div className="text-center text-gray-500 py-10">No jobs available right now.</div>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {recentJobs.map((job) => (
-                <JobCard key={job.id} job={job} />
-              ))}
-            </div>
-          )}
-
-          <div className="mt-12 text-center">
-            <Link href="/jobs" className="inline-flex items-center justify-center space-x-2 bg-transparent text-primary border border-primary px-8 py-3 rounded-md font-semibold hover:bg-primary hover:text-white transition-colors duration-300">
-              <span>View All Jobs</span>
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-            </Link>
           </div>
         </div>
       </section>
