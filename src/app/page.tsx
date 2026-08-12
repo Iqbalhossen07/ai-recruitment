@@ -6,7 +6,7 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
       
       {/* 1. Hero Section */}
-      <section className="relative py-32 px-4 sm:px-6 lg:px-8 overflow-hidden min-h-[85vh] flex items-center">
+      <section className="relative py-20 md:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden min-h-[60vh] md:min-h-[85vh] flex items-center">
         {/* Background Image with Gradient Overlay */}
         <div className="absolute inset-0 z-0">
           <Image 
@@ -26,24 +26,24 @@ export default function Home() {
         <div className="max-w-7xl mx-auto w-full relative z-10">
           
           {/* Left Text Content */}
-          <div className="text-left max-w-2xl">
-            <span className="inline-block py-1 px-4 rounded-full bg-primary/20 text-primary border border-primary/30 text-sm font-bold tracking-wider uppercase mb-6 backdrop-blur-md shadow-sm">
+          <div className="text-left max-w-2xl mt-10 md:mt-0">
+            <span className="inline-block py-1 px-4 rounded-full bg-primary/20 text-primary border border-primary/30 text-xs md:text-sm font-bold tracking-wider uppercase mb-4 md:mb-6 backdrop-blur-md shadow-sm">
               AI-Powered Hiring Platform
             </span>
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-white mb-6 leading-[1.1] tracking-tight">
-              Find Your <span className="text-primary relative inline-block">Dream Job<svg className="absolute w-full h-4 -bottom-2 left-0 text-primary opacity-50" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 5 Q 50 15 100 5" stroke="currentColor" strokeWidth="8" fill="transparent"/></svg></span><br/>With Smart AI
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-white mb-4 md:mb-6 leading-[1.1] tracking-tight">
+              Find Your <span className="text-primary relative inline-block">Dream Job<svg className="absolute w-full h-3 md:h-4 -bottom-1 md:-bottom-2 left-0 text-primary opacity-50" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 5 Q 50 15 100 5" stroke="currentColor" strokeWidth="8" fill="transparent"/></svg></span><br/>With Smart AI
             </h1>
-            <p className="text-lg sm:text-xl text-gray-300 mb-8 leading-relaxed font-light">
+            <p className="text-base sm:text-lg md:text-xl text-gray-300 mb-6 md:mb-8 leading-relaxed font-light">
               Our intelligent recruitment platform matches your unique skills and experience with the perfect roles in top companies automatically.
             </p>
             
             {/* Buttons - Side by side on all devices, reduced padding, black shadows */}
-            <div className="flex flex-row flex-wrap gap-4">
-              <Link href="/jobs" className="bg-primary text-white px-6 py-3 rounded-md font-bold hover:bg-primary-hover hover:-translate-y-1 shadow-md hover:shadow-xl shadow-black/20 transition-all duration-300 text-center flex items-center justify-center space-x-2">
+            <div className="flex flex-row flex-wrap gap-3 md:gap-4">
+              <Link href="/jobs" className="bg-primary text-white px-5 md:px-6 py-2.5 md:py-3 rounded-md font-bold hover:bg-primary-hover hover:-translate-y-1 shadow-md hover:shadow-xl shadow-black/20 transition-all duration-300 text-center flex items-center justify-center space-x-2 text-sm md:text-base">
                 <span>Browse Jobs</span>
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
               </Link>
-              <Link href="/about" className="bg-white/10 text-white border border-white/20 px-6 py-3 rounded-md font-bold hover:bg-white/20 hover:-translate-y-1 shadow-md hover:shadow-xl shadow-black/20 transition-all duration-300 text-center backdrop-blur-md">
+              <Link href="/about" className="bg-white/10 text-white border border-white/20 px-5 md:px-6 py-2.5 md:py-3 rounded-md font-bold hover:bg-white/20 hover:-translate-y-1 shadow-md hover:shadow-xl shadow-black/20 transition-all duration-300 text-center backdrop-blur-md text-sm md:text-base">
                 Learn More
               </Link>
             </div>
