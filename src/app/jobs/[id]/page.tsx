@@ -112,5 +112,6 @@ export default async function JobDetailsPage({ params }: { params: { id: string 
         </div>
       </div>
     </div>
+    </div>
   );
 }
