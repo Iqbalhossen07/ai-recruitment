@@ -2,16 +2,27 @@ import Link from "next/link";
 import prisma from "@/lib/prisma";
 import BreadcrumbBanner from "@/components/layout/BreadcrumbBanner";
 
-export default async function JobsPage() {
+export default async function JobsPage({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
+  const q = typeof searchParams.q === 'string' ? searchParams.q : undefined;
+  
+  const whereClause: any = { isActive: true };
+  if (q) {
+    whereClause.OR = [
+      { title: { contains: q } },
+      { keywords: { contains: q } },
+      { description: { contains: q } },
+    ];
+  }
+
   const jobs = await prisma.job.findMany({
-    where: { isActive: true },
+    where: whereClause,
     orderBy: { createdAt: 'desc' }
   });
 
   return (
     <div className="flex flex-col min-h-screen">
       <BreadcrumbBanner 
-        title="Available Opportunities" 
+        title={q ? `Search results for "${q}"` : "Available Opportunities"} 
         subtitle="Find a role that matches your skills and ambitions." 
       />
 
