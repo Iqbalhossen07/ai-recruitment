@@ -3,6 +3,8 @@ import Image from "next/image";
 import prisma from "@/lib/prisma";
 import JobCard from "@/components/ui/JobCard";
 
+export const dynamic = 'force-dynamic';
+
 export default async function Home() {
   // Fetch latest 6 active jobs
   const recentJobs = await prisma.job.findMany({
