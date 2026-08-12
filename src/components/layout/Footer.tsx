@@ -47,9 +47,9 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-4 text-white">Contact Info</h3>
             <ul className="space-y-2 text-gray-400">
-              <li>support@airecruit.com</li>
-              <li>+880 1234-567890</li>
-              <li>Dhaka, Bangladesh</li>
+              <li>support@airecruit.co.uk</li>
+              <li>+44 20 7946 0958</li>
+              <li>London, United Kingdom</li>
             </ul>
           </div>
 

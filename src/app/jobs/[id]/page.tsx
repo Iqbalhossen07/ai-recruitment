@@ -71,11 +71,11 @@ export default async function JobDetailsPage({ params }: { params: { id: string 
               </div>
               <div>
                 <label className="block text-sm font-medium text-black mb-1">Phone Number</label>
-                <input type="tel" required className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="+880 1..." />
+                <input type="tel" required className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="+44 7..." />
               </div>
               <div>
                 <label className="block text-sm font-medium text-black mb-1">Expected Salary</label>
-                <input type="text" className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="e.g. 50,000 BDT" />
+                <input type="text" className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="e.g. £40,000 per year" />
               </div>
             </div>
             

@@ -29,7 +29,7 @@ export default function ContactPage() {
                 </div>
                 <div className="ml-4">
                   <h4 className="text-lg font-bold text-black">Office Location</h4>
-                  <p className="text-gray-600 mt-1">123 Tech Avenue, Suite 400<br />Dhaka, Bangladesh</p>
+                  <p className="text-gray-600 mt-1">123 Tech Avenue, Suite 400<br />London, United Kingdom</p>
                 </div>
               </div>
               

@@ -125,7 +125,7 @@ export default async function Home() {
             <div>
               <span className="text-primary font-bold tracking-wider text-sm uppercase mb-2 block">Top Searches</span>
               <h2 className="text-3xl md:text-4xl font-bold text-black">Search Jobs by Cities</h2>
-              <p className="text-gray-500 mt-2">Find your perfect job in your desired city across Bangladesh</p>
+              <p className="text-gray-500 mt-2">Find your perfect job in your desired city across the UK</p>
             </div>
             <Link href="/jobs" className="hidden md:flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-md font-semibold hover:bg-primary-hover transition-colors shadow-md">
               View All
@@ -136,12 +136,12 @@ export default async function Home() {
           {/* City Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { name: "Dhaka", img: "/city-dhaka.jpg", openings: 1240, companies: 480 },
-              { name: "Chittagong", img: "/city-chittagong.jpg", openings: 620, companies: 215 },
-              { name: "Sylhet", img: "/city-sylhet.jpg", openings: 340, companies: 98 },
-              { name: "Rajshahi", img: "/city-rajshahi.jpg", openings: 280, companies: 74 },
-              { name: "Khulna", img: "/city-khulna.jpg", openings: 195, companies: 56 },
-              { name: "Comilla", img: "/city-comilla.jpg", openings: 160, companies: 43 },
+              { name: "London", img: "/city-london.jpg", openings: 5240, companies: 1480 },
+              { name: "Manchester", img: "/city-manchester.jpg", openings: 1820, companies: 615 },
+              { name: "Birmingham", img: "/city-birmingham.jpg", openings: 1340, companies: 398 },
+              { name: "Leeds", img: "/city-leeds.jpg", openings: 980, companies: 274 },
+              { name: "Bristol", img: "/city-bristol.jpg", openings: 795, companies: 256 },
+              { name: "Edinburgh", img: "/city-edinburgh.jpg", openings: 660, companies: 193 },
             ].map((city) => (
               <Link key={city.name} href={`/jobs?loc=${city.name}`} className="group block">
                 <div className="rounded-md overflow-hidden border border-gray-200 shadow-md shadow-gray-200 hover:shadow-lg hover:shadow-gray-300 transition-all duration-300 hover:-translate-y-1">
