@@ -38,38 +38,38 @@ export default function Home() {
             </p>
             
             {/* Search Bar Form */}
-            <form action="/jobs" method="GET" className="w-full max-w-3xl bg-white rounded-lg p-2 shadow-2xl flex flex-col md:flex-row gap-2 transform hover:scale-[1.01] transition-transform duration-300">
+            <form action="/jobs" method="GET" className="w-full max-w-3xl flex flex-col md:flex-row gap-3 transform hover:scale-[1.01] transition-transform duration-300">
               
-              <div className="flex-1 flex items-center px-4 md:border-r border-gray-200">
-                <svg className="w-5 h-5 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+              <div className="flex-1 flex items-center px-4 bg-black/40 backdrop-blur-md border border-white/60 rounded-lg shadow-inner focus-within:border-primary transition-colors">
+                <svg className="w-5 h-5 text-white/70 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
                 <input 
                   type="text" 
                   name="q" 
                   placeholder="Keyword, Job title..." 
-                  className="w-full py-3 px-3 outline-none text-black bg-transparent placeholder-gray-400"
+                  className="w-full py-3 px-3 outline-none text-white bg-transparent placeholder-white/60"
                 />
               </div>
               
-              <div className="flex-1 flex items-center px-4">
-                <svg className="w-5 h-5 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+              <div className="flex-1 flex items-center px-4 bg-black/40 backdrop-blur-md border border-white/60 rounded-lg shadow-inner focus-within:border-primary transition-colors">
+                <svg className="w-5 h-5 text-white/70 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
                 <input 
                   type="text" 
                   name="loc" 
                   placeholder="Anywhere" 
-                  className="w-full py-3 px-3 outline-none text-black bg-transparent placeholder-gray-400"
+                  className="w-full py-3 px-3 outline-none text-white bg-transparent placeholder-white/60"
                 />
               </div>
               
-              <button type="submit" className="bg-primary text-white px-8 py-3 rounded-md font-bold hover:bg-primary-hover shadow-md hover:shadow-lg transition-all duration-300 w-full md:w-auto">
+              <button type="submit" className="bg-primary text-white px-6 md:px-8 py-2.5 md:py-3 rounded-lg font-bold hover:bg-primary-hover shadow-md hover:shadow-lg transition-all duration-300 w-full md:w-auto">
                 Search
               </button>
             </form>
 
-            <div className="mt-6 flex items-center space-x-4 text-sm text-gray-400">
-              <span>Popular:</span>
-              <Link href="/jobs?q=Frontend" className="hover:text-white transition-colors underline decoration-gray-500 underline-offset-4">Frontend</Link>
-              <Link href="/jobs?q=Backend" className="hover:text-white transition-colors underline decoration-gray-500 underline-offset-4">Backend</Link>
-              <Link href="/jobs?q=Design" className="hover:text-white transition-colors underline decoration-gray-500 underline-offset-4">Design</Link>
+            <div className="mt-6 flex flex-wrap justify-center items-center gap-3 md:space-x-4 text-sm md:text-base text-gray-200 font-medium">
+              <span className="text-white">Popular:</span>
+              <Link href="/jobs?q=Frontend" className="hover:text-primary transition-colors underline decoration-white/50 underline-offset-4">Frontend</Link>
+              <Link href="/jobs?q=Backend" className="hover:text-primary transition-colors underline decoration-white/50 underline-offset-4">Backend</Link>
+              <Link href="/jobs?q=Design" className="hover:text-primary transition-colors underline decoration-white/50 underline-offset-4">Design</Link>
             </div>
             
           </div>
