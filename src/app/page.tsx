@@ -50,7 +50,7 @@ export default async function Home() {
             {/* Search Bar Form */}
             <form action="/jobs" method="GET" className="w-full max-w-3xl flex flex-col md:flex-row gap-3 transform hover:scale-[1.01] transition-transform duration-300">
               
-              <div className="flex-1 flex items-center px-4 bg-black/40 backdrop-blur-md border border-white/60 rounded-lg shadow-inner focus-within:border-primary transition-colors">
+              <div className="flex-1 flex items-center px-4 bg-black/40 backdrop-blur-md border border-white/60 rounded-md shadow-inner focus-within:border-primary transition-colors">
                 <svg className="w-5 h-5 text-white/70 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
                 <input 
                   type="text" 
@@ -60,7 +60,7 @@ export default async function Home() {
                 />
               </div>
               
-              <div className="flex-1 flex items-center px-4 bg-black/40 backdrop-blur-md border border-white/60 rounded-lg shadow-inner focus-within:border-primary transition-colors">
+              <div className="flex-1 flex items-center px-4 bg-black/40 backdrop-blur-md border border-white/60 rounded-md shadow-inner focus-within:border-primary transition-colors">
                 <svg className="w-5 h-5 text-white/70 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
                 <input 
                   type="text" 
@@ -70,7 +70,7 @@ export default async function Home() {
                 />
               </div>
               
-              <button type="submit" className="bg-primary text-white px-6 md:px-8 py-2.5 md:py-3 rounded-lg font-bold hover:bg-primary-hover shadow-md hover:shadow-lg transition-all duration-300 w-full md:w-auto">
+              <button type="submit" className="bg-primary text-white px-6 md:px-8 py-2.5 md:py-3 rounded-md font-bold hover:bg-primary-hover shadow-md hover:shadow-lg transition-all duration-300 w-full md:w-auto">
                 Search
               </button>
             </form>
@@ -126,8 +126,8 @@ export default async function Home() {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {/* Feature 1 */}
-            <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group">
-              <div className="w-16 h-16 bg-primary-light text-primary rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+            <div className="bg-white p-8 rounded-md shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group">
+              <div className="w-16 h-16 bg-primary-light text-primary rounded-md flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
                 <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
@@ -139,8 +139,8 @@ export default async function Home() {
             </div>
             
             {/* Feature 2 */}
-            <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group">
-              <div className="w-16 h-16 bg-primary-light text-primary rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+            <div className="bg-white p-8 rounded-md shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group">
+              <div className="w-16 h-16 bg-primary-light text-primary rounded-md flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
                 <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
@@ -152,8 +152,8 @@ export default async function Home() {
             </div>
             
             {/* Feature 3 */}
-            <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group">
-              <div className="w-16 h-16 bg-primary-light text-primary rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+            <div className="bg-white p-8 rounded-md shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group">
+              <div className="w-16 h-16 bg-primary-light text-primary rounded-md flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
                 <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
