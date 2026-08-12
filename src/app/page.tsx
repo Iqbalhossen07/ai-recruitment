@@ -117,7 +117,72 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* 3. Why Choose Us */}
+      {/* 3. Search Jobs by Cities */}
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-7xl mx-auto">
+          {/* Header */}
+          <div className="flex justify-between items-end mb-12">
+            <div>
+              <span className="text-primary font-bold tracking-wider text-sm uppercase mb-2 block">Top Searches</span>
+              <h2 className="text-3xl md:text-4xl font-bold text-black">Search Jobs by Cities</h2>
+              <p className="text-gray-500 mt-2">Find your perfect job in your desired city across Bangladesh</p>
+            </div>
+            <Link href="/jobs" className="hidden md:flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-md font-semibold hover:bg-primary-hover transition-colors shadow-md">
+              View All
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+            </Link>
+          </div>
+
+          {/* City Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { name: "Dhaka", img: "/city-dhaka.jpg", openings: 1240, companies: 480 },
+              { name: "Chittagong", img: "/city-chittagong.jpg", openings: 620, companies: 215 },
+              { name: "Sylhet", img: "/city-sylhet.jpg", openings: 340, companies: 98 },
+              { name: "Rajshahi", img: "/city-rajshahi.jpg", openings: 280, companies: 74 },
+              { name: "Khulna", img: "/city-khulna.jpg", openings: 195, companies: 56 },
+              { name: "Comilla", img: "/city-comilla.jpg", openings: 160, companies: 43 },
+            ].map((city) => (
+              <Link key={city.name} href={`/jobs?loc=${city.name}`} className="group block">
+                <div className="rounded-md overflow-hidden border border-gray-200 shadow-md shadow-gray-200 hover:shadow-lg hover:shadow-gray-300 transition-all duration-300 hover:-translate-y-1">
+                  {/* City Image */}
+                  <div className="relative h-48 w-full overflow-hidden">
+                    <Image
+                      src={city.img}
+                      alt={city.name}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    {/* Subtle bottom gradient for readability */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                  </div>
+                  {/* City Info */}
+                  <div className="bg-white p-4">
+                    <div className="flex items-center gap-1.5 mb-1">
+                      <svg className="w-4 h-4 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                      <span className="text-lg font-bold text-black group-hover:text-primary transition-colors">{city.name}</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm text-gray-500">
+                      <span className="font-medium text-black">{city.openings.toLocaleString()} openings</span>
+                      <span className="w-1 h-1 rounded-full bg-primary inline-block"></span>
+                      <span>{city.companies} companies</span>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          {/* Mobile View All button */}
+          <div className="mt-8 text-center md:hidden">
+            <Link href="/jobs" className="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-md font-semibold hover:bg-primary-hover transition-colors">
+              View All Jobs →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Why Choose Us */}
       <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50 border-y border-gray-100">
         <div className="max-w-7xl mx-auto text-center">
           <span className="text-primary font-bold tracking-wider text-sm uppercase mb-2 block">Why Choose AI Recruit</span>
