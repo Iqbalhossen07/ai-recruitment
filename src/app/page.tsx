@@ -87,37 +87,6 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* 2. Featured Jobs Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-black">Featured Jobs</h2>
-          <p className="text-gray-600 mt-2">Discover the latest opportunities available right now.</p>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Mock Job Cards for now (will be dynamic later) */}
-          {[1, 2, 3].map((i) => (
-            <div key={i} className="bg-white border border-gray-200 rounded-md p-6 shadow-sm hover:shadow-md transition-shadow">
-              <span className="text-xs font-semibold text-primary bg-primary-light px-3 py-1 rounded-full">Engineering</span>
-              <h3 className="text-xl font-bold text-black mt-4">Senior Software Engineer</h3>
-              <p className="text-gray-600 mt-2 line-clamp-2">
-                Join our backend team to build scalable microservices and AI-driven features.
-              </p>
-              <div className="mt-6 flex justify-between items-center">
-                <span className="text-sm font-medium text-black">Dhaka, Hybrid</span>
-                <Link href={`/jobs/test-${i}`} className="text-primary hover:underline font-medium text-sm">
-                  Apply Now &rarr;
-                </Link>
-              </div>
-            </div>
-          ))}
-        </div>
-        <div className="mt-10 text-center">
-          <Link href="/jobs" className="text-primary font-medium hover:underline">
-            View All Jobs
-          </Link>
-        </div>
-      </section>
 
       {/* 2. Featured Jobs Section */}
       <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50">
