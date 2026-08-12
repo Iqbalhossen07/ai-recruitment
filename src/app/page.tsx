@@ -6,48 +6,49 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
       
       {/* 1. Hero Section */}
-      <section className="relative py-24 px-4 sm:px-6 lg:px-8 overflow-hidden bg-white">
-        {/* Decorative background blur */}
-        <div className="absolute top-[-10%] left-[-10%] w-96 h-96 bg-primary opacity-10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-primary opacity-10 rounded-full blur-3xl"></div>
+      <section className="relative py-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0 z-0">
+          <Image 
+            src="/hero-bg.jpg" 
+            alt="AI Recruitment Technology" 
+            fill 
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-black/70"></div>
+        </div>
         
         <div className="max-w-7xl mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="text-left">
-            <span className="inline-block py-1 px-3 rounded-full bg-primary-light text-primary text-sm font-semibold mb-6">
+            <span className="inline-block py-1 px-3 rounded-full bg-primary/20 text-primary-light border border-primary/30 text-sm font-semibold mb-6 backdrop-blur-sm">
               AI-Powered Hiring Platform
             </span>
-            <h1 className="text-5xl md:text-6xl font-bold text-black mb-6 leading-tight">
-              Find Your <span className="text-primary relative whitespace-nowrap">Dream Job<svg className="absolute w-full h-3 -bottom-1 left-0 text-primary opacity-30" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 5 Q 50 15 100 5" stroke="currentColor" strokeWidth="8" fill="transparent"/></svg></span><br/>With Smart AI
+            <h1 className="text-5xl md:text-6xl md:leading-[1.2] font-bold text-white mb-6">
+              Find Your <span className="text-primary relative whitespace-nowrap">Dream Job<svg className="absolute w-full h-3 -bottom-1 left-0 text-primary opacity-50" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 5 Q 50 15 100 5" stroke="currentColor" strokeWidth="8" fill="transparent"/></svg></span><br/>With Smart AI
             </h1>
-            <p className="text-xl text-gray-600 mb-8 max-w-lg leading-relaxed">
+            <p className="text-xl text-gray-300 mb-8 max-w-lg leading-relaxed">
               Our intelligent recruitment platform matches your unique skills and experience with the perfect roles in top companies automatically.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/jobs" className="bg-primary text-white px-8 py-4 rounded-md font-semibold hover:bg-primary-hover hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/30 transition-all duration-300 text-center">
                 Browse Jobs
               </Link>
-              <Link href="/about" className="bg-white text-black border border-gray-200 px-8 py-4 rounded-md font-semibold hover:border-primary hover:text-primary hover:-translate-y-1 hover:shadow-lg transition-all duration-300 text-center">
+              <Link href="/about" className="bg-transparent text-white border border-gray-400 px-8 py-4 rounded-md font-semibold hover:border-white hover:-translate-y-1 hover:shadow-lg transition-all duration-300 text-center backdrop-blur-sm">
                 Learn More
               </Link>
             </div>
           </div>
-          
-          <div className="relative w-full h-[500px] rounded-2xl overflow-hidden shadow-2xl border-4 border-white transform hover:scale-[1.02] transition-transform duration-500">
-            <Image 
-              src="/hero-bg.jpg" 
-              alt="AI Recruitment Technology" 
-              fill 
-              className="object-cover"
-              priority
-            />
-            {/* Floating glassmorphism card */}
-            <div className="absolute bottom-8 left-[-20px] bg-white/70 backdrop-blur-md border border-white/50 p-4 rounded-xl shadow-lg flex items-center space-x-4 transform translate-x-12">
-              <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center">
-                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+
+          {/* Floating glassmorphism card on the right for visual balance */}
+          <div className="hidden lg:flex justify-center items-center">
+             <div className="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl shadow-2xl flex items-center space-x-6 transform hover:scale-105 transition-transform duration-500 max-w-sm">
+              <div className="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center flex-shrink-0 shadow-lg shadow-primary/30">
+                <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
               </div>
               <div>
-                <p className="text-black font-bold">99% Match Rate</p>
-                <p className="text-gray-600 text-sm">AI precision</p>
+                <p className="text-white text-xl font-bold">99% Match Rate</p>
+                <p className="text-gray-300 text-sm mt-1">Experience precision hiring powered by advanced AI algorithms.</p>
               </div>
             </div>
           </div>
