@@ -305,21 +305,14 @@ export default async function Home() {
             Upload your CV and let our intelligent AI match you with the best roles across London, Manchester, Birmingham and beyond — in seconds.
           </p>
 
-          {/* Buttons */}
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
+          {/* Button */}
+          <div className="flex justify-center">
             <Link
               href="/jobs"
-              className="inline-flex items-center justify-center gap-2 bg-primary text-white font-bold px-8 py-4 rounded-md hover:bg-primary-hover transition-all duration-300 shadow-lg shadow-primary/30 hover:shadow-primary/50 hover:-translate-y-0.5 text-lg"
+              className="inline-flex items-center justify-center gap-2 bg-primary text-white font-bold px-10 py-4 rounded-md hover:bg-primary-hover transition-all duration-300 shadow-lg shadow-primary/30 hover:shadow-primary/50 hover:-translate-y-0.5 text-lg"
             >
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
               Browse Jobs
-            </Link>
-            <Link
-              href="/jobs"
-              className="inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm text-white font-bold px-8 py-4 rounded-md border border-white/20 hover:bg-white/20 transition-all duration-300 hover:-translate-y-0.5 text-lg"
-            >
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" /></svg>
-              Upload Your CV
             </Link>
           </div>
 
