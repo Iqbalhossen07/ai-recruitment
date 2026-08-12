@@ -6,7 +6,7 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
       
       {/* 1. Hero Section */}
-      <section className="relative py-32 px-4 sm:px-6 lg:px-8 overflow-hidden min-h-[90vh] flex items-center">
+      <section className="relative py-32 px-4 sm:px-6 lg:px-8 overflow-hidden min-h-[85vh] flex items-center">
         {/* Background Image with Gradient Overlay */}
         <div className="absolute inset-0 z-0">
           <Image 
@@ -21,57 +21,31 @@ export default function Home() {
           
           {/* Animated decorative glowing orbs */}
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[100px] mix-blend-screen animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[100px] mix-blend-screen"></div>
         </div>
         
-        <div className="max-w-7xl mx-auto w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="max-w-7xl mx-auto w-full relative z-10">
           
           {/* Left Text Content */}
-          <div className="text-left lg:col-span-7">
-            <span className="inline-block py-1.5 px-4 rounded-full bg-primary/20 text-primary border border-primary/30 text-sm font-bold tracking-wider uppercase mb-6 backdrop-blur-md shadow-[0_0_15px_rgba(38,174,97,0.3)]">
+          <div className="text-left max-w-2xl">
+            <span className="inline-block py-1 px-4 rounded-full bg-primary/20 text-primary border border-primary/30 text-sm font-bold tracking-wider uppercase mb-6 backdrop-blur-md shadow-sm">
               AI-Powered Hiring Platform
             </span>
-            <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-[1.1] tracking-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-white mb-6 leading-[1.1] tracking-tight">
               Find Your <span className="text-primary relative inline-block">Dream Job<svg className="absolute w-full h-4 -bottom-2 left-0 text-primary opacity-50" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 5 Q 50 15 100 5" stroke="currentColor" strokeWidth="8" fill="transparent"/></svg></span><br/>With Smart AI
             </h1>
-            <p className="text-xl text-gray-300 mb-10 max-w-xl leading-relaxed font-light">
+            <p className="text-lg sm:text-xl text-gray-300 mb-8 leading-relaxed font-light">
               Our intelligent recruitment platform matches your unique skills and experience with the perfect roles in top companies automatically.
             </p>
-            <div className="flex flex-col sm:flex-row gap-5">
-              <Link href="/jobs" className="bg-primary text-white px-8 py-4 rounded-md font-bold text-lg hover:bg-primary-hover hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(38,174,97,0.4)] transition-all duration-300 text-center flex items-center justify-center space-x-2">
+            
+            {/* Buttons - Side by side on all devices, reduced padding, black shadows */}
+            <div className="flex flex-row flex-wrap gap-4">
+              <Link href="/jobs" className="bg-primary text-white px-6 py-3 rounded-md font-bold hover:bg-primary-hover hover:-translate-y-1 shadow-md hover:shadow-xl shadow-black/20 transition-all duration-300 text-center flex items-center justify-center space-x-2">
                 <span>Browse Jobs</span>
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
               </Link>
-              <Link href="/about" className="bg-white/10 text-white border border-white/20 px-8 py-4 rounded-md font-bold text-lg hover:bg-white/20 hover:-translate-y-1 transition-all duration-300 text-center backdrop-blur-md">
+              <Link href="/about" className="bg-white/10 text-white border border-white/20 px-6 py-3 rounded-md font-bold hover:bg-white/20 hover:-translate-y-1 shadow-md hover:shadow-xl shadow-black/20 transition-all duration-300 text-center backdrop-blur-md">
                 Learn More
               </Link>
-            </div>
-          </div>
-
-          {/* Right Floating Elements (Dynamic Layout) */}
-          <div className="hidden lg:flex flex-col justify-center items-end lg:col-span-5 relative h-full space-y-8">
-             {/* Floating Stats Card 1 */}
-             <div className="bg-white/10 backdrop-blur-xl border border-white/20 p-6 rounded-2xl shadow-2xl flex items-center space-x-5 transform hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] transition-all duration-500 w-80 mr-12 relative overflow-hidden group">
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="w-14 h-14 bg-primary text-white rounded-xl flex items-center justify-center flex-shrink-0 shadow-[0_0_20px_rgba(38,174,97,0.5)]">
-                <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-              </div>
-              <div className="relative z-10">
-                <p className="text-white text-2xl font-bold">99%</p>
-                <p className="text-gray-300 text-sm font-medium tracking-wide">Match Accuracy</p>
-              </div>
-            </div>
-
-            {/* Floating Stats Card 2 */}
-            <div className="bg-white/10 backdrop-blur-xl border border-white/20 p-6 rounded-2xl shadow-2xl flex items-center space-x-5 transform hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] transition-all duration-500 w-80 ml-auto relative overflow-hidden group">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="w-14 h-14 bg-blue-500 text-white rounded-xl flex items-center justify-center flex-shrink-0 shadow-[0_0_20px_rgba(59,130,246,0.5)]">
-                <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
-              </div>
-              <div className="relative z-10">
-                <p className="text-white text-2xl font-bold">10k+</p>
-                <p className="text-gray-300 text-sm font-medium tracking-wide">Candidates Hired</p>
-              </div>
             </div>
           </div>
           
