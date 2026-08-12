@@ -15,18 +15,18 @@ export default function BreadcrumbBanner({ title, subtitle, paths }: BreadcrumbB
           src="/breadcrumb-bg.jpg" 
           alt="Background" 
           fill 
-          className="object-cover opacity-60"
+          className="object-cover"
           priority
         />
-        {/* Subtle white overlay to ensure text remains readable */}
-        <div className="absolute inset-0 bg-white/40"></div>
+        {/* Black overlay to ensure white text remains readable */}
+        <div className="absolute inset-0 bg-black/60"></div>
       </div>
       <div className="max-w-4xl mx-auto relative z-10">
-        <h1 className="text-3xl md:text-5xl font-bold text-black mb-4">
+        <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">
           {title}
         </h1>
         
-        <div className="flex items-center justify-center space-x-2 text-sm font-medium text-gray-600 mb-2">
+        <div className="flex items-center justify-center space-x-2 text-sm font-medium text-gray-300 mb-2">
           <Link href="/" className="hover:text-primary transition-colors">Home</Link>
           {paths?.map((path, index) => (
             <span key={index} className="flex items-center space-x-2">
@@ -47,7 +47,7 @@ export default function BreadcrumbBanner({ title, subtitle, paths }: BreadcrumbB
         </div>
 
         {subtitle && (
-          <p className="text-lg text-gray-700 mt-4">
+          <p className="text-lg text-gray-200 mt-4">
             {subtitle}
           </p>
         )}
