@@ -1,19 +1,13 @@
 import Image from "next/image";
+import BreadcrumbBanner from "@/components/layout/BreadcrumbBanner";
 
 export default function AboutPage() {
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Header Section */}
-      <section className="bg-primary-light py-20 px-4 sm:px-6 lg:px-8 text-center">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-bold text-black mb-4">
-            About AI Recruit
-          </h1>
-          <p className="text-xl text-gray-700">
-            Pioneering the future of hiring through Artificial Intelligence and smart matching.
-          </p>
-        </div>
-      </section>
+      <BreadcrumbBanner 
+        title="About AI Recruit" 
+        subtitle="Pioneering the future of hiring through Artificial Intelligence and smart matching." 
+      />
 
       {/* Main Content */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">

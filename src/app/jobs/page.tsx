@@ -1,5 +1,6 @@
 import Link from "next/link";
 import prisma from "@/lib/prisma";
+import BreadcrumbBanner from "@/components/layout/BreadcrumbBanner";
 
 export default async function JobsPage() {
   const jobs = await prisma.job.findMany({
@@ -8,11 +9,13 @@ export default async function JobsPage() {
   });
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold text-black">Available Opportunities</h1>
-        <p className="text-gray-600 mt-4 text-lg">Find a role that matches your skills and ambitions.</p>
-      </div>
+    <div className="flex flex-col min-h-screen">
+      <BreadcrumbBanner 
+        title="Available Opportunities" 
+        subtitle="Find a role that matches your skills and ambitions." 
+      />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full">
 
       {jobs.length === 0 ? (
         <div className="text-center text-gray-500 py-10">
@@ -59,6 +62,7 @@ export default async function JobsPage() {
           ))}
         </div>
       )}
+      </div>
     </div>
   );
 }

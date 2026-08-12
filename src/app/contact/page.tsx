@@ -1,15 +1,12 @@
+import BreadcrumbBanner from "@/components/layout/BreadcrumbBanner";
+
 export default function ContactPage() {
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Header Section */}
-      <section className="bg-primary text-white py-16 px-4 sm:px-6 lg:px-8 text-center">
-        <div className="max-w-3xl mx-auto">
-          <h1 className="text-4xl font-bold mb-4">Contact Us</h1>
-          <p className="text-lg text-primary-light">
-            Have questions about our platform? We'd love to hear from you.
-          </p>
-        </div>
-      </section>
+      <BreadcrumbBanner 
+        title="Contact Us" 
+        subtitle="Have questions about our platform? We'd love to hear from you." 
+      />
 
       {/* Main Content */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full">

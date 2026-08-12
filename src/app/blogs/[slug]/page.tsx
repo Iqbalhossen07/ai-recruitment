@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import BreadcrumbBanner from "@/components/layout/BreadcrumbBanner";
 
 export default function BlogDetailsPage({ params }: { params: { slug: string } }) {
   // Dummy data mapping
@@ -45,22 +46,28 @@ By adapting your resume to these systems, you significantly increase your chance
   }
 
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-      <Link href="/blogs" className="text-primary hover:underline font-medium mb-8 inline-flex items-center">
-        &larr; Back to all blogs
-      </Link>
+    <div className="flex flex-col min-h-screen">
+      <BreadcrumbBanner 
+        title={blog.title}
+        paths={[{ name: "Blog", url: "/blogs" }]}
+      />
 
-      <div className="mb-10 text-center">
-        <span className="text-sm font-bold uppercase tracking-wider text-primary mb-4 block">
-          {blog.category}
-        </span>
-        <h1 className="text-4xl md:text-5xl font-bold text-black mb-6 leading-tight">
-          {blog.title}
-        </h1>
-        <div className="text-sm text-gray-500">
-          Published on {blog.date} &middot; {blog.readTime}
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full">
+        <Link href="/blogs" className="text-primary hover:underline font-medium mb-8 inline-flex items-center">
+          &larr; Back to all blogs
+        </Link>
+
+        <div className="mb-10 text-center">
+          <span className="text-sm font-bold uppercase tracking-wider text-primary mb-4 block">
+            {blog.category}
+          </span>
+          <h1 className="text-4xl md:text-5xl font-bold text-black mb-6 leading-tight">
+            {blog.title}
+          </h1>
+          <div className="text-sm text-gray-500">
+            Published on {blog.date} &middot; {blog.readTime}
+          </div>
         </div>
-      </div>
 
       <div className="w-full h-80 md:h-96 relative mb-12 rounded-md overflow-hidden bg-primary-light">
         <Image 
@@ -78,6 +85,7 @@ By adapting your resume to these systems, you significantly increase your chance
           }
           return <p key={idx} className="mb-4 leading-relaxed">{paragraph.trim()}</p>;
         })}
+        </div>
       </div>
     </div>
   );

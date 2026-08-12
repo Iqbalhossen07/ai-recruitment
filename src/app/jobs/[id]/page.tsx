@@ -1,6 +1,7 @@
 import prisma from "@/lib/prisma";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import BreadcrumbBanner from "@/components/layout/BreadcrumbBanner";
 
 export default async function JobDetailsPage({ params }: { params: { id: string } }) {
   const job = await prisma.job.findUnique({
@@ -12,13 +13,19 @@ export default async function JobDetailsPage({ params }: { params: { id: string 
   }
 
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      {/* Back to Jobs Link */}
-      <Link href="/jobs" className="text-primary hover:underline font-medium mb-8 inline-flex items-center">
-        &larr; Back to all jobs
-      </Link>
+    <div className="flex flex-col min-h-screen">
+      <BreadcrumbBanner 
+        title={job.title}
+        paths={[{ name: "Jobs", url: "/jobs" }]}
+      />
 
-      <div className="bg-white border border-gray-200 rounded-md shadow-sm p-8 mt-6">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full">
+        {/* Back to Jobs Link */}
+        <Link href="/jobs" className="text-primary hover:underline font-medium mb-8 inline-flex items-center">
+          &larr; Back to all jobs
+        </Link>
+
+        <div className="bg-white border border-gray-200 rounded-md shadow-sm p-8 mt-6">
         {/* Job Header */}
         <div className="border-b border-gray-100 pb-6 mb-6">
           <h1 className="text-3xl font-bold text-black">{job.title}</h1>

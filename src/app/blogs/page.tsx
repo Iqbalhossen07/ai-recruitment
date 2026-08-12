@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import BreadcrumbBanner from "@/components/layout/BreadcrumbBanner";
 
 export default function BlogsPage() {
   const blogs = [
@@ -38,13 +39,13 @@ export default function BlogsPage() {
   ];
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-      <div className="text-center mb-16">
-        <h1 className="text-4xl font-bold text-black mb-4">Our Blog</h1>
-        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-          Insights, career advice, and news from the team at AI Recruit.
-        </p>
-      </div>
+    <div className="flex flex-col min-h-screen">
+      <BreadcrumbBanner 
+        title="Our Blog" 
+        subtitle="Insights, career advice, and news from the team at AI Recruit." 
+      />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full">
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         {blogs.map((blog) => (
@@ -80,6 +81,7 @@ export default function BlogsPage() {
             </div>
           </div>
         ))}
+      </div>
       </div>
     </div>
   );
