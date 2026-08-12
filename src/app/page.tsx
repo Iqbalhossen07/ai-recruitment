@@ -231,7 +231,6 @@ export default async function Home() {
             </div>
           ))}
         </div>
-        </div>
         <div className="mt-10 text-center">
           <Link href="/blogs" className="text-primary font-medium hover:underline">
             View All Articles
