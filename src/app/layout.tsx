@@ -18,8 +18,12 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
-  title: "AI Recruitment Portal",
-  description: "Next-generation AI-powered Recruitment System",
+  title: "AI Recruit | Smart Hiring Platform",
+  description: "Next-generation AI-powered Recruitment System. Find top talent or your dream job using intelligent CV matching.",
+  icons: {
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({

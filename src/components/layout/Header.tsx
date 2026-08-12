@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 export default function Header() {
@@ -20,8 +21,15 @@ export default function Header() {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
-            <Link href="/" className="text-2xl font-bold text-primary">
-              AI Recruit
+            <Link href="/" className="flex items-center gap-2.5">
+              <Image
+                src="/logo.jpg"
+                alt="AI Recruit Logo"
+                width={36}
+                height={36}
+                className="rounded-md object-cover"
+              />
+              <span className="text-xl font-bold text-primary tracking-tight">AI Recruit</span>
             </Link>
           </div>
 
