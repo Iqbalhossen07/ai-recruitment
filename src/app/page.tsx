@@ -6,34 +6,50 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
       
       {/* 1. Hero Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8 text-center overflow-hidden">
-        <Image 
-          src="/hero-bg.jpg" 
-          alt="Hero Background" 
-          fill 
-          className="object-cover -z-10 opacity-20"
-          priority
-        />
-        <div className="max-w-4xl mx-auto relative z-10">
-          <h1 className="text-4xl md:text-6xl font-bold text-black mb-6">
-            Find Your Dream Job with AI
-          </h1>
-          <p className="text-lg md:text-xl text-gray-700 mb-10 max-w-2xl mx-auto">
-            Our intelligent recruitment platform matches your skills and experience with the perfect roles in top companies automatically.
-          </p>
-          <div className="flex justify-center space-x-4">
-            <Link 
-              href="/jobs" 
-              className="px-8 py-3 bg-primary text-white font-medium rounded-md hover:bg-primary-hover transition-colors shadow-lg"
-            >
-              Browse Jobs
-            </Link>
-            <Link 
-              href="/about" 
-              className="px-8 py-3 bg-white text-primary border border-primary font-medium rounded-md hover:bg-gray-50 transition-colors shadow-sm"
-            >
-              Learn More
-            </Link>
+      <section className="relative py-24 px-4 sm:px-6 lg:px-8 overflow-hidden bg-white">
+        {/* Decorative background blur */}
+        <div className="absolute top-[-10%] left-[-10%] w-96 h-96 bg-primary opacity-10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-primary opacity-10 rounded-full blur-3xl"></div>
+        
+        <div className="max-w-7xl mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="text-left">
+            <span className="inline-block py-1 px-3 rounded-full bg-primary-light text-primary text-sm font-semibold mb-6">
+              AI-Powered Hiring Platform
+            </span>
+            <h1 className="text-5xl md:text-6xl font-bold text-black mb-6 leading-tight">
+              Find Your <span className="text-primary relative whitespace-nowrap">Dream Job<svg className="absolute w-full h-3 -bottom-1 left-0 text-primary opacity-30" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 5 Q 50 15 100 5" stroke="currentColor" strokeWidth="8" fill="transparent"/></svg></span><br/>With Smart AI
+            </h1>
+            <p className="text-xl text-gray-600 mb-8 max-w-lg leading-relaxed">
+              Our intelligent recruitment platform matches your unique skills and experience with the perfect roles in top companies automatically.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link href="/jobs" className="bg-primary text-white px-8 py-4 rounded-md font-semibold hover:bg-primary-hover hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/30 transition-all duration-300 text-center">
+                Browse Jobs
+              </Link>
+              <Link href="/about" className="bg-white text-black border border-gray-200 px-8 py-4 rounded-md font-semibold hover:border-primary hover:text-primary hover:-translate-y-1 hover:shadow-lg transition-all duration-300 text-center">
+                Learn More
+              </Link>
+            </div>
+          </div>
+          
+          <div className="relative w-full h-[500px] rounded-2xl overflow-hidden shadow-2xl border-4 border-white transform hover:scale-[1.02] transition-transform duration-500">
+            <Image 
+              src="/hero-bg.jpg" 
+              alt="AI Recruitment Technology" 
+              fill 
+              className="object-cover"
+              priority
+            />
+            {/* Floating glassmorphism card */}
+            <div className="absolute bottom-8 left-[-20px] bg-white/70 backdrop-blur-md border border-white/50 p-4 rounded-xl shadow-lg flex items-center space-x-4 transform translate-x-12">
+              <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center">
+                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+              </div>
+              <div>
+                <p className="text-black font-bold">99% Match Rate</p>
+                <p className="text-gray-600 text-sm">AI precision</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -70,25 +86,51 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. Why Choose Us Section */}
-      <section className="bg-gray-50 py-16 px-4 sm:px-6 lg:px-8">
+      {/* 3. Why Choose Us */}
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50 border-y border-gray-100">
         <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-black mb-12">Why Choose Us?</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="p-6 bg-white rounded-md shadow-sm border border-gray-100">
-              <div className="w-12 h-12 bg-primary-light text-primary rounded-full flex items-center justify-center mx-auto mb-4 text-xl">🚀</div>
-              <h3 className="text-xl font-bold text-black mb-2">AI Matching</h3>
-              <p className="text-gray-600">Your profile is instantly matched with the perfect jobs based on your exact skills.</p>
+          <span className="text-primary font-bold tracking-wider text-sm uppercase mb-2 block">Why Choose AI Recruit</span>
+          <h2 className="text-4xl font-bold text-black mb-4">The Future of Recruitment</h2>
+          <p className="text-gray-600 mb-16 max-w-2xl mx-auto text-lg">We combine human intuition with machine precision to bring you the best talent and the best opportunities.</p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            {/* Feature 1 */}
+            <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group">
+              <div className="w-16 h-16 bg-primary-light text-primary rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-black mb-3">AI Powered Matching</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Our smart algorithms parse CVs instantly and match candidates with jobs based on deep keyword and contextual analysis.
+              </p>
             </div>
-            <div className="p-6 bg-white rounded-md shadow-sm border border-gray-100">
-              <div className="w-12 h-12 bg-primary-light text-primary rounded-full flex items-center justify-center mx-auto mb-4 text-xl">⏳</div>
-              <h3 className="text-xl font-bold text-black mb-2">Fast Process</h3>
-              <p className="text-gray-600">No more waiting for months. Get shortlisted and interviewed faster than ever.</p>
+            
+            {/* Feature 2 */}
+            <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group">
+              <div className="w-16 h-16 bg-primary-light text-primary rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-black mb-3">Time Saving</h3>
+              <p className="text-gray-600 leading-relaxed">
+                No more manual screening. Our AI pipeline saves HR departments hundreds of hours by surfacing only the most qualified candidates.
+              </p>
             </div>
-            <div className="p-6 bg-white rounded-md shadow-sm border border-gray-100">
-              <div className="w-12 h-12 bg-primary-light text-primary rounded-full flex items-center justify-center mx-auto mb-4 text-xl">🤝</div>
-              <h3 className="text-xl font-bold text-black mb-2">Transparent</h3>
-              <p className="text-gray-600">Track your application status live through your personalized applicant portal.</p>
+            
+            {/* Feature 3 */}
+            <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group">
+              <div className="w-16 h-16 bg-primary-light text-primary rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-black mb-3">Unbiased Selection</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Remove human bias from the initial screening process. Our AI evaluates every application purely on merit and skills.
+              </p>
             </div>
           </div>
         </div>

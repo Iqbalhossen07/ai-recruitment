@@ -1,6 +1,19 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
+  const pathname = usePathname();
+
+  const navLinks = [
+    { name: "Home", href: "/" },
+    { name: "About Us", href: "/about" },
+    { name: "Jobs", href: "/jobs" },
+    { name: "Blogs", href: "/blogs" },
+    { name: "Contact Us", href: "/contact" },
+  ];
+
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-gray-100 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -14,21 +27,22 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
-            <Link href="/" className="text-black hover:text-primary transition-colors font-medium">
-              Home
-            </Link>
-            <Link href="/about" className="text-black hover:text-primary transition-colors font-medium">
-              About Us
-            </Link>
-            <Link href="/jobs" className="text-black hover:text-primary transition-colors font-medium">
-              Jobs
-            </Link>
-            <Link href="/blogs" className="text-black hover:text-primary transition-colors font-medium">
-              Blogs
-            </Link>
-            <Link href="/contact" className="text-black hover:text-primary transition-colors font-medium">
-              Contact Us
-            </Link>
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
+              return (
+                <Link 
+                  key={link.name} 
+                  href={link.href} 
+                  className={`font-medium transition-colors border-b-2 py-2 ${
+                    isActive 
+                      ? "text-primary border-primary" 
+                      : "text-black border-transparent hover:text-primary transition-colors"
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              );
+            })}
           </nav>
 
           {/* Action Buttons */}
