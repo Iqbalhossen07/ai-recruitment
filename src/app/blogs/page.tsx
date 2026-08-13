@@ -47,35 +47,34 @@ export default function BlogsPage() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full">
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {blogs.map((blog) => (
-          <div key={blog.slug} className="bg-white border border-gray-200 rounded-md overflow-hidden shadow-sm hover:shadow-md transition-all duration-200 flex flex-col h-full">
-            <div className="h-56 w-full relative bg-primary-light">
-              {/* Reusing the same image we generated earlier for placeholder purposes */}
+          <div key={blog.slug} className="group h-full rounded-md overflow-hidden bg-white border border-gray-200 hover:border-primary transition-all duration-300 flex flex-col shadow-sm hover:shadow-md">
+            <div className="h-56 relative overflow-hidden">
               <Image 
                 src="/blog-1.jpg" 
                 alt={blog.title} 
                 fill 
-                className="object-cover"
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
               />
             </div>
-            <div className="p-6 flex-grow flex flex-col">
-              <span className="text-xs font-bold uppercase tracking-wider text-primary mb-2">
-                {blog.category}
-              </span>
-              <h3 className="text-xl font-bold text-black leading-tight mb-3">
+            <div className="p-6 flex flex-col flex-grow">
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center gap-2">
+                  <span className="text-xs font-bold text-white bg-primary px-2.5 py-1 rounded-md">{blog.category}</span>
+                  <span className="text-xs text-black font-medium">{blog.readTime}</span>
+                </div>
+                <span className="text-xs text-gray-500 font-medium">{blog.date}</span>
+              </div>
+              <h3 className="text-xl font-bold text-black group-hover:text-primary transition-colors leading-snug">
                 {blog.title}
               </h3>
-              <p className="text-gray-600 mb-6 flex-grow">
+              <p className="text-black text-sm mt-3 line-clamp-2 flex-grow">
                 {blog.excerpt}
               </p>
-              
-              <div className="mt-auto pt-4 border-t border-gray-100 flex items-center justify-between">
-                <div className="text-xs text-gray-500">
-                  {blog.date} &middot; {blog.readTime}
-                </div>
-                <Link href={`/blogs/${blog.slug}`} className="text-primary hover:underline font-medium text-sm">
-                  Read Article &rarr;
+              <div className="mt-6">
+                <Link href={`/blogs/${blog.slug}`} className="inline-block bg-primary text-black font-bold px-5 py-2.5 rounded-md hover:opacity-90 transition-opacity text-sm">
+                  Read More
                 </Link>
               </div>
             </div>
