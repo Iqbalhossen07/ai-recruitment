@@ -28,6 +28,7 @@ export default function CityActions({ id, name }: { id: string, name: string }) 
 
   return (
     <ActionButtons 
+      viewUrl={`/system-hq/cities/${id}`}
       editUrl={`/system-hq/cities/${id}/edit`}
       onDelete={handleDelete}
       deleteTitle="Delete City"
