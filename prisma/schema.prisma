@@ -40,19 +40,32 @@ model User {
   updatedAt DateTime @updatedAt
 }
 
+model City {
+  id        String   @id @default(cuid())
+  slug      String   @unique
+  name      String
+  image     String   // Image URL
+  jobs      Job[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
 model Job {
   id            String   @id @default(cuid())
   slug          String   @unique @default(cuid())
   title         String
   description   String   @db.Text
   requirements  String   @db.Text
-  opportunities String?  @db.Text // New field added
-  keywords      String   @db.Text // Comma separated keywords
+  opportunities String?  @db.Text
+  keywords      String   @db.Text 
 
-  location    String?
-  jobType     String?
-  salaryRange String?
-  deadline    DateTime?
+  location      String?  // Keep as fallback for "Remote" or legacy data
+  cityId        String?
+  city          City?    @relation(fields: [cityId], references: [id])
+  
+  jobType       String?
+  salaryRange   String?
+  deadline      DateTime?
 
   isActive Boolean @default(true)
 

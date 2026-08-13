@@ -14,7 +14,7 @@ function generateSlug(title: string) {
 export async function createJob(prevState: any, formData: FormData) {
   try {
     const title = formData.get("title") as string;
-    const location = formData.get("location") as string;
+    const cityId = formData.get("cityId") as string;
     const jobType = formData.get("jobType") as string;
     const salaryRange = formData.get("salaryRange") as string;
     const keywords = formData.get("keywords") as string;
@@ -30,12 +30,13 @@ export async function createJob(prevState: any, formData: FormData) {
 
     const slug = generateSlug(title);
     const deadline = deadlineStr ? new Date(deadlineStr) : null;
+    const finalCityId = cityId && cityId.trim() !== "" ? cityId : null;
 
     await prisma.job.create({
       data: {
         title,
         slug,
-        location,
+        cityId: finalCityId,
         jobType,
         salaryRange,
         keywords,
@@ -60,7 +61,7 @@ export async function createJob(prevState: any, formData: FormData) {
 export async function updateJob(id: string, prevState: any, formData: FormData) {
   try {
     const title = formData.get("title") as string;
-    const location = formData.get("location") as string;
+    const cityId = formData.get("cityId") as string;
     const jobType = formData.get("jobType") as string;
     const salaryRange = formData.get("salaryRange") as string;
     const keywords = formData.get("keywords") as string;
@@ -75,12 +76,13 @@ export async function updateJob(id: string, prevState: any, formData: FormData) 
     }
 
     const deadline = deadlineStr ? new Date(deadlineStr) : null;
+    const finalCityId = cityId && cityId.trim() !== "" ? cityId : null;
 
     await prisma.job.update({
       where: { id },
       data: {
         title,
-        location,
+        cityId: finalCityId,
         jobType,
         salaryRange,
         keywords,

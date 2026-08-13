@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Job } from "@prisma/client";
+import { Job, City } from "@prisma/client";
 import { createJob, updateJob } from "@/app/actions/job";
 import RichTextEditor from "./RichTextEditor";
 import Swal from "sweetalert2";
@@ -11,9 +11,10 @@ import { ArrowLeft, Save } from "lucide-react";
 
 interface JobFormProps {
   job?: Job; // If provided, we are in Edit mode
+  cities: City[];
 }
 
-export default function JobForm({ job }: JobFormProps) {
+export default function JobForm({ job, cities }: JobFormProps) {
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
   
@@ -86,17 +87,22 @@ export default function JobForm({ job }: JobFormProps) {
             />
           </div>
 
-          {/* Location */}
+          {/* City */}
           <div>
-            <label htmlFor="location" className="block text-sm font-bold text-gray-700 mb-2">Location</label>
-            <input
-              type="text"
-              id="location"
-              name="location"
-              defaultValue={job?.location || ""}
-              className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary transition-all"
-              placeholder="e.g. Remote, Dhaka, London"
-            />
+            <label htmlFor="cityId" className="block text-sm font-bold text-gray-700 mb-2">City / Location</label>
+            <select
+              id="cityId"
+              name="cityId"
+              defaultValue={job?.cityId || ""}
+              className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary transition-all bg-white"
+            >
+              <option value="">Remote / Global</option>
+              {cities.map((city) => (
+                <option key={city.id} value={city.id}>
+                  {city.name}
+                </option>
+              ))}
+            </select>
           </div>
 
           {/* Job Type */}

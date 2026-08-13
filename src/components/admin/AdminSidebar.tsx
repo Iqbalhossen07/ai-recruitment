@@ -19,6 +19,7 @@ export default function AdminSidebar() {
   const navItems = [
     { name: "Dashboard", href: "/system-hq/dashboard", icon: LayoutDashboard },
     { name: "Jobs", href: "/system-hq/jobs", icon: Briefcase },
+    { name: "Cities", href: "/system-hq/cities", icon: MapPin },
     { name: "Applications", href: "/system-hq/applications", icon: Users },
     { name: "Blogs", href: "/system-hq/blogs", icon: FileText },
     { name: "Messages", href: "/system-hq/messages", icon: MessageSquare },
