@@ -18,15 +18,17 @@ type Job = {
   createdAt: Date;
   isActive: boolean;
   _count: { applications: number };
+  city: { name: string } | null;
 };
 
 export default function JobsGridClient({ initialJobs }: { initialJobs: Job[] }) {
   const [searchTerm, setSearchTerm] = useState("");
 
-  const filteredJobs = initialJobs.filter(job => 
-    job.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
-    (job.location && job.location.toLowerCase().includes(searchTerm.toLowerCase()))
-  );
+  const filteredJobs = initialJobs.filter(job => {
+    const locationName = job.city?.name || job.location || "";
+    return job.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
+      locationName.toLowerCase().includes(searchTerm.toLowerCase());
+  });
 
   return (
     <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
@@ -111,13 +113,13 @@ export default function JobsGridClient({ initialJobs }: { initialJobs: Job[] }) 
                     {job.title}
                   </h3>
                   <p className="text-black text-xs font-medium">
-                    AI-Recruit {job.location ? `, ${job.location}` : ""}
+                    AI-Recruit {job.city?.name || job.location ? `, ${job.city?.name || job.location}` : ""}
                   </p>
                   
                   {/* Tags */}
                   <div className="flex flex-wrap gap-2 mt-3">
                     <div className="flex items-center gap-1 bg-white border border-gray-200 rounded-md px-2 py-1 text-[10px] font-bold text-black">
-                      <span className="text-primary">📍</span> {job.location || "Remote"}
+                      <span className="text-primary">📍</span> {job.city?.name || job.location || "Remote"}
                     </div>
                     <div className="flex items-center gap-1 bg-white border border-gray-200 rounded-md px-2 py-1 text-[10px] font-bold text-black">
                       <div className="w-1.5 h-1.5 rounded-full bg-primary"></div>

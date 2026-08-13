@@ -19,7 +19,8 @@ export default async function CityJobsPage({ params }: { params: { id: string } 
     include: {
       _count: {
         select: { applications: true }
-      }
+      },
+      city: true
     },
     orderBy: { createdAt: 'desc' }
   });

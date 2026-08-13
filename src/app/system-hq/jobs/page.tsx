@@ -7,7 +7,8 @@ export default async function AdminJobsPage() {
     include: {
       _count: {
         select: { applications: true }
-      }
+      },
+      city: true
     }
   });
 
