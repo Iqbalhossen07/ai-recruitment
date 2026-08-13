@@ -70,7 +70,7 @@ export default function BlogsGridClient({ blogs }: { blogs: Blog[] }) {
               
               <div className="pt-3 border-t border-gray-100 flex justify-end">
                 <ActionButtons 
-                  viewUrl={`/blogs/${blog.slug}`}
+                  viewUrl={`/system-hq/blogs/${blog.slug}`}
                   editUrl={`/system-hq/blogs/${blog.slug}/edit`}
                   onDelete={() => handleDelete(blog.id, blog.title)}
                 />
