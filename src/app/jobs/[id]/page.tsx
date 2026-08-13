@@ -27,30 +27,49 @@ export default async function JobDetailsPage({ params }: { params: { id: string 
 
         <div className="bg-white border border-gray-200 rounded-md shadow-sm p-8 mt-6">
         {/* Job Header */}
-        <div className="border-b border-gray-100 pb-6 mb-6">
-          <h1 className="text-3xl font-bold text-black">{job.title}</h1>
-          <p className="text-sm text-gray-500 mt-2">Posted on {new Date(job.createdAt).toLocaleDateString()}</p>
-          
-          <div className="mt-4 flex flex-wrap gap-2">
-            {job.keywords.split(',').map((keyword, idx) => (
-              <span key={idx} className="text-sm font-medium text-primary bg-primary-light px-3 py-1 rounded">
-                {keyword.trim()}
-              </span>
-            ))}
+        <div className="border-b border-gray-100 pb-6 mb-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div>
+            <h1 className="text-3xl font-bold text-black">{job.title}</h1>
+            <p className="text-sm text-gray-500 mt-2">
+              Posted on {new Date(job.createdAt).toLocaleDateString()} 
+              {job.location && <span className="ml-2 px-2 py-1 bg-gray-100 rounded-md">📍 {job.location}</span>}
+              {job.jobType && <span className="ml-2 px-2 py-1 bg-gray-100 rounded-md">{job.jobType}</span>}
+              {job.salaryRange && <span className="ml-2 px-2 py-1 bg-gray-100 rounded-md">💰 {job.salaryRange}</span>}
+            </p>
           </div>
+          
+          <a href="#apply" className="bg-primary hover:bg-primary-hover text-white px-8 py-3 rounded-md font-bold transition-colors text-center shadow-md">
+            Apply Now
+          </a>
         </div>
 
         {/* Job Description */}
-        <div className="mb-8">
-          <h2 className="text-xl font-bold text-black mb-4">Job Description</h2>
-          <p className="text-gray-700 whitespace-pre-wrap">{job.description}</p>
+        <div className="mb-8 prose prose-blue max-w-none">
+          <h2 className="text-xl font-bold text-black mb-4 border-b border-gray-100 pb-2">Job Description</h2>
+          <div className="text-gray-700 leading-relaxed" dangerouslySetInnerHTML={{ __html: job.description }} />
         </div>
 
         {/* Job Requirements */}
-        <div className="mb-10">
-          <h2 className="text-xl font-bold text-black mb-4">Requirements</h2>
-          <p className="text-gray-700 whitespace-pre-wrap">{job.requirements}</p>
+        <div className="mb-8 prose prose-blue max-w-none">
+          <h2 className="text-xl font-bold text-black mb-4 border-b border-gray-100 pb-2">Requirements</h2>
+          <div className="text-gray-700 leading-relaxed" dangerouslySetInnerHTML={{ __html: job.requirements }} />
         </div>
+
+        {/* Opportunities */}
+        {job.opportunities && (
+          <div className="mb-8 prose prose-blue max-w-none">
+            <h2 className="text-xl font-bold text-black mb-4 border-b border-gray-100 pb-2">What We Offer</h2>
+            <div className="text-gray-700 leading-relaxed" dangerouslySetInnerHTML={{ __html: job.opportunities }} />
+          </div>
+        )}
+
+        {/* Keywords / Tags (Now Rich Text) */}
+        {job.keywords && (
+          <div className="mb-10 prose prose-blue max-w-none">
+            <h2 className="text-xl font-bold text-black mb-4 border-b border-gray-100 pb-2">Keywords & Tags</h2>
+            <div className="text-gray-700 leading-relaxed" dangerouslySetInnerHTML={{ __html: job.keywords }} />
+          </div>
+        )}
 
         {/* Application Form Placeholder */}
         <div className="bg-gray-50 p-6 rounded-md border border-gray-200" id="apply">

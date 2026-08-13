@@ -5,6 +5,9 @@ interface JobProps {
   title: string;
   description: string;
   keywords: string;
+  location?: string | null;
+  jobType?: string | null;
+  salaryRange?: string | null;
   createdAt: Date;
 }
 
@@ -18,8 +21,12 @@ export default function JobCard({ job }: { job: JobProps }) {
   deadlineDate.setDate(deadlineDate.getDate() + 30);
   const formattedDeadline = deadlineDate.toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' });
   
-  // Extract first keyword for category tag
-  const category = job.keywords.split(',')[0]?.trim() || "Design";
+  // Extract first keyword for category tag (strip html from rich text keywords)
+  const plainKeywords = job.keywords.replace(/<[^>]*>?/gm, '');
+  const category = plainKeywords.split(',')[0]?.trim() || "Technology";
+  
+  // Strip HTML for description snippet
+  const plainDescription = job.description.replace(/<[^>]*>?/gm, '');
 
   return (
     <Link href={`/jobs/${job.id}`} className="block group h-full">
@@ -43,13 +50,13 @@ export default function JobCard({ job }: { job: JobProps }) {
             {job.title}
           </h3>
           <p className="text-black text-sm mt-1 font-medium">
-            AI-Recruit, London, UK
+            AI-Recruit {job.location ? `, ${job.location}` : ""}
           </p>
           
           {/* Tags */}
           <div className="flex flex-wrap gap-2 mt-4">
             <div className="flex items-center gap-1.5 bg-white border border-gray-200 rounded-md px-2.5 py-1 text-xs font-bold text-black">
-              <span className="text-primary">📍</span> London, UK
+              <span className="text-primary">📍</span> {job.location || "Remote"}
             </div>
             <div className="flex items-center gap-1.5 bg-white border border-gray-200 rounded-md px-2.5 py-1 text-xs font-bold text-black">
               <div className="w-2 h-2 rounded-md bg-primary"></div>
@@ -59,7 +66,7 @@ export default function JobCard({ job }: { job: JobProps }) {
           
           {/* Description */}
           <p className="text-black text-sm mt-4 line-clamp-2 leading-relaxed">
-            {job.description}
+            {plainDescription}
           </p>
         </div>
         
@@ -68,11 +75,11 @@ export default function JobCard({ job }: { job: JobProps }) {
           <div className="flex justify-between items-center text-sm font-medium text-black">
             <div className="flex items-center gap-1.5">
               <svg className="w-4 h-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-              Full-time
+              {job.jobType || "Full-time"}
             </div>
             <div className="flex items-center gap-1.5">
               <svg className="w-4 h-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-              £40k - 60k
+              {job.salaryRange || "Negotiable"}
             </div>
           </div>
           
