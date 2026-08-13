@@ -4,13 +4,14 @@ import { useState, useEffect } from "react";
 import { getAdminProfile, updateAdminProfile } from "@/app/actions/admin";
 import Swal from "sweetalert2";
 import Image from "next/image";
-import { Save, Upload, User as UserIcon } from "lucide-react";
+import { Save, Upload, User as UserIcon, Eye, EyeOff } from "lucide-react";
 
 export default function SettingsPage() {
   const [admin, setAdmin] = useState<any>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [imagePreview, setImagePreview] = useState<string | null>(null);
+  const [showPassword, setShowPassword] = useState(false);
 
   useEffect(() => {
     const fetchAdmin = async () => {
@@ -49,15 +50,13 @@ export default function SettingsPage() {
     if (response?.error) {
       Swal.fire("Error!", response.error, "error");
     } else if (response?.success) {
-      Swal.fire({
+      await Swal.fire({
         title: "Success!",
         text: "Profile updated successfully.",
         icon: "success",
         timer: 1500,
         showConfirmButton: false
       });
-      // Fetch updated data to refresh UI if needed, but router revalidatePath handles server components.
-      // We will reload to make sure everything is perfectly synced
       window.location.reload();
     }
   };
@@ -143,13 +142,22 @@ export default function SettingsPage() {
             <h3 className="text-lg font-bold text-gray-900 mb-4">Change Password</h3>
             <div className="max-w-md">
               <label htmlFor="newPassword" className="block text-sm font-bold text-gray-700 mb-2">New Password (Optional)</label>
-              <input
-                type="password"
-                id="newPassword"
-                name="newPassword"
-                placeholder="Leave blank to keep current password"
-                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
-              />
+              <div className="relative">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  id="newPassword"
+                  name="newPassword"
+                  placeholder="Leave blank to keep current password"
+                  className="w-full px-4 py-3 pr-12 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 focus:outline-none"
+                >
+                  {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+                </button>
+              </div>
             </div>
           </div>
 
