@@ -101,6 +101,19 @@ export default async function JobsPage({ searchParams }: { searchParams: { [key:
     orderBy: { createdAt: sort === 'oldest' ? 'asc' : 'desc' }
   });
 
+  // Fetch unique job types and salaries for filters
+  const allJobsData = await prisma.job.findMany({
+    where: { isActive: true },
+    select: { salaryRange: true, jobType: true }
+  });
+
+  const salaries = Array.from(new Set(allJobsData.map(j => j.salaryRange).filter(Boolean))) as string[];
+  const jobTypes = Array.from(new Set(allJobsData.map(j => j.jobType).filter(Boolean))) as string[];
+  
+  // Sort alphabetically/numerically
+  salaries.sort();
+  jobTypes.sort();
+
   return (
     <div className="flex flex-col min-h-screen bg-white">
       <BreadcrumbBanner 
@@ -112,7 +125,7 @@ export default async function JobsPage({ searchParams }: { searchParams: { [key:
         <div className="flex flex-col lg:flex-row gap-8">
           
           {/* Left Sidebar - Filters */}
-          <JobsFilterSidebar cities={cities} remoteCount={remoteCount} />
+          <JobsFilterSidebar cities={cities} remoteCount={remoteCount} salaries={salaries} jobTypes={jobTypes} />
 
           {/* Right Side - Job Grid */}
           <div className="w-full lg:w-3/4">

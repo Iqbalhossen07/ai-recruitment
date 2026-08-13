@@ -5,10 +5,14 @@ import { useRouter, useSearchParams } from "next/navigation";
 
 export default function JobsFilterSidebar({ 
   cities = [],
-  remoteCount = 0
+  remoteCount = 0,
+  salaries = [],
+  jobTypes = []
 }: { 
   cities?: { id: string; name: string; count?: number }[];
   remoteCount?: number;
+  salaries?: string[];
+  jobTypes?: string[];
 }) {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -27,12 +31,12 @@ export default function JobsFilterSidebar({
       if (value) params.append(key, value.toString());
     });
     
-    router.push(`/jobs?${params.toString()}`);
+    router.push(`/jobs?${params.toString()}`, { scroll: false });
   };
 
   const handleClear = (e: React.MouseEvent) => {
     e.preventDefault();
-    router.push('/jobs');
+    router.push('/jobs', { scroll: false });
   };
 
   return (
@@ -101,44 +105,48 @@ export default function JobsFilterSidebar({
         </div>
 
         {/* Job Type */}
-        <div className="mb-6">
-          <label className="block text-sm font-bold text-black mb-3">Job Type</label>
-          <div className="space-y-2">
-            {["Full-time", "Part-time", "Contract", "Freelance"].map((t) => (
-              <label key={t} className="flex items-center gap-3 cursor-pointer group">
-                <div className="relative flex items-center">
-                  <input type="radio" name="type" value={t} defaultChecked={type === t} className="peer sr-only" />
-                  <div className="w-5 h-5 bg-white border-2 border-gray-300 rounded-md peer-checked:bg-primary peer-checked:border-primary transition-colors"></div>
-                  <svg className="w-3.5 h-3.5 text-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 peer-checked:opacity-100 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <span className={`font-medium transition-colors ${type === t ? 'text-primary' : 'text-gray-700 group-hover:text-primary'}`}>
-                  {t}
-                </span>
-              </label>
-            ))}
+        {jobTypes.length > 0 && (
+          <div className="mb-6">
+            <label className="block text-sm font-bold text-black mb-3">Job Type</label>
+            <div className="space-y-2">
+              {jobTypes.map((t) => (
+                <label key={t} className="flex items-center gap-3 cursor-pointer group">
+                  <div className="relative flex items-center">
+                    <input type="radio" name="type" value={t} defaultChecked={type === t} className="peer sr-only" />
+                    <div className="w-5 h-5 bg-white border-2 border-gray-300 rounded-md peer-checked:bg-primary peer-checked:border-primary transition-colors"></div>
+                    <svg className="w-3.5 h-3.5 text-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 peer-checked:opacity-100 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <span className={`font-medium transition-colors ${type === t ? 'text-primary' : 'text-gray-700 group-hover:text-primary'}`}>
+                    {t}
+                  </span>
+                </label>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Salary Range */}
-        <div className="mb-8">
-          <label className="block text-sm font-bold text-black mb-3">Salary</label>
-          <div className="space-y-2">
-            {["£20k - £40k", "£40k - £60k", "£60k - £80k", "£80k+"].map((range) => (
-              <label key={range} className="flex items-center gap-3 cursor-pointer group">
-                <div className="relative flex items-center">
-                  <input type="radio" name="salary" value={range} defaultChecked={salary === range} className="peer sr-only" />
-                  {/* Circle for radio button style */}
-                  <div className="w-5 h-5 bg-white border-2 border-gray-300 rounded-full peer-checked:border-primary peer-checked:border-[5px] transition-all"></div>
-                </div>
-                <span className={`font-medium transition-colors ${salary === range ? 'text-primary' : 'text-gray-700 group-hover:text-primary'}`}>
-                  {range}
-                </span>
-              </label>
-            ))}
+        {salaries.length > 0 && (
+          <div className="mb-8">
+            <label className="block text-sm font-bold text-black mb-3">Salary</label>
+            <div className="space-y-2">
+              {salaries.map((range) => (
+                <label key={range} className="flex items-center gap-3 cursor-pointer group">
+                  <div className="relative flex items-center">
+                    <input type="radio" name="salary" value={range} defaultChecked={salary === range} className="peer sr-only" />
+                    {/* Circle for radio button style */}
+                    <div className="w-5 h-5 bg-white border-2 border-gray-300 rounded-full peer-checked:border-primary peer-checked:border-[5px] transition-all"></div>
+                  </div>
+                  <span className={`font-medium transition-colors ${salary === range ? 'text-primary' : 'text-gray-700 group-hover:text-primary'}`}>
+                    {range}
+                  </span>
+                </label>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
       </form>
     </aside>
   );
