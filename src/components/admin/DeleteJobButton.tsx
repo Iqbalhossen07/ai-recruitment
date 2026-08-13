@@ -29,10 +29,10 @@ export default function DeleteJobButton({ id, title }: { id: string, title: stri
   return (
     <button 
       onClick={handleDelete}
-      className="p-2 bg-red-50 text-red-600 rounded-lg hover:bg-red-100 transition-colors"
+      className="w-full flex justify-center items-center gap-1.5 px-3 py-1.5 bg-white border border-red-100 text-red-500 rounded-lg hover:bg-red-50 hover:border-red-200 transition-colors font-medium text-sm"
       title="Delete Job"
     >
-      <Trash2 size={16} />
+      <Trash2 size={14} /> Delete
     </button>
   );
 }
