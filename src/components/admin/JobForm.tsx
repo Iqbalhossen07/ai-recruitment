@@ -61,7 +61,7 @@ export default function JobForm({ job }: JobFormProps) {
 
   return (
     <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8">
-      <div className="flex items-center gap-4 mb-8">
+      <div className="flex items-center gap-4 mb-8 max-w-4xl mx-auto w-full">
         <Link href="/system-hq/jobs" className="p-2 bg-gray-50 text-gray-500 rounded-full hover:bg-gray-100 transition-colors">
           <ArrowLeft size={20} />
         </Link>
@@ -70,7 +70,7 @@ export default function JobForm({ job }: JobFormProps) {
         </h2>
       </div>
 
-      <form onSubmit={handleSubmit} className="space-y-6 max-w-4xl">
+      <form onSubmit={handleSubmit} className="space-y-6 max-w-4xl mx-auto w-full">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Title */}
           <div className="md:col-span-2">
