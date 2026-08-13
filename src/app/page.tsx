@@ -231,16 +231,16 @@ export default async function Home() {
           </div>
         </div>
       </section>      {/* 4. Blogs Section */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-black">
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <div className="flex justify-between items-end mb-14">
             <div>
               <span className="text-primary font-bold tracking-wider text-sm uppercase mb-2 block">From Our Blog</span>
-              <h2 className="text-3xl md:text-4xl font-bold text-white">Career Advice & Insights</h2>
-              <p className="text-gray-400 mt-2">Expert tips to help you land your next UK role faster.</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-black">Career Advice & Insights</h2>
+              <p className="text-black mt-2">Expert tips to help you land your next UK role faster.</p>
             </div>
-            <Link href="/blogs" className="hidden md:flex items-center gap-2 text-primary font-semibold border border-primary px-5 py-2.5 rounded-md hover:bg-primary hover:text-black transition-colors">
+            <Link href="/blogs" className="hidden md:flex items-center gap-2 text-primary font-semibold border border-primary px-5 py-2.5 rounded-md hover:bg-primary hover:text-white transition-colors">
               View All Articles →
             </Link>
           </div>
@@ -249,23 +249,23 @@ export default async function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 
             {/* Card 1 */}
-            <div className="group h-full rounded-md overflow-hidden bg-black border border-white/20 hover:border-primary transition-all duration-300 flex flex-col">
+            <div className="group h-full rounded-md overflow-hidden bg-white border border-gray-200 hover:border-primary transition-all duration-300 flex flex-col shadow-sm hover:shadow-md">
               <div className="h-48 relative overflow-hidden">
                 <Image src="/blog-1.jpg" alt="CV Tips" fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
               </div>
               <div className="p-6 flex flex-col flex-grow">
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="text-xs font-bold text-black bg-primary px-2.5 py-1 rounded-md">CV Tips</span>
-                  <span className="text-xs text-gray-400">5 min read</span>
+                  <span className="text-xs font-bold text-white bg-primary px-2.5 py-1 rounded-md">CV Tips</span>
+                  <span className="text-xs text-black font-medium">5 min read</span>
                 </div>
-                <h3 className="text-lg font-bold text-white group-hover:text-primary transition-colors leading-snug">
+                <h3 className="text-lg font-bold text-black group-hover:text-primary transition-colors leading-snug">
                   How to Optimise Your CV for AI Recruitment Systems
                 </h3>
-                <p className="text-gray-400 text-sm mt-3 line-clamp-2 flex-grow">
+                <p className="text-black text-sm mt-3 line-clamp-2 flex-grow">
                   Learn the best practices to make your CV stand out when an AI is reviewing your application before the HR team sees it.
                 </p>
                 <div className="mt-6">
-                  <Link href="/blogs/cv-tips" className="inline-block bg-primary text-black font-bold px-5 py-2.5 rounded-md hover:opacity-90 transition-opacity text-sm">
+                  <Link href="/blogs/cv-tips" className="inline-block bg-primary text-white font-bold px-5 py-2.5 rounded-md hover:opacity-90 transition-opacity text-sm">
                     Read More
                   </Link>
                 </div>
@@ -273,23 +273,23 @@ export default async function Home() {
             </div>
 
             {/* Card 2 */}
-            <div className="group h-full rounded-md overflow-hidden bg-black border border-white/20 hover:border-primary transition-all duration-300 flex flex-col">
+            <div className="group h-full rounded-md overflow-hidden bg-white border border-gray-200 hover:border-primary transition-all duration-300 flex flex-col shadow-sm hover:shadow-md">
               <div className="h-48 relative overflow-hidden">
                 <Image src="/blog-1.jpg" alt="Interview Prep" fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
               </div>
               <div className="p-6 flex flex-col flex-grow">
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="text-xs font-bold text-black bg-primary px-2.5 py-1 rounded-md">Interview Prep</span>
-                  <span className="text-xs text-gray-400">7 min read</span>
+                  <span className="text-xs font-bold text-white bg-primary px-2.5 py-1 rounded-md">Interview Prep</span>
+                  <span className="text-xs text-black font-medium">7 min read</span>
                 </div>
-                <h3 className="text-lg font-bold text-white group-hover:text-primary transition-colors leading-snug">
+                <h3 className="text-lg font-bold text-black group-hover:text-primary transition-colors leading-snug">
                   Top 10 Interview Questions UK Employers Ask in 2026
                 </h3>
-                <p className="text-gray-400 text-sm mt-3 line-clamp-2 flex-grow">
+                <p className="text-black text-sm mt-3 line-clamp-2 flex-grow">
                   Prepare for your next interview with these commonly asked questions from top UK employers across all major industries.
                 </p>
                 <div className="mt-6">
-                  <Link href="/blogs/interview-tips" className="inline-block bg-primary text-black font-bold px-5 py-2.5 rounded-md hover:opacity-90 transition-opacity text-sm">
+                  <Link href="/blogs/interview-tips" className="inline-block bg-primary text-white font-bold px-5 py-2.5 rounded-md hover:opacity-90 transition-opacity text-sm">
                     Read More
                   </Link>
                 </div>
@@ -297,23 +297,23 @@ export default async function Home() {
             </div>
 
             {/* Card 3 */}
-            <div className="group h-full rounded-md overflow-hidden bg-black border border-white/20 hover:border-primary transition-all duration-300 flex flex-col">
+            <div className="group h-full rounded-md overflow-hidden bg-white border border-gray-200 hover:border-primary transition-all duration-300 flex flex-col shadow-sm hover:shadow-md">
               <div className="h-48 relative overflow-hidden">
                 <Image src="/blog-1.jpg" alt="AI & Future" fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
               </div>
               <div className="p-6 flex flex-col flex-grow">
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="text-xs font-bold text-black bg-primary px-2.5 py-1 rounded-md">AI & Future</span>
-                  <span className="text-xs text-gray-400">4 min read</span>
+                  <span className="text-xs font-bold text-white bg-primary px-2.5 py-1 rounded-md">AI & Future</span>
+                  <span className="text-xs text-black font-medium">4 min read</span>
                 </div>
-                <h3 className="text-lg font-bold text-white group-hover:text-primary transition-colors leading-snug">
+                <h3 className="text-lg font-bold text-black group-hover:text-primary transition-colors leading-snug">
                   The Future of Hiring: How AI is Reshaping Recruitment in the UK
                 </h3>
-                <p className="text-gray-400 text-sm mt-3 line-clamp-2 flex-grow">
+                <p className="text-black text-sm mt-3 line-clamp-2 flex-grow">
                   AI-driven recruitment is transforming how companies find talent. Here is what candidates and employers need to know in 2026.
                 </p>
                 <div className="mt-6">
-                  <Link href="/blogs/ai-future" className="inline-block bg-primary text-black font-bold px-5 py-2.5 rounded-md hover:opacity-90 transition-opacity text-sm">
+                  <Link href="/blogs/ai-future" className="inline-block bg-primary text-white font-bold px-5 py-2.5 rounded-md hover:opacity-90 transition-opacity text-sm">
                     Read More
                   </Link>
                 </div>
@@ -324,13 +324,13 @@ export default async function Home() {
 
           {/* Mobile View All */}
           <div className="mt-10 text-center md:hidden">
-            <Link href="/blogs" className="inline-flex items-center gap-2 text-primary font-semibold border border-primary px-6 py-3 rounded-md hover:bg-primary hover:text-black transition-colors">
+            <Link href="/blogs" className="inline-flex items-center gap-2 text-primary font-semibold border border-primary px-6 py-3 rounded-md hover:bg-primary hover:text-white transition-colors">
               View All Articles →
             </Link>
           </div>
 
         </div>
-      </section>ction>
+      </section>
 
       {/* 5. CTA Section */}
       <section className="relative py-28 px-4 sm:px-6 lg:px-8 overflow-hidden bg-black text-center text-white">
