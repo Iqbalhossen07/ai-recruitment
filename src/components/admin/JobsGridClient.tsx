@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Plus, Edit, Info, MapPin, Briefcase, Search } from "lucide-react";
-import DeleteJobButton from "@/components/admin/DeleteJobButton";
+import { Plus, Search } from "lucide-react";
+import JobActions from "@/components/admin/JobActions";
 
 type Job = {
   id: string;
@@ -153,26 +153,8 @@ export default function JobsGridClient({ initialJobs }: { initialJobs: Job[] }) 
                 </div>
 
                 {/* Action Buttons */}
-                <div className="pt-3 border-t border-gray-200/60 flex flex-wrap items-center gap-1.5">
-                  <Link 
-                    href={`/system-hq/jobs/${job.slug}`}
-                    className="flex-1 flex justify-center items-center gap-1 px-2 py-1.5 bg-white border border-emerald-100 text-emerald-600 rounded-md hover:bg-emerald-50 hover:border-emerald-200 transition-colors font-medium text-xs shadow-sm"
-                    title="View Details"
-                  >
-                    <Info size={12} /> View
-                  </Link>
-                  
-                  <Link 
-                    href={`/system-hq/jobs/${job.slug}/edit`}
-                    className="flex-1 flex justify-center items-center gap-1 px-2 py-1.5 bg-white border border-blue-100 text-blue-500 rounded-md hover:bg-blue-50 hover:border-blue-200 transition-colors font-medium text-xs shadow-sm"
-                    title="Edit Job"
-                  >
-                    <Edit size={12} /> Edit
-                  </Link>
-                  
-                  <div className="w-full">
-                    <DeleteJobButton id={job.id} title={job.title} />
-                  </div>
+                <div className="flex justify-end pt-3 border-t border-gray-200/60">
+                  <JobActions id={job.id} title={job.title} slug={job.slug} />
                 </div>
                 
               </div>

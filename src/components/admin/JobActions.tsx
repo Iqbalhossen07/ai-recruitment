@@ -1,10 +1,10 @@
 "use client";
 
-import { Trash2 } from "lucide-react";
 import Swal from "sweetalert2";
 import { deleteJob } from "@/app/actions/job";
+import ActionButtons from "./ActionButtons";
 
-export default function DeleteJobButton({ id, title }: { id: string, title: string }) {
+export default function JobActions({ id, title, slug }: { id: string, title: string, slug: string }) {
   const handleDelete = async () => {
     const result = await Swal.fire({
       title: 'Are you sure?',
@@ -27,12 +27,11 @@ export default function DeleteJobButton({ id, title }: { id: string, title: stri
   };
 
   return (
-    <button 
-      onClick={handleDelete}
-      className="w-full flex justify-center items-center gap-1.5 px-3 py-1.5 bg-white border border-red-100 text-red-500 rounded-lg hover:bg-red-50 hover:border-red-200 transition-colors font-medium text-sm"
-      title="Delete Job"
-    >
-      <Trash2 size={14} /> Delete
-    </button>
+    <ActionButtons 
+      viewUrl={`/system-hq/jobs/${slug}`}
+      editUrl={`/system-hq/jobs/${slug}/edit`}
+      onDelete={handleDelete}
+      deleteTitle="Delete Job"
+    />
   );
 }

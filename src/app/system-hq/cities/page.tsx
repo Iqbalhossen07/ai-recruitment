@@ -1,8 +1,8 @@
 import prisma from "@/lib/prisma";
 import Link from "next/link";
-import { Plus, Edit, MapPin } from "lucide-react";
+import { Plus, MapPin } from "lucide-react";
 import Image from "next/image";
-import DeleteCityButton from "@/components/admin/DeleteCityButton";
+import CityActions from "@/components/admin/CityActions";
 
 export default async function CitiesPage() {
   const cities = await prisma.city.findMany({
@@ -51,16 +51,7 @@ export default async function CitiesPage() {
                 <span className="font-bold text-black">{city._count.jobs}</span>
                 <span className="text-gray-500 ml-1">Jobs listed</span>
               </div>
-              <div className="flex gap-2">
-                <Link 
-                  href={`/system-hq/cities/${city.id}/edit`}
-                  className="p-2 bg-gray-50 text-blue-500 rounded-lg hover:bg-blue-50 transition-colors"
-                  title="Edit City"
-                >
-                  <Edit size={16} />
-                </Link>
-                <DeleteCityButton id={city.id} name={city.name} />
-              </div>
+              <CityActions id={city.id} name={city.name} />
             </div>
           </div>
         ))}

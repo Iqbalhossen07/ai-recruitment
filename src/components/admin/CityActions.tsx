@@ -1,10 +1,10 @@
 "use client";
 
-import { Trash2 } from "lucide-react";
 import Swal from "sweetalert2";
 import { deleteCity } from "@/app/actions/city";
+import ActionButtons from "./ActionButtons";
 
-export default function DeleteCityButton({ id, name }: { id: string, name: string }) {
+export default function CityActions({ id, name }: { id: string, name: string }) {
   const handleDelete = async () => {
     const result = await Swal.fire({
       title: 'Are you sure?',
@@ -27,12 +27,10 @@ export default function DeleteCityButton({ id, name }: { id: string, name: strin
   };
 
   return (
-    <button 
-      onClick={handleDelete}
-      className="p-2 bg-white border border-red-100 text-red-500 rounded-lg hover:bg-red-50 transition-colors"
-      title="Delete City"
-    >
-      <Trash2 size={16} />
-    </button>
+    <ActionButtons 
+      editUrl={`/system-hq/cities/${id}/edit`}
+      onDelete={handleDelete}
+      deleteTitle="Delete City"
+    />
   );
 }

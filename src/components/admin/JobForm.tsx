@@ -204,20 +204,20 @@ export default function JobForm({ job, cities }: JobFormProps) {
         </div>
 
         {/* Actions */}
-        <div className="pt-6 flex justify-end gap-4">
+        <div className="pt-8 flex justify-end gap-4 mt-8 border-t border-gray-100 md:col-span-2">
           <Link 
             href="/system-hq/jobs"
-            className="px-6 py-3 border border-gray-300 text-gray-700 font-bold rounded-xl hover:bg-gray-50 transition-colors"
+            className="px-6 py-2.5 border border-gray-300 text-gray-700 font-bold rounded-xl hover:bg-gray-50 transition-colors"
           >
             Cancel
           </Link>
           <button
             type="submit"
-            disabled={isSubmitting || !description || !requirements}
-            className="flex items-center gap-2 px-8 py-3 bg-primary text-white font-bold rounded-xl hover:bg-primary-hover focus:ring-4 focus:ring-primary/20 transition-all disabled:opacity-70 disabled:cursor-not-allowed"
+            disabled={isSubmitting}
+            className="flex items-center gap-2 px-8 py-2.5 bg-primary text-white font-bold rounded-xl hover:bg-primary-hover shadow-md hover:shadow-lg transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
           >
             <Save size={18} />
-            {isSubmitting ? "Saving..." : job ? "Update Job" : "Create Job"}
+            {isSubmitting ? "Saving..." : job ? "Update Job" : "Publish Job"}
           </button>
         </div>
       </form>
