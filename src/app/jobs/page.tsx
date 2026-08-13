@@ -110,9 +110,15 @@ export default async function JobsPage({ searchParams }: { searchParams: { [key:
   const salaries = Array.from(new Set(allJobsData.map(j => j.salaryRange).filter(Boolean))) as string[];
   const jobTypes = Array.from(new Set(allJobsData.map(j => j.jobType).filter(Boolean))) as string[];
   
-  // Sort alphabetically/numerically
-  salaries.sort();
+  // Sort job types alphabetically
   jobTypes.sort();
+  
+  // Sort salaries logically based on the first number found in the string
+  salaries.sort((a, b) => {
+    const numA = parseInt(a.match(/\d+/)?.[0] || '0', 10);
+    const numB = parseInt(b.match(/\d+/)?.[0] || '0', 10);
+    return numA - numB;
+  });
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
