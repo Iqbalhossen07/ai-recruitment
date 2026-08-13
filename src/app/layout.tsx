@@ -14,8 +14,7 @@ const inter = Inter({
   display: "swap",
 });
 
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
+import LayoutWrapper from "@/components/layout/LayoutWrapper";
 
 export const metadata: Metadata = {
   title: "AI Recruit | Smart Hiring Platform",
@@ -36,11 +35,9 @@ export default function RootLayout({
       <body
         className={`${lora.variable} ${inter.variable} font-serif antialiased bg-white text-black min-h-screen flex flex-col`}
       >
-        <Header />
-        <main className="flex-grow">
+        <LayoutWrapper>
           {children}
-        </main>
-        <Footer />
+        </LayoutWrapper>
       </body>
     </html>
   );
