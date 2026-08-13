@@ -26,9 +26,9 @@ export default function AboutPage() {
             </div>
             
             {/* Floating Badge */}
-            <div className="absolute -bottom-8 -right-8 bg-black text-white p-6 rounded-md shadow-xl border border-white/10 hidden md:block">
+            <div className="absolute -bottom-8 -right-8 bg-white text-black p-6 rounded-md shadow-xl border border-gray-100 hidden md:block">
               <div className="text-3xl font-bold text-primary mb-1">2026</div>
-              <div className="text-sm font-semibold uppercase tracking-wider">Established</div>
+              <div className="text-sm font-semibold uppercase tracking-wider text-gray-500">Established</div>
             </div>
           </div>
           
@@ -51,7 +51,7 @@ export default function AboutPage() {
             </div>
             
             <div className="mt-10">
-              <Link href="/contact" className="inline-block bg-black text-white font-bold px-8 py-4 rounded-md hover:bg-primary transition-colors hover:text-black">
+              <Link href="/contact" className="inline-block bg-primary text-black font-bold px-8 py-4 rounded-md hover:opacity-90 transition-opacity">
                 Get In Touch
               </Link>
             </div>
@@ -60,36 +60,36 @@ export default function AboutPage() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-black text-white">
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white border-t border-gray-100">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <span className="text-primary font-bold tracking-wider text-sm uppercase mb-2 block">By The Numbers</span>
-            <h2 className="text-3xl md:text-4xl font-bold">Our Impact in the UK</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-black">Our Impact in the UK</h2>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white/5 border border-white/10 p-10 rounded-md text-center hover:border-primary transition-colors duration-300 group">
-              <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary group-hover:text-black transition-colors">
+            <div className="bg-white border border-gray-200 p-10 rounded-md text-center hover:border-primary shadow-sm hover:shadow-lg transition-all duration-300 group">
+              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary transition-colors">
                 <svg className="w-8 h-8 text-primary group-hover:text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
               </div>
-              <h3 className="text-5xl font-bold text-white mb-3 group-hover:text-primary transition-colors">10k+</h3>
-              <p className="text-white/80 font-medium text-lg">Candidates Placed</p>
+              <h3 className="text-5xl font-bold text-black mb-3">10k+</h3>
+              <p className="text-black font-medium text-lg">Candidates Placed</p>
             </div>
             
-            <div className="bg-white/5 border border-white/10 p-10 rounded-md text-center hover:border-primary transition-colors duration-300 group">
-              <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary group-hover:text-black transition-colors">
+            <div className="bg-white border border-gray-200 p-10 rounded-md text-center hover:border-primary shadow-sm hover:shadow-lg transition-all duration-300 group">
+              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary transition-colors">
                 <svg className="w-8 h-8 text-primary group-hover:text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
               </div>
-              <h3 className="text-5xl font-bold text-white mb-3 group-hover:text-primary transition-colors">500+</h3>
-              <p className="text-white/80 font-medium text-lg">Partner Companies</p>
+              <h3 className="text-5xl font-bold text-black mb-3">500+</h3>
+              <p className="text-black font-medium text-lg">Partner Companies</p>
             </div>
             
-            <div className="bg-white/5 border border-white/10 p-10 rounded-md text-center hover:border-primary transition-colors duration-300 group">
-              <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary group-hover:text-black transition-colors">
+            <div className="bg-white border border-gray-200 p-10 rounded-md text-center hover:border-primary shadow-sm hover:shadow-lg transition-all duration-300 group">
+              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary transition-colors">
                 <svg className="w-8 h-8 text-primary group-hover:text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
               </div>
-              <h3 className="text-5xl font-bold text-white mb-3 group-hover:text-primary transition-colors">99%</h3>
-              <p className="text-white/80 font-medium text-lg">Matching Accuracy</p>
+              <h3 className="text-5xl font-bold text-black mb-3">99%</h3>
+              <p className="text-black font-medium text-lg">Matching Accuracy</p>
             </div>
           </div>
         </div>

@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-white py-12 mt-auto">
+    <footer className="bg-white border-t border-gray-200 py-12 mt-auto">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           
@@ -11,32 +11,32 @@ export default function Footer() {
             <Link href="/" className="text-2xl font-bold text-primary mb-4 block">
               AI Recruit
             </Link>
-            <p className="text-gray-400 mt-4 max-w-md">
+            <p className="text-gray-600 mt-4 max-w-md">
               We leverage advanced artificial intelligence to match top talent with leading companies. Streamlining recruitment with transparency and precision.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-white">Quick Links</h3>
-            <ul className="space-y-2">
+            <h3 className="text-lg font-bold mb-4 text-black">Quick Links</h3>
+            <ul className="space-y-2 font-medium">
               <li>
-                <Link href="/jobs" className="text-gray-400 hover:text-primary transition-colors">
+                <Link href="/jobs" className="text-gray-600 hover:text-primary transition-colors">
                   Find Jobs
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="text-gray-400 hover:text-primary transition-colors">
+                <Link href="/about" className="text-gray-600 hover:text-primary transition-colors">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="/blogs" className="text-gray-400 hover:text-primary transition-colors">
+                <Link href="/blogs" className="text-gray-600 hover:text-primary transition-colors">
                   Career Blogs
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-gray-400 hover:text-primary transition-colors">
+                <Link href="/contact" className="text-gray-600 hover:text-primary transition-colors">
                   Contact Us
                 </Link>
               </li>
@@ -45,8 +45,8 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-white">Contact Info</h3>
-            <ul className="space-y-2 text-gray-400">
+            <h3 className="text-lg font-bold mb-4 text-black">Contact Info</h3>
+            <ul className="space-y-2 text-gray-600 font-medium">
               <li>support@airecruit.co.uk</li>
               <li>+44 20 7946 0958</li>
               <li>London, United Kingdom</li>
@@ -55,15 +55,15 @@ export default function Footer() {
 
         </div>
 
-        <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400 text-sm">
+        <div className="border-t border-gray-200 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+          <p className="text-gray-500 font-medium text-sm">
             &copy; {new Date().getFullYear()} AI Recruit. All rights reserved.
           </p>
-          <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link href="/privacy" className="text-gray-400 hover:text-primary text-sm transition-colors">
+          <div className="flex space-x-6 mt-4 md:mt-0 font-medium">
+            <Link href="/privacy" className="text-gray-500 hover:text-primary text-sm transition-colors">
               Privacy Policy
             </Link>
-            <Link href="/terms" className="text-gray-400 hover:text-primary text-sm transition-colors">
+            <Link href="/terms" className="text-gray-500 hover:text-primary text-sm transition-colors">
               Terms of Service
             </Link>
           </div>

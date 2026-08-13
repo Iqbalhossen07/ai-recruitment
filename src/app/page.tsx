@@ -333,22 +333,23 @@ export default async function Home() {
       </section>
 
       {/* 5. CTA Section */}
-      <section className="relative py-28 px-4 sm:px-6 lg:px-8 overflow-hidden bg-black text-center text-white">
+      {/* 5. CTA Section */}
+      <section className="relative py-28 px-4 sm:px-6 lg:px-8 overflow-hidden bg-white text-center text-black border-t border-gray-100">
         {/* Background gradient blobs */}
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-0 opacity-40">
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/30 rounded-full blur-[120px] animate-pulse" />
           <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-primary/20 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: '1s' }} />
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-primary/20 border border-primary/40 text-primary text-xs font-bold px-4 py-1.5 rounded-md mb-6 backdrop-blur-sm">
+          <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 text-primary-hover text-xs font-bold px-4 py-1.5 rounded-md mb-6 backdrop-blur-sm">
             <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd" /></svg>
             AI-Powered Recruitment
           </div>
 
           {/* Heading */}
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-black">
             Ready to land your{" "}
             <span className="text-primary relative">
               dream job
@@ -359,7 +360,7 @@ export default async function Home() {
             in the UK?
           </h2>
 
-          <p className="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-gray-700 mb-10 max-w-2xl mx-auto leading-relaxed">
             Upload your CV and let our intelligent AI match you with the best roles across London, Manchester, Birmingham and beyond — in seconds.
           </p>
 
@@ -367,7 +368,7 @@ export default async function Home() {
           <div className="flex justify-center">
             <Link
               href="/jobs"
-              className="inline-flex items-center justify-center gap-2 bg-primary text-white font-bold px-10 py-4 rounded-md hover:bg-primary-hover transition-all duration-300 shadow-lg shadow-primary/30 hover:shadow-primary/50 hover:-translate-y-0.5 text-lg"
+              className="inline-flex items-center justify-center gap-2 bg-primary text-black font-bold px-10 py-4 rounded-md hover:opacity-90 transition-all duration-300 shadow-lg shadow-primary/30 hover:shadow-primary/50 hover:-translate-y-0.5 text-lg"
             >
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
               Browse Jobs
@@ -375,7 +376,7 @@ export default async function Home() {
           </div>
 
           {/* Trust strip */}
-          <div className="mt-12 flex flex-wrap justify-center items-center gap-x-8 gap-y-3 text-gray-400 text-sm">
+          <div className="mt-12 flex flex-wrap justify-center items-center gap-x-8 gap-y-3 text-gray-500 font-medium text-sm">
             <div className="flex items-center gap-2">
               <svg className="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" /></svg>
               No sign-up required
