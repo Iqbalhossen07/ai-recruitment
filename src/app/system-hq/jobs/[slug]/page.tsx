@@ -2,7 +2,7 @@ import prisma from "@/lib/prisma";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, Edit, MapPin, Briefcase } from "lucide-react";
-import DeleteJobButton from "@/components/admin/DeleteJobButton";
+import JobActions from "@/components/admin/JobActions";
 
 export default async function AdminJobDetailsPage({ params }: { params: { slug: string } }) {
   const job = await prisma.job.findUnique({
@@ -31,16 +31,8 @@ export default async function AdminJobDetailsPage({ params }: { params: { slug: 
           <ArrowLeft size={20} />
         </Link>
         <h2 className="text-2xl font-bold text-black flex-1">Job Details</h2>
-        <div className="flex gap-2">
-          <Link 
-            href={`/system-hq/jobs/${job.slug}/edit`}
-            className="flex items-center gap-1.5 px-4 py-2 bg-white border border-blue-100 text-blue-500 rounded-lg hover:bg-blue-50 transition-colors font-semibold shadow-sm"
-          >
-            <Edit size={16} /> Edit
-          </Link>
-          <div className="w-24 shadow-sm">
-            <DeleteJobButton id={job.id} title={job.title} />
-          </div>
+        <div className="flex items-center gap-2 hidden sm:flex">
+          <JobActions id={job.id} title={job.title} slug={job.slug} />
         </div>
       </div>
 
