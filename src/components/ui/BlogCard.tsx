@@ -9,7 +9,7 @@ export default function BlogCard({ blog }: { blog: Blog }) {
   };
 
   return (
-    <article className="bg-white rounded-xl shadow-sm border border-gray-100 hover:border-primary hover:shadow-md transition-all overflow-hidden flex flex-col h-full group">
+    <article className="bg-primary/5 rounded-xl shadow-sm border border-gray-100 hover:border-primary hover:shadow-md transition-all overflow-hidden flex flex-col h-full group">
       <Link href={`/blogs/${blog.slug}`} className="block relative h-48 w-full overflow-hidden bg-gray-50">
         {blog.imageUrl ? (
           <Image 

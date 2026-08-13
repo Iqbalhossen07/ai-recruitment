@@ -31,7 +31,7 @@ export default function BlogsGridClient({ blogs }: { blogs: Blog[] }) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
       {blogs.map((blog) => (
-        <div key={blog.id} className="bg-white rounded-xl shadow-sm border border-gray-100 hover:border-primary hover:shadow-md transition-all overflow-hidden flex flex-col h-full group">
+        <div key={blog.id} className="bg-primary/5 rounded-xl shadow-sm border border-gray-100 hover:border-primary hover:shadow-md transition-all overflow-hidden flex flex-col h-full group">
           {/* Image */}
           <div className="relative h-40 w-full overflow-hidden bg-gray-100">
             {blog.imageUrl ? (
