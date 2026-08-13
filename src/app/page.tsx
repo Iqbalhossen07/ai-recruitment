@@ -8,7 +8,7 @@ export const dynamic = 'force-dynamic';
 
 export default async function Home() {
   // Fetch latest 6 active jobs, cities, and latest 3 blogs
-  const [recentJobs, cities, recentBlogs] = await Promise.all([
+  const [recentJobs, cities, recentBlogs, allJobsForTitles] = await Promise.all([
     prisma.job.findMany({
       where: { isActive: true },
       take: 6,
@@ -24,8 +24,14 @@ export default async function Home() {
     prisma.blog.findMany({
       take: 3,
       orderBy: { date: 'desc' }
+    }),
+    prisma.job.findMany({
+      where: { isActive: true },
+      select: { title: true }
     })
   ]);
+
+  const uniqueTitles = Array.from(new Set(allJobsForTitles.map(j => j.title)));
   
   return (
     <div className="flex flex-col min-h-screen">
@@ -65,24 +71,35 @@ export default async function Home() {
             {/* Search Bar Form */}
             <form action="/jobs" method="GET" className="w-full max-w-3xl flex flex-col md:flex-row gap-3 transform hover:scale-[1.01] transition-transform duration-300">
               
-              <div className="flex-1 flex items-center px-4 bg-black/40 backdrop-blur-md border border-white/60 rounded-md shadow-inner focus-within:border-primary transition-colors">
+              <div className="flex-1 flex items-center px-4 bg-black/40 backdrop-blur-md border border-white/60 rounded-md shadow-inner focus-within:border-primary transition-colors cursor-pointer relative">
                 <svg className="w-5 h-5 text-white/70 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
-                <input 
-                  type="text" 
+                <select 
                   name="q" 
-                  placeholder="Keyword, Job title..." 
-                  className="w-full py-3 px-3 outline-none text-white bg-transparent placeholder-white/60"
-                />
+                  className="w-full py-3 px-3 outline-none text-white bg-transparent cursor-pointer appearance-none"
+                  style={{ colorScheme: "dark" }}
+                >
+                  <option value="" className="text-black">Any Job Title</option>
+                  {uniqueTitles.map((title, i) => (
+                    <option key={i} value={title} className="text-black">{title}</option>
+                  ))}
+                </select>
+                <svg className="w-4 h-4 text-white/50 absolute right-4 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
               </div>
               
-              <div className="flex-1 flex items-center px-4 bg-black/40 backdrop-blur-md border border-white/60 rounded-md shadow-inner focus-within:border-primary transition-colors">
+              <div className="flex-1 flex items-center px-4 bg-black/40 backdrop-blur-md border border-white/60 rounded-md shadow-inner focus-within:border-primary transition-colors cursor-pointer relative">
                 <svg className="w-5 h-5 text-white/70 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                <input 
-                  type="text" 
+                <select 
                   name="loc" 
-                  placeholder="Anywhere" 
-                  className="w-full py-3 px-3 outline-none text-white bg-transparent placeholder-white/60"
-                />
+                  className="w-full py-3 px-3 outline-none text-white bg-transparent cursor-pointer appearance-none"
+                  style={{ colorScheme: "dark" }}
+                >
+                  <option value="" className="text-black">Any Location</option>
+                  <option value="Remote" className="text-black">Remote</option>
+                  {cities.map((city) => (
+                    <option key={city.id} value={city.name} className="text-black">{city.name}</option>
+                  ))}
+                </select>
+                <svg className="w-4 h-4 text-white/50 absolute right-4 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
               </div>
               
               <button type="submit" className="bg-primary text-white px-6 md:px-8 py-2.5 md:py-3 rounded-md font-bold hover:bg-primary-hover shadow-md hover:shadow-lg transition-all duration-300 w-full md:w-auto">
