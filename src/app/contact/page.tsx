@@ -1,6 +1,10 @@
 import BreadcrumbBanner from "@/components/layout/BreadcrumbBanner";
+import ContactFormClient from "@/components/ContactFormClient";
+import { getSiteSettings } from "@/lib/settings";
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const settings = await getSiteSettings();
+
   return (
     <div className="flex flex-col min-h-screen">
       <BreadcrumbBanner 
@@ -28,7 +32,7 @@ export default function ContactPage() {
             
             <div className="space-y-8 bg-gray-50 p-8 rounded-md border border-gray-100">
               <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm border border-gray-200 text-primary">
+                <div className="flex-shrink-0 w-12 h-12 bg-white rounded-md flex items-center justify-center shadow-sm border border-gray-200 text-primary">
                   <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -36,12 +40,12 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h4 className="text-lg font-bold text-black mb-1">Office Location</h4>
-                  <p className="text-gray-600 leading-relaxed">123 Tech Avenue, Suite 400<br />London, E1 6AN, United Kingdom</p>
+                  <p className="text-gray-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: settings.contact_office_location }}></p>
                 </div>
               </div>
               
               <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm border border-gray-200 text-primary">
+                <div className="flex-shrink-0 w-12 h-12 bg-white rounded-md flex items-center justify-center shadow-sm border border-gray-200 text-primary">
                   <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
@@ -49,21 +53,26 @@ export default function ContactPage() {
                 <div>
                   <h4 className="text-lg font-bold text-black mb-1">Email Address</h4>
                   <p className="text-gray-600 leading-relaxed">
-                    <a href="mailto:support@airecruit.com" className="hover:text-primary transition-colors">support@airecruit.com</a><br />
-                    <a href="mailto:hello@airecruit.com" className="hover:text-primary transition-colors">hello@airecruit.com</a>
+                    <a href={`mailto:${settings.contact_email_1}`} className="hover:text-primary transition-colors block">{settings.contact_email_1}</a>
+                    {settings.contact_email_2 && (
+                      <a href={`mailto:${settings.contact_email_2}`} className="hover:text-primary transition-colors block">{settings.contact_email_2}</a>
+                    )}
                   </p>
                 </div>
               </div>
               
               <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm border border-gray-200 text-primary">
+                <div className="flex-shrink-0 w-12 h-12 bg-white rounded-md flex items-center justify-center shadow-sm border border-gray-200 text-primary">
                   <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>
                 </div>
                 <div>
                   <h4 className="text-lg font-bold text-black mb-1">Phone Number</h4>
-                  <p className="text-gray-600 leading-relaxed">+44 20 7123 4567<br />+44 79 1234 5678</p>
+                  <p className="text-gray-600 leading-relaxed">
+                    {settings.contact_phone_1}<br />
+                    {settings.contact_phone_2}
+                  </p>
                 </div>
               </div>
             </div>
@@ -73,35 +82,7 @@ export default function ContactPage() {
           <div className="lg:col-span-7">
             <div className="bg-white border border-gray-200 rounded-md shadow-lg p-8 md:p-10">
               <h3 className="text-2xl font-bold text-black mb-8">Send us a message</h3>
-              <form className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-bold text-black mb-2">First Name</label>
-                    <input type="text" required className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="John" />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-bold text-black mb-2">Last Name</label>
-                    <input type="text" required className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="Doe" />
-                  </div>
-                </div>
-                <div>
-                  <label className="block text-sm font-bold text-black mb-2">Your Email</label>
-                  <input type="email" required className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="john@example.com" />
-                </div>
-                <div>
-                  <label className="block text-sm font-bold text-black mb-2">Subject</label>
-                  <input type="text" required className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="How can we help?" />
-                </div>
-                <div>
-                  <label className="block text-sm font-bold text-black mb-2">Message</label>
-                  <textarea required rows={5} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all resize-none" placeholder="Write your message here..."></textarea>
-                </div>
-                <div className="pt-4">
-                  <button type="submit" className="w-full flex justify-center py-4 px-4 rounded-md shadow-md text-sm font-bold text-white bg-primary hover:bg-primary/90 transition-colors">
-                    Send Message
-                  </button>
-                </div>
-              </form>
+              <ContactFormClient />
             </div>
           </div>
           
