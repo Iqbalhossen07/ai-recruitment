@@ -17,3 +17,11 @@ body {
     text-wrap: balance;
   }
 }
+
+/* React-Quill overrides to inherit font */
+.ql-container {
+  font-family: inherit !important;
+}
+.ql-editor {
+  font-family: inherit !important;
+}
