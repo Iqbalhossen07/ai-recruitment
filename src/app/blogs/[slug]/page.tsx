@@ -99,15 +99,7 @@ export default async function BlogDetailsPage({ params }: { params: { slug: stri
               </div>
             </div>
             
-            {/* Optional: Categories or Newsletter Box */}
-            <div className="bg-primary/5 p-6 rounded-2xl shadow-sm border border-primary/10 text-center">
-              <h3 className="text-lg font-bold text-gray-900 mb-2">Stay Updated</h3>
-              <p className="text-sm text-gray-600 mb-4">Get the latest career advice delivered right to your inbox.</p>
-              <div className="flex flex-col gap-2">
-                <input type="email" placeholder="Your email address" className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-primary text-sm" />
-                <button className="w-full bg-primary text-white font-bold py-2 rounded-lg hover:bg-primary-hover transition-colors text-sm">Subscribe</button>
-              </div>
-            </div>
+          
           </div>
           
         </div>

@@ -2,8 +2,13 @@ import Image from "next/image";
 import BreadcrumbBanner from "@/components/layout/BreadcrumbBanner";
 import Link from "next/link";
 import FaqAccordion from "@/components/ui/FaqAccordion";
+import prisma from "@/lib/prisma";
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const faqs = await prisma.faq.findMany({
+    orderBy: { createdAt: 'asc' }
+  });
+
   return (
     <div className="flex flex-col min-h-screen bg-white">
       <BreadcrumbBanner 
@@ -119,7 +124,7 @@ export default function AboutPage() {
           </div>
           
           <div className="mt-8">
-            <FaqAccordion />
+            <FaqAccordion faqs={faqs} />
           </div>
         </div>
       </section>

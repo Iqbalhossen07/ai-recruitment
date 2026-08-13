@@ -31,32 +31,22 @@ function FaqItem({ question, answer, isOpen, onClick }: FaqItemProps) {
         className={`grid transition-all duration-300 ease-in-out ${isOpen ? "grid-rows-[1fr] opacity-100 mt-4" : "grid-rows-[0fr] opacity-0 mt-0"}`}
       >
         <div className="overflow-hidden">
-          <p className="text-black leading-relaxed pl-7">
-            {answer}
-          </p>
+          <div 
+            className="prose prose-sm max-w-none text-black leading-relaxed pl-7 pb-4"
+            dangerouslySetInnerHTML={{ __html: answer }}
+          />
         </div>
       </div>
     </div>
   );
 }
 
-export default function FaqAccordion() {
+export default function FaqAccordion({ faqs }: { faqs: { question: string, answer: string }[] }) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
-  const faqs = [
-    {
-      question: "How does the AI CV parser work?",
-      answer: "Our AI uses advanced Natural Language Processing to extract key information like skills, experience, and education from your uploaded CV. It then matches these data points against the requirements of active job postings to find the perfect fit."
-    },
-    {
-      question: "Is the service free for candidates?",
-      answer: "Yes, completely free! Candidates can create a profile, upload their CVs, and apply for jobs without any charges. We partner with companies who are looking for the best talent."
-    },
-    {
-      question: "How long does the matching process take?",
-      answer: "The matching is nearly instantaneous. Once your CV is uploaded and parsed (which takes seconds), you will immediately see a list of jobs that match your profile."
-    }
-  ];
+  if (!faqs || faqs.length === 0) {
+    return null;
+  }
 
   return (
     <div className="space-y-4">

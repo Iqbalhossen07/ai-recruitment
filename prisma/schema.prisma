@@ -133,11 +133,9 @@ model ContactMessage {
 }
 
 model Faq {
-  id       String  @id @default(cuid())
-  question String  @db.Text
-  answer   String  @db.Text
-  isActive Boolean @default(true)
-  order    Int     @default(0)
+  id        String   @id @default(cuid())
+  question  String   @db.Text
+  answer    String   @db.Text
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
