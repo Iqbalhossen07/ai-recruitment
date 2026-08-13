@@ -144,7 +144,7 @@ export default async function Home() {
               { name: "Edinburgh", img: "/city-edinburgh.jpg", openings: 660, companies: 193 },
             ].map((city) => (
               <Link key={city.name} href={`/jobs?loc=${city.name}`} className="group block">
-                <div className="rounded-md overflow-hidden border border-gray-200 shadow-md shadow-gray-200 hover:shadow-lg hover:shadow-gray-300 transition-all duration-300 hover:-translate-y-1">
+                <div className="rounded-md overflow-hidden border border-gray-200 hover:border-primary shadow-md shadow-gray-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                   {/* City Image */}
                   <div className="relative h-48 w-full overflow-hidden">
                     <Image
@@ -183,48 +183,48 @@ export default async function Home() {
       </section>
 
       {/* 4. Why Choose Us */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50 border-y border-gray-100">
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white border-y border-gray-100">
         <div className="max-w-7xl mx-auto text-center">
           <span className="text-primary font-bold tracking-wider text-sm uppercase mb-2 block">Why Choose AI Recruit</span>
           <h2 className="text-4xl font-bold text-black mb-4">The Future of Recruitment</h2>
-          <p className="text-gray-600 mb-16 max-w-2xl mx-auto text-lg">We combine human intuition with machine precision to bring you the best talent and the best opportunities.</p>
+          <p className="text-black mb-16 max-w-2xl mx-auto text-lg">We combine human intuition with machine precision to bring you the best talent and the best opportunities.</p>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {/* Feature 1 */}
-            <div className="bg-white p-8 rounded-md shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group">
-              <div className="w-16 h-16 bg-primary-light text-primary rounded-md flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+            <div className="bg-white p-8 rounded-md shadow-md border border-gray-200 hover:border-primary hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group">
+              <div className="w-16 h-16 bg-primary/10 text-primary rounded-md flex items-center justify-center mx-auto mb-6 group-hover:bg-primary group-hover:text-white group-hover:scale-110 transition-all duration-300">
                 <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
               <h3 className="text-xl font-bold text-black mb-3">AI Powered Matching</h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-black leading-relaxed">
                 Our smart algorithms parse CVs instantly and match candidates with jobs based on deep keyword and contextual analysis.
               </p>
             </div>
             
             {/* Feature 2 */}
-            <div className="bg-white p-8 rounded-md shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group">
-              <div className="w-16 h-16 bg-primary-light text-primary rounded-md flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+            <div className="bg-white p-8 rounded-md shadow-md border border-gray-200 hover:border-primary hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group">
+              <div className="w-16 h-16 bg-primary/10 text-primary rounded-md flex items-center justify-center mx-auto mb-6 group-hover:bg-primary group-hover:text-white group-hover:scale-110 transition-all duration-300">
                 <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
               <h3 className="text-xl font-bold text-black mb-3">Time Saving</h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-black leading-relaxed">
                 No more manual screening. Our AI pipeline saves HR departments hundreds of hours by surfacing only the most qualified candidates.
               </p>
             </div>
             
             {/* Feature 3 */}
-            <div className="bg-white p-8 rounded-md shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group">
-              <div className="w-16 h-16 bg-primary-light text-primary rounded-md flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+            <div className="bg-white p-8 rounded-md shadow-md border border-gray-200 hover:border-primary hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group">
+              <div className="w-16 h-16 bg-primary/10 text-primary rounded-md flex items-center justify-center mx-auto mb-6 group-hover:bg-primary group-hover:text-white group-hover:scale-110 transition-all duration-300">
                 <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               </div>
               <h3 className="text-xl font-bold text-black mb-3">Unbiased Selection</h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-black leading-relaxed">
                 Remove human bias from the initial screening process. Our AI evaluates every application purely on merit and skills.
               </p>
             </div>

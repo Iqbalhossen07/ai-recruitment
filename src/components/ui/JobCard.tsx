@@ -23,7 +23,7 @@ export default function JobCard({ job }: { job: JobProps }) {
 
   return (
     <Link href={`/jobs/${job.id}`} className="block group h-full">
-      <div className="bg-gradient-to-r from-primary/5 to-white border border-gray-200 rounded-md p-6 shadow-md shadow-gray-200 hover:shadow-lg hover:shadow-gray-300 transition-all duration-300 h-full flex flex-col hover:-translate-y-1">
+      <div className="bg-gradient-to-r from-primary/5 to-white border border-gray-200 hover:border-primary rounded-md p-6 shadow-md shadow-gray-200 hover:shadow-lg hover:shadow-gray-300 transition-all duration-300 h-full flex flex-col hover:-translate-y-1">
         
         {/* Header: Logo and Time */}
         <div className="flex justify-between items-start mb-4">
