@@ -17,12 +17,15 @@ Artificial Intelligence is completely transforming how companies hire today. Whe
 To ensure your CV makes it past the algorithms, you need to understand how they work. AI systems look for specific keywords, clean formatting, and clear structures.
 
 ### 1. Use the Right Keywords
+
 The most important factor is keywords. The AI compares your CV against the job description. If the job asks for "Node.js", "Microservices", and "System Design", make sure those exact words appear naturally in your experience or skills section. 
 
 ### 2. Keep the Formatting Clean
+
 Avoid complex layouts, multiple columns, or graphics. A single-column layout is much easier for an AI parser to read. Standard headings like "Experience", "Education", and "Skills" are your best friend.
 
 ### 3. Highlight Measurable Achievements
+
 AI systems are often programmed to look for quantifiable data. Instead of saying "Improved sales", say "Increased sales by 25% over 6 months".
 
 By adapting your resume to these systems, you significantly increase your chances of landing that interview. Good luck!
