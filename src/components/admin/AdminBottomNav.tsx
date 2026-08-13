@@ -6,7 +6,11 @@ import {
   LayoutDashboard, 
   Briefcase, 
   Users, 
-  Menu
+  Menu,
+  MessageSquare,
+  HelpCircle,
+  Settings,
+  Globe
 } from "lucide-react";
 import { useState } from "react";
 import { logoutAction } from "@/app/actions/auth";
@@ -32,9 +36,10 @@ export default function AdminBottomNav() {
     { name: "Jobs", href: "/system-hq/jobs", icon: Briefcase, color: pastelColors[2] },
     { name: "Users", href: "/system-hq/applications", icon: Users, color: pastelColors[3] },
     { name: "Blogs", href: "/system-hq/blogs", icon: LayoutDashboard, color: pastelColors[4] },
-    { name: "Messages", href: "/system-hq/messages", icon: LayoutDashboard, color: pastelColors[5] },
-    { name: "FAQs", href: "/system-hq/faqs", icon: LayoutDashboard, color: pastelColors[6] },
-    { name: "Settings", href: "/system-hq/settings", icon: LayoutDashboard, color: pastelColors[7] },
+    { name: "Messages", href: "/system-hq/messages", icon: MessageSquare, color: pastelColors[5] },
+    { name: "FAQs", href: "/system-hq/faqs", icon: HelpCircle, color: pastelColors[6] },
+    { name: "Site Settings", href: "/system-hq/site-settings", icon: Globe, color: pastelColors[7] },
+    { name: "Profile Settings", href: "/system-hq/settings", icon: Settings, color: pastelColors[7] },
   ];
 
   // For bottom bar, show first 4 items + Menu

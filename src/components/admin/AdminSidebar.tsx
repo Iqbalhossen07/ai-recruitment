@@ -10,7 +10,8 @@ import {
   MessageSquare, 
   HelpCircle, 
   Settings,
-  MapPin 
+  MapPin,
+  Globe
 } from "lucide-react";
 import Image from "next/image";
 
@@ -25,7 +26,8 @@ export default function AdminSidebar() {
     { name: "Blogs", href: "/system-hq/blogs", icon: FileText, colorClass: "text-purple-500", bgClass: "bg-purple-50", hoverClass: "hover:bg-purple-50" },
     { name: "Messages", href: "/system-hq/messages", icon: MessageSquare, colorClass: "text-indigo-500", bgClass: "bg-indigo-50", hoverClass: "hover:bg-indigo-50" },
     { name: "FAQs", href: "/system-hq/faqs", icon: HelpCircle, colorClass: "text-cyan-500", bgClass: "bg-cyan-50", hoverClass: "hover:bg-cyan-50" },
-    { name: "Settings", href: "/system-hq/settings", icon: Settings, colorClass: "text-slate-500", bgClass: "bg-slate-50", hoverClass: "hover:bg-slate-50" },
+    { name: "Site Settings", href: "/system-hq/site-settings", icon: Globe, colorClass: "text-fuchsia-500", bgClass: "bg-fuchsia-50", hoverClass: "hover:bg-fuchsia-50" },
+    { name: "Profile Settings", href: "/system-hq/settings", icon: Settings, colorClass: "text-slate-500", bgClass: "bg-slate-50", hoverClass: "hover:bg-slate-50" },
   ];
 
   return (
