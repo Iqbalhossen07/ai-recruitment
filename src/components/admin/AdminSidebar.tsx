@@ -9,7 +9,8 @@ import {
   FileText, 
   MessageSquare, 
   HelpCircle, 
-  Settings 
+  Settings,
+  MapPin 
 } from "lucide-react";
 import Image from "next/image";
 
