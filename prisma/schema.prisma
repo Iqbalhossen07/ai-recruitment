@@ -26,60 +26,113 @@ enum ApplicationStatus {
 }
 
 model User {
-  id        String   @id @default(cuid())
-  name      String
-  email     String   @unique
-  password  String
-  role      Role     @default(APPLICANT)
-  
+  id       String  @id @default(cuid())
+  name     String
+  email    String  @unique
+  password String
+  role     Role    @default(APPLICANT)
+  image    String? // For profile picture
+
   // Relations
   applications Application[]
-  
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
 model Job {
-  id            String   @id @default(cuid())
-  title         String
-  description   String   @db.Text
-  requirements  String   @db.Text
-  keywords      String   @db.Text // Comma separated keywords
-  isActive      Boolean  @default(true)
-  
+  id           String @id @default(cuid())
+  title        String
+  description  String @db.Text
+  requirements String @db.Text
+  keywords     String @db.Text // Comma separated keywords
+
+  location    String?
+  jobType     String?
+  salaryRange String?
+
+  isActive Boolean @default(true)
+
   // Relations
-  applications  Application[]
-  
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
+  applications Application[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model Application {
-  id              String   @id @default(cuid())
-  
+  id String @id @default(cuid())
+
   // Basic info from form & AI extraction
-  name            String?
-  email           String?
-  phone           String?
-  expectedSalary  String?
-  linkedinUrl     String?
-  education       String?  @db.Text
-  experience      String?  @db.Text
-  
-  cvUrl           String   // Path/URL to the uploaded PDF CV
-  status          ApplicationStatus @default(NOT_MATCHED)
-  
+  name           String?
+  email          String?
+  phone          String?
+  expectedSalary String?
+  linkedinUrl    String?
+  education      String? @db.Text
+  experience     String? @db.Text
+
+  cvUrl  String // Path/URL to the uploaded PDF CV
+  status ApplicationStatus @default(NOT_MATCHED)
+
   // Interview details
-  interviewDate   DateTime?
-  interviewLink   String?
-  
+  interviewDate DateTime?
+  interviewLink String?
+
   // Relations
-  jobId           String
-  job             Job      @relation(fields: [jobId], references: [id], onDelete: Cascade)
-  
-  userId          String?
-  user            User?    @relation(fields: [userId], references: [id], onDelete: Cascade)
-  
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
+  jobId String
+  job   Job    @relation(fields: [jobId], references: [id], onDelete: Cascade)
+
+  userId String?
+  user   User?   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Blog {
+  id          String  @id @default(cuid())
+  title       String
+  slug        String  @unique
+  excerpt     String  @db.Text
+  content     String  @db.Text
+  category    String
+  readTime    String
+  imageUrl    String?
+  isPublished Boolean @default(true)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model ContactMessage {
+  id      String  @id @default(cuid())
+  name    String
+  email   String
+  subject String
+  message String  @db.Text
+  isRead  Boolean @default(false)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Faq {
+  id       String  @id @default(cuid())
+  question String  @db.Text
+  answer   String  @db.Text
+  isActive Boolean @default(true)
+  order    Int     @default(0)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model SiteSetting {
+  id    String @id @default(cuid())
+  key   String @unique
+  value String @db.Text
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
