@@ -9,6 +9,7 @@ import {
   Menu
 } from "lucide-react";
 import { useState } from "react";
+import { logoutAction } from "@/app/actions/auth";
 
 export default function AdminBottomNav() {
   const pathname = usePathname();
@@ -118,8 +119,8 @@ export default function AdminBottomNav() {
         
         <div className="p-5 border-t border-gray-200 bg-white">
           <button 
-            onClick={() => {
-              document.cookie = "session=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            onClick={async () => {
+              await logoutAction();
               window.location.href = "/system-hq/login";
             }}
             className="w-full flex items-center justify-center gap-2 px-5 py-4 bg-red-50 text-red-500 font-bold rounded-2xl hover:bg-red-100 transition-colors"
@@ -137,7 +138,6 @@ export default function AdminBottomNav() {
           onClick={() => setIsMenuOpen(false)}
         />
       )}
-    </>
     </>
   );
 }
