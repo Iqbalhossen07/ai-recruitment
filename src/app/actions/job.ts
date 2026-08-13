@@ -54,7 +54,7 @@ export async function createJob(prevState: any, formData: FormData) {
   
   revalidatePath("/system-hq/jobs");
   revalidatePath("/jobs");
-  redirect("/system-hq/jobs");
+  return { success: true };
 }
 
 export async function updateJob(id: string, prevState: any, formData: FormData) {
@@ -99,7 +99,7 @@ export async function updateJob(id: string, prevState: any, formData: FormData) 
   
   revalidatePath("/system-hq/jobs");
   revalidatePath("/jobs");
-  redirect("/system-hq/jobs");
+  return { success: true };
 }
 
 export async function deleteJob(id: string) {

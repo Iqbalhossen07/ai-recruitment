@@ -47,8 +47,15 @@ export default function JobForm({ job }: JobFormProps) {
 
     if (response?.error) {
       Swal.fire("Error!", response.error, "error");
-    } else {
-      // Success handled by redirect in server action
+    } else if (response?.success) {
+      await Swal.fire({
+        title: "Success!",
+        text: job ? "Job updated successfully." : "Job created successfully.",
+        icon: "success",
+        timer: 1500,
+        showConfirmButton: false
+      });
+      router.push("/system-hq/jobs");
     }
   };
 
