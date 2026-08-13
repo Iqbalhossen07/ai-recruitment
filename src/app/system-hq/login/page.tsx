@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useFormState, useFormStatus } from "react-dom";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { loginAction } from "../actions/auth";
+import { loginAction } from "@/app/actions/auth";
 
 function SubmitButton() {
   const { pending } = useFormStatus();
