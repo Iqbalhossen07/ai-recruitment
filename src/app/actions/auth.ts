@@ -1,7 +1,7 @@
 "use server";
 
 import prisma from "@/lib/prisma";
-import { createSession } from "@/lib/session";
+import { createSession, destroySession } from "@/lib/session";
 
 export async function loginAction(prevState: any, formData: FormData) {
   const email = formData.get("email") as string;
@@ -33,4 +33,9 @@ export async function loginAction(prevState: any, formData: FormData) {
     console.error("Login error:", error);
     return { error: "An unexpected error occurred" };
   }
+}
+
+export async function logoutAction() {
+  await destroySession();
+  return { success: true };
 }

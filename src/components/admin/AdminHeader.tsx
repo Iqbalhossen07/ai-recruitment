@@ -5,6 +5,7 @@ import { LogOut, Settings, User as UserIcon } from "lucide-react";
 import { useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
 import { getAdminProfile } from "@/app/actions/admin";
+import { logoutAction } from "@/app/actions/auth";
 import Image from "next/image";
 
 export default function AdminHeader() {
@@ -47,7 +48,7 @@ export default function AdminHeader() {
   const currentMonthYear = time.toLocaleDateString("en-US", { month: "long", year: "numeric" });
 
   const handleLogout = async () => {
-    document.cookie = "session=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    await logoutAction();
     router.push("/system-hq/login");
   };
 
