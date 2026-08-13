@@ -55,11 +55,45 @@ export default async function JobsPage({ searchParams }: { searchParams: { [key:
     else whereClause.AND = [{ salaryRange: salary }];
   }
 
-  // Fetch cities for dynamic sidebar
-  const cities = await prisma.city.findMany({
+  // Fetch cities for dynamic sidebar with job counts
+  const citiesData = await prisma.city.findMany({
     orderBy: { name: 'asc' },
-    select: { id: true, name: true }
+    select: { 
+      id: true, 
+      name: true,
+      _count: {
+        select: {
+          jobs: {
+            where: {
+              isActive: true,
+              OR: [
+                { deadline: null },
+                { deadline: { gt: new Date() } }
+              ]
+            }
+          }
+        }
+      }
+    }
   });
+
+  const remoteCount = await prisma.job.count({
+    where: {
+      isActive: true,
+      OR: [
+        { deadline: null },
+        { deadline: { gt: new Date() } }
+      ],
+      AND: {
+        OR: [
+          { cityId: null },
+          { location: { contains: "Remote", mode: 'insensitive' } }
+        ]
+      }
+    }
+  });
+
+  const cities = citiesData.map(c => ({ id: c.id, name: c.name, count: c._count.jobs }));
 
   const jobs = await prisma.job.findMany({
     where: whereClause,
@@ -78,7 +112,7 @@ export default async function JobsPage({ searchParams }: { searchParams: { [key:
         <div className="flex flex-col lg:flex-row gap-8">
           
           {/* Left Sidebar - Filters */}
-          <JobsFilterSidebar cities={cities} />
+          <JobsFilterSidebar cities={cities} remoteCount={remoteCount} />
 
           {/* Right Side - Job Grid */}
           <div className="w-full lg:w-3/4">

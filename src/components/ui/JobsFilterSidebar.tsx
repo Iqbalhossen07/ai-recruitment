@@ -3,7 +3,13 @@
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 
-export default function JobsFilterSidebar({ cities = [] }: { cities?: { id: string; name: string }[] }) {
+export default function JobsFilterSidebar({ 
+  cities = [],
+  remoteCount = 0
+}: { 
+  cities?: { id: string; name: string; count?: number }[];
+  remoteCount?: number;
+}) {
   const router = useRouter();
   const searchParams = useSearchParams();
   
@@ -74,7 +80,9 @@ export default function JobsFilterSidebar({ cities = [] }: { cities?: { id: stri
                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <span className="text-gray-700 font-medium group-hover:text-primary transition-colors">{city.name}</span>
+                <span className={`font-medium transition-colors ${loc === city.name ? 'text-primary' : 'text-gray-700 group-hover:text-primary'}`}>
+                  {city.name} {city.count !== undefined && <span className="text-gray-400 text-xs ml-1">({city.count})</span>}
+                </span>
               </label>
             ))}
             <label className="flex items-center gap-3 cursor-pointer group">
@@ -85,7 +93,9 @@ export default function JobsFilterSidebar({ cities = [] }: { cities?: { id: stri
                   <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                 </svg>
               </div>
-              <span className="text-gray-700 font-medium group-hover:text-primary transition-colors">Remote / Global</span>
+              <span className={`font-medium transition-colors ${loc === 'Remote' ? 'text-primary' : 'text-gray-700 group-hover:text-primary'}`}>
+                Remote / Global <span className="text-gray-400 text-xs ml-1">({remoteCount})</span>
+              </span>
             </label>
           </div>
         </div>
@@ -103,7 +113,9 @@ export default function JobsFilterSidebar({ cities = [] }: { cities?: { id: stri
                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <span className="text-gray-700 font-medium group-hover:text-primary transition-colors">{t}</span>
+                <span className={`font-medium transition-colors ${type === t ? 'text-primary' : 'text-gray-700 group-hover:text-primary'}`}>
+                  {t}
+                </span>
               </label>
             ))}
           </div>
@@ -120,7 +132,9 @@ export default function JobsFilterSidebar({ cities = [] }: { cities?: { id: stri
                   {/* Circle for radio button style */}
                   <div className="w-5 h-5 bg-white border-2 border-gray-300 rounded-full peer-checked:border-primary peer-checked:border-[5px] transition-all"></div>
                 </div>
-                <span className="text-gray-700 font-medium group-hover:text-primary transition-colors">{range}</span>
+                <span className={`font-medium transition-colors ${salary === range ? 'text-primary' : 'text-gray-700 group-hover:text-primary'}`}>
+                  {range}
+                </span>
               </label>
             ))}
           </div>
