@@ -233,44 +233,125 @@ export default async function Home() {
       </section>
 
       {/* 4. Blogs Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-black">Career Advice & Blogs</h2>
-          <p className="text-gray-600 mt-2">Get the latest tips to crack your next interview.</p>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {[1, 2, 3].map((i) => (
-            <div key={i} className="bg-white border border-gray-200 rounded-md overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-              <div className="h-48 w-full relative bg-primary-light">
-                <Image 
-                  src="/blog-1.jpg" 
-                  alt="AI Resume Building" 
-                  fill 
-                  className="object-cover"
-                />
-              </div>
-              <div className="p-6">
-                <span className="text-xs font-semibold text-primary">Career Tips</span>
-                <h3 className="text-lg font-bold text-black mt-2 leading-tight">
-                  How to optimize your CV for AI recruitment systems
-                </h3>
-                <p className="text-gray-600 mt-3 text-sm line-clamp-2">
-                  Learn the best practices to make your resume stand out when an AI is reviewing your application before the HR does.
-                </p>
-                <div className="mt-4">
-                  <Link href={`/blogs/test-${i}`} className="text-primary hover:underline font-medium text-sm">
-                    Read More &rarr;
-                  </Link>
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          {/* Header */}
+          <div className="flex justify-between items-end mb-14">
+            <div>
+              <span className="text-primary font-bold tracking-wider text-sm uppercase mb-2 block">From Our Blog</span>
+              <h2 className="text-3xl md:text-4xl font-bold text-black">Career Advice & Insights</h2>
+              <p className="text-gray-500 mt-2">Expert tips to help you land your next UK role faster.</p>
+            </div>
+            <Link href="/blogs" className="hidden md:flex items-center gap-2 text-primary font-semibold border border-primary px-5 py-2.5 rounded-md hover:bg-primary hover:text-white transition-colors">
+              View All Articles →
+            </Link>
+          </div>
+
+          {/* Blog Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+            {/* Card 1 */}
+            <Link href="/blogs/cv-tips" className="group">
+              <div className="h-full rounded-md overflow-hidden shadow-md shadow-gray-200 hover:shadow-lg hover:shadow-gray-300 transition-all duration-300 hover:-translate-y-1 flex flex-col">
+                <div className="h-44 bg-gradient-to-br from-primary via-green-400 to-emerald-700 relative flex items-center justify-center overflow-hidden">
+                  <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_30%_50%,white,transparent)]" />
+                  <svg className="w-16 h-16 text-white/80" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                </div>
+                <div className="bg-white p-6 flex flex-col flex-grow">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-xs font-bold text-primary bg-primary/10 px-2.5 py-1 rounded-md">CV Tips</span>
+                    <span className="text-xs text-gray-400">5 min read</span>
+                  </div>
+                  <h3 className="text-lg font-bold text-black group-hover:text-primary transition-colors leading-snug">
+                    How to Optimise Your CV for AI Recruitment Systems
+                  </h3>
+                  <p className="text-gray-500 text-sm mt-3 line-clamp-2 flex-grow">
+                    Learn the best practices to make your CV stand out when an AI is reviewing your application before the HR team sees it.
+                  </p>
+                  <div className="mt-5 flex items-center gap-3 pt-4 border-t border-gray-100">
+                    <div className="w-8 h-8 rounded-md bg-primary flex items-center justify-center text-white text-xs font-bold">JD</div>
+                    <div>
+                      <p className="text-xs font-semibold text-black">James Davies</p>
+                      <p className="text-xs text-gray-400">12 Aug 2026</p>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
-        <div className="mt-10 text-center">
-          <Link href="/blogs" className="text-primary font-medium hover:underline">
-            View All Articles
-          </Link>
+            </Link>
+
+            {/* Card 2 */}
+            <Link href="/blogs/interview-tips" className="group">
+              <div className="h-full rounded-md overflow-hidden shadow-md shadow-gray-200 hover:shadow-lg hover:shadow-gray-300 transition-all duration-300 hover:-translate-y-1 flex flex-col">
+                <div className="h-44 bg-gradient-to-br from-slate-800 via-slate-700 to-primary/60 relative flex items-center justify-center overflow-hidden">
+                  <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_70%_30%,white,transparent)]" />
+                  <svg className="w-16 h-16 text-white/80" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                </div>
+                <div className="bg-white p-6 flex flex-col flex-grow">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-xs font-bold text-slate-700 bg-slate-100 px-2.5 py-1 rounded-md">Interview Prep</span>
+                    <span className="text-xs text-gray-400">7 min read</span>
+                  </div>
+                  <h3 className="text-lg font-bold text-black group-hover:text-primary transition-colors leading-snug">
+                    Top 10 Interview Questions UK Employers Ask in 2026
+                  </h3>
+                  <p className="text-gray-500 text-sm mt-3 line-clamp-2 flex-grow">
+                    Prepare for your next interview with these commonly asked questions from top UK employers across all major industries.
+                  </p>
+                  <div className="mt-5 flex items-center gap-3 pt-4 border-t border-gray-100">
+                    <div className="w-8 h-8 rounded-md bg-slate-700 flex items-center justify-center text-white text-xs font-bold">SR</div>
+                    <div>
+                      <p className="text-xs font-semibold text-black">Sarah Roberts</p>
+                      <p className="text-xs text-gray-400">10 Aug 2026</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Link>
+
+            {/* Card 3 */}
+            <Link href="/blogs/ai-future" className="group">
+              <div className="h-full rounded-md overflow-hidden shadow-md shadow-gray-200 hover:shadow-lg hover:shadow-gray-300 transition-all duration-300 hover:-translate-y-1 flex flex-col">
+                <div className="h-44 bg-gradient-to-br from-violet-600 via-purple-500 to-primary/40 relative flex items-center justify-center overflow-hidden">
+                  <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_50%_80%,white,transparent)]" />
+                  <svg className="w-16 h-16 text-white/80" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <div className="bg-white p-6 flex flex-col flex-grow">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-xs font-bold text-violet-700 bg-violet-100 px-2.5 py-1 rounded-md">AI & Future</span>
+                    <span className="text-xs text-gray-400">4 min read</span>
+                  </div>
+                  <h3 className="text-lg font-bold text-black group-hover:text-primary transition-colors leading-snug">
+                    The Future of Hiring: How AI is Reshaping Recruitment in the UK
+                  </h3>
+                  <p className="text-gray-500 text-sm mt-3 line-clamp-2 flex-grow">
+                    AI-driven recruitment is transforming how companies find talent. Here is what candidates and employers need to know in 2026.
+                  </p>
+                  <div className="mt-5 flex items-center gap-3 pt-4 border-t border-gray-100">
+                    <div className="w-8 h-8 rounded-md bg-violet-600 flex items-center justify-center text-white text-xs font-bold">ML</div>
+                    <div>
+                      <p className="text-xs font-semibold text-black">Mark Lewis</p>
+                      <p className="text-xs text-gray-400">8 Aug 2026</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Link>
+
+          </div>
+
+          {/* Mobile View All */}
+          <div className="mt-8 text-center md:hidden">
+            <Link href="/blogs" className="inline-flex items-center gap-2 text-primary font-semibold border border-primary px-6 py-3 rounded-md hover:bg-primary hover:text-white transition-colors">
+              View All Articles →
+            </Link>
+          </div>
+
         </div>
       </section>
 
