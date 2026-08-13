@@ -7,11 +7,21 @@ export const dynamic = 'force-dynamic';
 
 export default async function Home() {
   // Fetch latest 6 active jobs
-  const recentJobs = await prisma.job.findMany({
-    where: { isActive: true },
-    take: 6,
-    orderBy: { createdAt: 'desc' }
-  });
+  const [recentJobs, cities] = await Promise.all([
+    prisma.job.findMany({
+      where: { isActive: true },
+      take: 6,
+      orderBy: { createdAt: 'desc' },
+      include: { city: true } // Include city to show on job cards later if needed
+    }),
+    prisma.city.findMany({
+      take: 6,
+      include: {
+        _count: { select: { jobs: { where: { isActive: true } } } }
+      }
+    })
+  ]);
+  
   return (
     <div className="flex flex-col min-h-screen">
       
@@ -135,23 +145,19 @@ export default async function Home() {
 
           {/* City Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { name: "London", img: "/city-london.jpg", openings: 5240, companies: 1480 },
-              { name: "Manchester", img: "/city-manchester.jpg", openings: 1820, companies: 615 },
-              { name: "Birmingham", img: "/city-birmingham.jpg", openings: 1340, companies: 398 },
-              { name: "Leeds", img: "/city-leeds.jpg", openings: 980, companies: 274 },
-              { name: "Bristol", img: "/city-bristol.jpg", openings: 795, companies: 256 },
-              { name: "Edinburgh", img: "/city-edinburgh.jpg", openings: 660, companies: 193 },
-            ].map((city) => (
-              <Link key={city.name} href={`/jobs?loc=${city.name}`} className="group block">
+            {cities.map((city) => (
+              <Link key={city.id} href={`/jobs?city=${city.slug}`} className="group block">
                 <div className="rounded-md overflow-hidden border border-gray-200 hover:border-primary shadow-md shadow-gray-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                   {/* City Image */}
                   <div className="relative h-48 w-full overflow-hidden">
                     <Image
-                      src={city.img}
+                      src={city.image}
                       alt={city.name}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      onError={(e) => {
+                        e.currentTarget.src = "https://placehold.co/600x400?text=No+Image";
+                      }}
                     />
                     {/* Subtle bottom gradient for readability */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
@@ -163,14 +169,17 @@ export default async function Home() {
                       <span className="text-lg font-bold text-black group-hover:text-primary transition-colors">{city.name}</span>
                     </div>
                     <div className="flex items-center gap-2 text-sm text-gray-500">
-                      <span className="font-medium text-black">{city.openings.toLocaleString()} openings</span>
-                      <span className="w-1 h-1 rounded-full bg-primary inline-block"></span>
-                      <span>{city.companies} companies</span>
+                      <span className="font-medium text-black">{city._count.jobs} openings</span>
                     </div>
                   </div>
                 </div>
               </Link>
             ))}
+            {cities.length === 0 && (
+              <div className="col-span-full py-10 text-center text-gray-500">
+                No cities found. 
+              </div>
+            )}
           </div>
 
           {/* Mobile View All button */}

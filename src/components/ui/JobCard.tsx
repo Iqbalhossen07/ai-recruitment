@@ -11,6 +11,7 @@ interface JobProps {
   salaryRange?: string | null;
   deadline?: Date | null;
   createdAt: Date;
+  city?: { name: string } | null;
 }
 
 export default function JobCard({ job }: { job: JobProps }) {
@@ -51,13 +52,13 @@ export default function JobCard({ job }: { job: JobProps }) {
             {job.title}
           </h3>
           <p className="text-black text-sm mt-1 font-medium">
-            AI-Recruit {job.location ? `, ${job.location}` : ""}
+            AI-Recruit
           </p>
           
           {/* Tags */}
           <div className="flex flex-wrap gap-2 mt-4">
             <div className="flex items-center gap-1.5 bg-white border border-gray-200 rounded-md px-2.5 py-1 text-xs font-bold text-black">
-              <span className="text-primary">📍</span> {job.location || "Remote"}
+              <span className="text-primary">📍</span> {job.city?.name || job.location || "Remote"}
             </div>
             <div className="flex items-center gap-1.5 bg-white border border-gray-200 rounded-md px-2.5 py-1 text-xs font-bold text-black">
               <div className="w-2 h-2 rounded-md bg-primary"></div>
