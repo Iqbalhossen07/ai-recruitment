@@ -98,6 +98,11 @@ export default function JobsGridClient({ initialJobs }: { initialJobs: Job[] }) 
                     }`}>
                       {job.isActive ? "Active" : "Draft"}
                     </span>
+                    {job.deadline && new Date(job.deadline) < new Date() && (
+                      <span className="inline-flex items-center px-2 py-1 rounded-md text-[10px] uppercase tracking-wider font-bold border bg-red-50 text-red-700 border-red-200">
+                        Expired
+                      </span>
+                    )}
                     <span className="bg-primary text-white text-[10px] font-bold px-2 py-1 rounded-md">
                       {timeAgoText}
                     </span>

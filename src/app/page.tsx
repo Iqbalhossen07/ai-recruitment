@@ -98,37 +98,8 @@ export default async function Home() {
       </section>
 
 
-      {/* 2. Featured Jobs Section */}
+      {/* 2. Search Jobs by Cities */}
       <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">Featured Jobs</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-              Discover the latest opportunities available right now.
-            </p>
-          </div>
-          
-          {recentJobs.length === 0 ? (
-            <div className="text-center text-gray-500 py-10">No jobs available right now.</div>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {recentJobs.map((job) => (
-                <JobCard key={job.id} job={job} />
-              ))}
-            </div>
-          )}
-
-          <div className="mt-12 text-center">
-            <Link href="/jobs" className="inline-flex items-center justify-center space-x-2 bg-transparent text-primary border border-primary px-8 py-3 rounded-md font-semibold hover:bg-primary hover:text-white transition-colors duration-300">
-              <span>View All Jobs</span>
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* 3. Search Jobs by Cities */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <div className="flex justify-between items-end mb-12">
@@ -147,7 +118,7 @@ export default async function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {cities.map((city) => (
               <Link key={city.id} href={`/jobs?city=${city.slug}`} className="group block">
-                <div className="rounded-md overflow-hidden border border-gray-200 hover:border-primary shadow-md shadow-gray-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                <div className="rounded-md overflow-hidden border border-gray-200 hover:border-primary shadow-md shadow-gray-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-white">
                   {/* City Image */}
                   <div className="relative h-48 w-full overflow-hidden">
                     <Image
@@ -183,6 +154,35 @@ export default async function Home() {
           <div className="mt-8 text-center md:hidden">
             <Link href="/jobs" className="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-md font-semibold hover:bg-primary-hover transition-colors">
               View All Jobs →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. Featured Jobs Section */}
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">Featured Jobs</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+              Discover the latest opportunities available right now.
+            </p>
+          </div>
+          
+          {recentJobs.length === 0 ? (
+            <div className="text-center text-gray-500 py-10">No jobs available right now.</div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {recentJobs.map((job) => (
+                <JobCard key={job.id} job={job} />
+              ))}
+            </div>
+          )}
+
+          <div className="mt-12 text-center">
+            <Link href="/jobs" className="inline-flex items-center justify-center space-x-2 bg-transparent text-primary border border-primary px-8 py-3 rounded-md font-semibold hover:bg-primary hover:text-white transition-colors duration-300">
+              <span>View All Jobs</span>
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
             </Link>
           </div>
         </div>

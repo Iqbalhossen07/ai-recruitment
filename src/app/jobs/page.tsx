@@ -3,36 +3,68 @@ import prisma from "@/lib/prisma";
 import BreadcrumbBanner from "@/components/layout/BreadcrumbBanner";
 import JobCard from "@/components/ui/JobCard";
 import JobsFilterSidebar from "@/components/ui/JobsFilterSidebar";
+import SortDropdown from "@/components/ui/SortDropdown";
 
 export default async function JobsPage({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
   const q = typeof searchParams.q === 'string' ? searchParams.q : undefined;
   const loc = typeof searchParams.loc === 'string' ? searchParams.loc : undefined;
+  const sort = typeof searchParams.sort === 'string' ? searchParams.sort : 'newest';
   
-  const whereClause: any = { isActive: true };
+  // Base where clause - only active and non-expired jobs
+  const whereClause: any = { 
+    isActive: true,
+    OR: [
+      { deadline: null },
+      { deadline: { gt: new Date() } }
+    ]
+  };
+
   if (q) {
-    whereClause.OR = [
-      { title: { contains: q } },
-      { keywords: { contains: q } },
-      { description: { contains: q } },
+    whereClause.AND = [
+      {
+        OR: [
+          { title: { contains: q, mode: 'insensitive' } },
+          { keywords: { contains: q, mode: 'insensitive' } },
+          { description: { contains: q, mode: 'insensitive' } },
+        ]
+      }
     ];
   }
   
   if (loc) {
-    // Basic filter implementation for location, we can extend this later
-    // Just searching if keyword contains the location
-    if (whereClause.OR) {
-      // If we already have a search query, it's an AND condition for Location
-      whereClause.AND = [
-        { keywords: { contains: loc } }
-      ];
+    const locCondition = loc.toLowerCase() === "remote" 
+      ? { OR: [{ cityId: null }, { location: { contains: "Remote", mode: 'insensitive' } }] }
+      : { city: { name: { equals: loc, mode: 'insensitive' } } };
+
+    if (whereClause.AND) {
+      whereClause.AND.push(locCondition);
     } else {
-      whereClause.keywords = { contains: loc };
+      whereClause.AND = [locCondition];
     }
   }
 
+  const type = typeof searchParams.type === 'string' ? searchParams.type : undefined;
+  if (type) {
+    if (whereClause.AND) whereClause.AND.push({ jobType: type });
+    else whereClause.AND = [{ jobType: type }];
+  }
+
+  const salary = typeof searchParams.salary === 'string' ? searchParams.salary : undefined;
+  if (salary) {
+    if (whereClause.AND) whereClause.AND.push({ salaryRange: salary });
+    else whereClause.AND = [{ salaryRange: salary }];
+  }
+
+  // Fetch cities for dynamic sidebar
+  const cities = await prisma.city.findMany({
+    orderBy: { name: 'asc' },
+    select: { id: true, name: true }
+  });
+
   const jobs = await prisma.job.findMany({
     where: whereClause,
-    orderBy: { createdAt: 'desc' }
+    include: { city: true },
+    orderBy: { createdAt: sort === 'oldest' ? 'asc' : 'desc' }
   });
 
   return (
@@ -46,7 +78,7 @@ export default async function JobsPage({ searchParams }: { searchParams: { [key:
         <div className="flex flex-col lg:flex-row gap-8">
           
           {/* Left Sidebar - Filters */}
-          <JobsFilterSidebar />
+          <JobsFilterSidebar cities={cities} />
 
           {/* Right Side - Job Grid */}
           <div className="w-full lg:w-3/4">
@@ -54,10 +86,7 @@ export default async function JobsPage({ searchParams }: { searchParams: { [key:
               <h3 className="text-lg font-bold text-black">
                 Showing <span className="text-primary">{jobs.length}</span> Jobs
               </h3>
-              <select className="bg-white border border-gray-200 text-black font-medium rounded-md px-4 py-2 focus:outline-none focus:border-primary shadow-sm cursor-pointer">
-                <option>Newest First</option>
-                <option>Oldest First</option>
-              </select>
+              <SortDropdown />
             </div>
 
             {jobs.length === 0 ? (

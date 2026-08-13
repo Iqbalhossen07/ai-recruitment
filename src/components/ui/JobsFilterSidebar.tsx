@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 
-export default function JobsFilterSidebar() {
+export default function JobsFilterSidebar({ cities = [] }: { cities?: { id: string; name: string }[] }) {
   const router = useRouter();
   const searchParams = useSearchParams();
   
@@ -64,19 +64,29 @@ export default function JobsFilterSidebar() {
         {/* Location */}
         <div className="mb-6">
           <label className="block text-sm font-bold text-black mb-3">Location</label>
-          <div className="space-y-2">
-            {["London", "Manchester", "Birmingham", "Bristol", "Edinburgh", "Remote"].map((city) => (
-              <label key={city} className="flex items-center gap-3 cursor-pointer group">
+          <div className="space-y-2 max-h-[250px] overflow-y-auto pr-2 custom-scrollbar">
+            {cities.map((city) => (
+              <label key={city.id} className="flex items-center gap-3 cursor-pointer group">
                 <div className="relative flex items-center">
-                  <input type="radio" name="loc" value={city} defaultChecked={loc === city} className="peer sr-only" />
+                  <input type="radio" name="loc" value={city.name} defaultChecked={loc === city.name} className="peer sr-only" />
                   <div className="w-5 h-5 bg-white border-2 border-gray-300 rounded-sm peer-checked:bg-primary peer-checked:border-primary transition-colors"></div>
-                  <svg className="w-3.5 h-3.5 text-black absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 peer-checked:opacity-100 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
+                  <svg className="w-3.5 h-3.5 text-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 peer-checked:opacity-100 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <span className="text-black group-hover:text-primary transition-colors">{city}</span>
+                <span className="text-gray-700 font-medium group-hover:text-primary transition-colors">{city.name}</span>
               </label>
             ))}
+            <label className="flex items-center gap-3 cursor-pointer group">
+              <div className="relative flex items-center">
+                <input type="radio" name="loc" value="Remote" defaultChecked={loc === "Remote"} className="peer sr-only" />
+                <div className="w-5 h-5 bg-white border-2 border-gray-300 rounded-sm peer-checked:bg-primary peer-checked:border-primary transition-colors"></div>
+                <svg className="w-3.5 h-3.5 text-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 peer-checked:opacity-100 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <span className="text-gray-700 font-medium group-hover:text-primary transition-colors">Remote / Global</span>
+            </label>
           </div>
         </div>
 
@@ -89,11 +99,11 @@ export default function JobsFilterSidebar() {
                 <div className="relative flex items-center">
                   <input type="radio" name="type" value={t} defaultChecked={type === t} className="peer sr-only" />
                   <div className="w-5 h-5 bg-white border-2 border-gray-300 rounded-sm peer-checked:bg-primary peer-checked:border-primary transition-colors"></div>
-                  <svg className="w-3.5 h-3.5 text-black absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 peer-checked:opacity-100 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
+                  <svg className="w-3.5 h-3.5 text-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 peer-checked:opacity-100 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <span className="text-black group-hover:text-primary transition-colors">{t}</span>
+                <span className="text-gray-700 font-medium group-hover:text-primary transition-colors">{t}</span>
               </label>
             ))}
           </div>
@@ -110,7 +120,7 @@ export default function JobsFilterSidebar() {
                   {/* Circle for radio button style */}
                   <div className="w-5 h-5 bg-white border-2 border-gray-300 rounded-full peer-checked:border-primary peer-checked:border-[5px] transition-all"></div>
                 </div>
-                <span className="text-black group-hover:text-primary transition-colors">{range}</span>
+                <span className="text-gray-700 font-medium group-hover:text-primary transition-colors">{range}</span>
               </label>
             ))}
           </div>
