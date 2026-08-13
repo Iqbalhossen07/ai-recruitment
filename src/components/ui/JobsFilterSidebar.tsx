@@ -12,17 +12,35 @@ export default function JobsFilterSidebar() {
   const type = searchParams.get('type') || '';
   const salary = searchParams.get('salary') || '';
 
-  const handleChange = (e: React.ChangeEvent<HTMLFormElement>) => {
-    // Automatically submit form on change
-    e.target.form.submit();
+  const handleChange = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const params = new URLSearchParams();
+    
+    formData.forEach((value, key) => {
+      if (value) params.append(key, value.toString());
+    });
+    
+    router.push(`/jobs?${params.toString()}`);
+  };
+
+  const handleClear = (e: React.MouseEvent) => {
+    e.preventDefault();
+    router.push('/jobs');
   };
 
   return (
     <aside className="w-full lg:w-1/4">
-      <form method="GET" action="/jobs" className="bg-white border border-gray-200 rounded-md p-6 shadow-sm sticky top-24" onChange={handleChange}>
+      <form 
+        key={searchParams.toString()} 
+        method="GET" 
+        action="/jobs" 
+        className="bg-white border border-gray-200 rounded-md p-6 shadow-sm sticky top-24" 
+        onChange={handleChange}
+      >
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-xl font-bold text-black">Filter Jobs</h2>
-          <Link href="/jobs" className="text-sm text-primary font-medium hover:underline">Clear All</Link>
+          <button onClick={handleClear} type="button" className="text-sm text-primary font-medium hover:underline">Clear All</button>
         </div>
 
         {/* Keyword Search */}
