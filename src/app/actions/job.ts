@@ -13,6 +13,7 @@ export async function createJob(prevState: any, formData: FormData) {
     const keywords = formData.get("keywords") as string;
     const requirements = formData.get("requirements") as string;
     const description = formData.get("description") as string;
+    const opportunities = formData.get("opportunities") as string;
     const isActive = formData.get("isActive") === "on";
 
     if (!title || !description || !requirements) {
@@ -28,6 +29,7 @@ export async function createJob(prevState: any, formData: FormData) {
         keywords,
         requirements,
         description,
+        opportunities,
         isActive,
       },
     });
@@ -51,6 +53,7 @@ export async function updateJob(id: string, prevState: any, formData: FormData) 
     const keywords = formData.get("keywords") as string;
     const requirements = formData.get("requirements") as string;
     const description = formData.get("description") as string;
+    const opportunities = formData.get("opportunities") as string;
     const isActive = formData.get("isActive") === "on";
 
     if (!title || !description || !requirements) {
@@ -67,6 +70,7 @@ export async function updateJob(id: string, prevState: any, formData: FormData) 
         keywords,
         requirements,
         description,
+        opportunities,
         isActive,
       },
     });

@@ -20,6 +20,8 @@ export default function JobForm({ job }: JobFormProps) {
   // State for Rich Text editors
   const [description, setDescription] = useState(job?.description || "");
   const [requirements, setRequirements] = useState(job?.requirements || "");
+  const [opportunities, setOpportunities] = useState(job?.opportunities || "");
+  const [keywords, setKeywords] = useState(job?.keywords || "");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -30,6 +32,8 @@ export default function JobForm({ job }: JobFormProps) {
     // Append rich text content manually since they aren't standard inputs
     formData.set("description", description);
     formData.set("requirements", requirements);
+    formData.set("opportunities", opportunities);
+    formData.set("keywords", keywords);
 
     let response;
     
@@ -44,10 +48,7 @@ export default function JobForm({ job }: JobFormProps) {
     if (response?.error) {
       Swal.fire("Error!", response.error, "error");
     } else {
-      // The server action handles redirect on success, 
-      // but in case it doesn't return an error, we show success.
-      // Next.js redirect throws a specific error that skips this block usually, 
-      // but we can add a toast before redirect if needed.
+      // Success handled by redirect in server action
     }
   };
 
@@ -121,19 +122,6 @@ export default function JobForm({ job }: JobFormProps) {
               placeholder="e.g. $80k - $120k / year"
             />
           </div>
-
-          {/* Keywords */}
-          <div>
-            <label htmlFor="keywords" className="block text-sm font-bold text-gray-700 mb-2">Keywords (comma separated)</label>
-            <input
-              type="text"
-              id="keywords"
-              name="keywords"
-              defaultValue={job?.keywords || ""}
-              className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary transition-all"
-              placeholder="e.g. React, Next.js, Tailwind"
-            />
-          </div>
         </div>
 
         {/* Description - Rich Text */}
@@ -153,6 +141,26 @@ export default function JobForm({ job }: JobFormProps) {
             value={requirements}
             onChange={setRequirements}
             placeholder="List the skills, experience, and qualifications required..."
+          />
+        </div>
+
+        {/* Opportunities - Rich Text */}
+        <div className="pt-4">
+          <label className="block text-sm font-bold text-gray-700 mb-2">Opportunities</label>
+          <RichTextEditor 
+            value={opportunities}
+            onChange={setOpportunities}
+            placeholder="What you will learn, career growth, perks..."
+          />
+        </div>
+
+        {/* Keywords - Rich Text */}
+        <div className="pt-4">
+          <label className="block text-sm font-bold text-gray-700 mb-2">Keywords & Tags</label>
+          <RichTextEditor 
+            value={keywords}
+            onChange={setKeywords}
+            placeholder="e.g. React, Next.js, CSS..."
           />
         </div>
 

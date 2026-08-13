@@ -45,6 +45,7 @@ model Job {
   title        String
   description  String @db.Text
   requirements String @db.Text
+  opportunities String? @db.Text // New field added
   keywords     String @db.Text // Comma separated keywords
 
   location    String?
