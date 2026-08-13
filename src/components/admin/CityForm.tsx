@@ -74,16 +74,20 @@ export default function CityForm({ city }: CityFormProps) {
         </div>
 
         <div>
-          <label htmlFor="image" className="block text-sm font-bold text-gray-700 mb-2">Image URL *</label>
+          <label htmlFor="imageFile" className="block text-sm font-bold text-gray-700 mb-2">City Image *</label>
           <input
-            type="text"
-            id="image"
-            name="image"
-            value={imagePreview}
-            onChange={(e) => setImagePreview(e.target.value)}
-            required
+            type="file"
+            id="imageFile"
+            name="imageFile"
+            accept="image/*"
+            onChange={(e) => {
+              if (e.target.files && e.target.files[0]) {
+                const url = URL.createObjectURL(e.target.files[0]);
+                setImagePreview(url);
+              }
+            }}
+            required={!city?.image} // Required if creating new city
             className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all mb-4"
-            placeholder="e.g. /cities/dhaka.jpg or https://example.com/image.jpg"
           />
           {imagePreview && (
             <div className="relative w-full h-48 rounded-xl overflow-hidden border border-gray-200">
