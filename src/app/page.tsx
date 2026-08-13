@@ -155,9 +155,6 @@ export default async function Home() {
                       alt={city.name}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
-                      onError={(e) => {
-                        e.currentTarget.src = "https://placehold.co/600x400?text=No+Image";
-                      }}
                     />
                     {/* Subtle bottom gradient for readability */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />

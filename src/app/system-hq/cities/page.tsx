@@ -39,9 +39,6 @@ export default async function CitiesPage() {
                 alt={city.name} 
                 fill 
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
-                onError={(e) => {
-                  e.currentTarget.src = "https://placehold.co/600x400?text=No+Image";
-                }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
               <div className="absolute bottom-4 left-4 flex items-center gap-2 text-white">
