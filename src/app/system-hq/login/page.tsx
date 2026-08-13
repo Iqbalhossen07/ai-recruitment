@@ -6,6 +6,9 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { loginAction } from "@/app/actions/auth";
 
+import Swal from "sweetalert2";
+import Image from "next/image";
+
 function SubmitButton() {
   const { pending } = useFormStatus();
   return (
@@ -25,20 +28,40 @@ export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
 
   useEffect(() => {
-    if (state?.success) {
-      if (state.role === "ADMIN") {
-        router.push("/system-hq/dashboard");
-      } else {
-        router.push("/");
+    const handleSuccess = async () => {
+      if (state?.success) {
+        if (state.role === "ADMIN") {
+          await Swal.fire({
+            title: "Welcome Back!",
+            text: "Successfully logged in to Admin Panel.",
+            icon: "success",
+            timer: 1500,
+            showConfirmButton: false
+          });
+          router.push("/system-hq/dashboard");
+        } else {
+          router.push("/");
+        }
       }
-    }
+    };
+    handleSuccess();
   }, [state, router]);
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8 bg-white p-10 rounded-xl shadow-lg border border-gray-100">
-        <div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-black">
+        <div className="flex flex-col items-center">
+          <Link href="/" className="flex items-center gap-2.5 mb-2">
+            <Image
+              src="/logo.jpg"
+              alt="AI Recruit Logo"
+              width={48}
+              height={48}
+              className="rounded-md object-cover"
+            />
+            <span className="text-2xl font-bold text-primary tracking-tight">AI Recruit</span>
+          </Link>
+          <h2 className="mt-4 text-center text-3xl font-extrabold text-black">
             Sign in to your account
           </h2>
           <p className="mt-2 text-center text-sm text-gray-600">
@@ -60,7 +83,6 @@ export default function LoginPage() {
                 required
                 className="appearance-none relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-black rounded-md focus:outline-none focus:ring-primary focus:border-primary focus:z-10 sm:text-sm transition-colors"
                 placeholder="admin@airecruit.com"
-                defaultValue="admin@airecruit.com"
               />
             </div>
             <div>
@@ -76,7 +98,6 @@ export default function LoginPage() {
                   required
                   className="appearance-none relative block w-full px-3 py-3 pr-10 border border-gray-300 placeholder-gray-500 text-black rounded-md focus:outline-none focus:ring-primary focus:border-primary focus:z-10 sm:text-sm transition-colors"
                   placeholder="Password"
-                  defaultValue="password123"
                 />
                 <button
                   type="button"
