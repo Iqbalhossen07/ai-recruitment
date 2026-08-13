@@ -48,7 +48,7 @@ export default function AdminHeader() {
 
   const handleLogout = async () => {
     document.cookie = "session=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-    router.push("/login");
+    router.push("/system-hq/login");
   };
 
   const isDashboard = pathname === "/system-hq/dashboard";
