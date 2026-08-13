@@ -2,12 +2,14 @@ import Link from "next/link";
 
 interface JobProps {
   id: string;
+  slug: string;
   title: string;
   description: string;
   keywords: string;
   location?: string | null;
   jobType?: string | null;
   salaryRange?: string | null;
+  deadline?: Date | null;
   createdAt: Date;
 }
 
@@ -16,9 +18,8 @@ export default function JobCard({ job }: { job: JobProps }) {
   const hoursAgo = Math.floor((new Date().getTime() - new Date(job.createdAt).getTime()) / (1000 * 60 * 60));
   const timeAgoText = hoursAgo < 24 ? `${hoursAgo || 1}h ago` : `${Math.floor(hoursAgo / 24)}d ago`;
   
-  // Calculate fake deadline (30 days from creation)
-  const deadlineDate = new Date(job.createdAt);
-  deadlineDate.setDate(deadlineDate.getDate() + 30);
+  // Use real deadline or fallback to 30 days if not set
+  const deadlineDate = job.deadline ? new Date(job.deadline) : new Date(new Date(job.createdAt).getTime() + 30 * 24 * 60 * 60 * 1000);
   const formattedDeadline = deadlineDate.toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' });
   
   // Extract first keyword for category tag (strip html from rich text keywords)
@@ -29,7 +30,7 @@ export default function JobCard({ job }: { job: JobProps }) {
   const plainDescription = job.description.replace(/<[^>]*>?/gm, '');
 
   return (
-    <Link href={`/jobs/${job.id}`} className="block group h-full">
+    <Link href={`/jobs/${job.slug}`} className="block group h-full">
       <div className="bg-gradient-to-r from-primary/5 to-white border border-gray-200 hover:border-primary rounded-md p-6 shadow-md shadow-gray-200 hover:shadow-lg hover:shadow-gray-300 transition-all duration-300 h-full flex flex-col hover:-translate-y-1">
         
         {/* Header: Logo and Time */}

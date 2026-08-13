@@ -4,6 +4,13 @@ import prisma from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
+function generateSlug(title: string) {
+  return title
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)+/g, '') + '-' + Math.random().toString(36).substring(2, 6);
+}
+
 export async function createJob(prevState: any, formData: FormData) {
   try {
     const title = formData.get("title") as string;
@@ -14,15 +21,20 @@ export async function createJob(prevState: any, formData: FormData) {
     const requirements = formData.get("requirements") as string;
     const description = formData.get("description") as string;
     const opportunities = formData.get("opportunities") as string;
+    const deadlineStr = formData.get("deadline") as string;
     const isActive = formData.get("isActive") === "on";
 
     if (!title || !description || !requirements) {
       return { error: "Title, Description, and Requirements are required." };
     }
 
+    const slug = generateSlug(title);
+    const deadline = deadlineStr ? new Date(deadlineStr) : null;
+
     await prisma.job.create({
       data: {
         title,
+        slug,
         location,
         jobType,
         salaryRange,
@@ -30,6 +42,7 @@ export async function createJob(prevState: any, formData: FormData) {
         requirements,
         description,
         opportunities,
+        deadline,
         isActive,
       },
     });
@@ -54,11 +67,14 @@ export async function updateJob(id: string, prevState: any, formData: FormData) 
     const requirements = formData.get("requirements") as string;
     const description = formData.get("description") as string;
     const opportunities = formData.get("opportunities") as string;
+    const deadlineStr = formData.get("deadline") as string;
     const isActive = formData.get("isActive") === "on";
 
     if (!title || !description || !requirements) {
       return { error: "Title, Description, and Requirements are required." };
     }
+
+    const deadline = deadlineStr ? new Date(deadlineStr) : null;
 
     await prisma.job.update({
       where: { id },
@@ -71,6 +87,7 @@ export async function updateJob(id: string, prevState: any, formData: FormData) 
         requirements,
         description,
         opportunities,
+        deadline,
         isActive,
       },
     });

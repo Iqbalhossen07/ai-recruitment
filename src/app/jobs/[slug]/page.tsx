@@ -3,9 +3,9 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import BreadcrumbBanner from "@/components/layout/BreadcrumbBanner";
 
-export default async function JobDetailsPage({ params }: { params: { id: string } }) {
+export default async function JobDetailsPage({ params }: { params: { slug: string } }) {
   const job = await prisma.job.findUnique({
-    where: { id: params.id }
+    where: { slug: params.slug }
   });
 
   if (!job || !job.isActive) {

@@ -41,16 +41,18 @@ model User {
 }
 
 model Job {
-  id           String @id @default(cuid())
-  title        String
-  description  String @db.Text
-  requirements String @db.Text
-  opportunities String? @db.Text // New field added
-  keywords     String @db.Text // Comma separated keywords
+  id            String   @id @default(cuid())
+  slug          String   @unique @default(cuid())
+  title         String
+  description   String   @db.Text
+  requirements  String   @db.Text
+  opportunities String?  @db.Text // New field added
+  keywords      String   @db.Text // Comma separated keywords
 
   location    String?
   jobType     String?
   salaryRange String?
+  deadline    DateTime?
 
   isActive Boolean @default(true)
 

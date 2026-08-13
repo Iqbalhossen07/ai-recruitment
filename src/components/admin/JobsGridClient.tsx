@@ -7,10 +7,12 @@ import DeleteJobButton from "@/components/admin/DeleteJobButton";
 
 type Job = {
   id: string;
+  slug: string;
   title: string;
   location: string | null;
   jobType: string | null;
   salaryRange: string | null;
+  deadline: Date | null;
   description: string;
   keywords: string;
   createdAt: Date;
@@ -70,9 +72,8 @@ export default function JobsGridClient({ initialJobs }: { initialJobs: Job[] }) 
             const hoursAgo = Math.floor((new Date().getTime() - new Date(job.createdAt).getTime()) / (1000 * 60 * 60));
             const timeAgoText = hoursAgo < 24 ? `${hoursAgo || 1}h ago` : `${Math.floor(hoursAgo / 24)}d ago`;
             
-            // Calculate fake deadline (30 days from creation)
-            const deadlineDate = new Date(job.createdAt);
-            deadlineDate.setDate(deadlineDate.getDate() + 30);
+            // Use real deadline or fallback to 30 days if not set
+            const deadlineDate = job.deadline ? new Date(job.deadline) : new Date(new Date(job.createdAt).getTime() + 30 * 24 * 60 * 60 * 1000);
             const formattedDeadline = deadlineDate.toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' });
             
             // Extract first keyword for category tag
@@ -154,7 +155,7 @@ export default function JobsGridClient({ initialJobs }: { initialJobs: Job[] }) 
                 {/* Action Buttons */}
                 <div className="pt-3 border-t border-gray-200/60 flex flex-wrap items-center gap-1.5">
                   <Link 
-                    href={`/system-hq/jobs/${job.id}`}
+                    href={`/system-hq/jobs/${job.slug}`}
                     className="flex-1 flex justify-center items-center gap-1 px-2 py-1.5 bg-white border border-emerald-100 text-emerald-600 rounded-md hover:bg-emerald-50 hover:border-emerald-200 transition-colors font-medium text-xs shadow-sm"
                     title="View Details"
                   >
@@ -162,7 +163,7 @@ export default function JobsGridClient({ initialJobs }: { initialJobs: Job[] }) 
                   </Link>
                   
                   <Link 
-                    href={`/system-hq/jobs/${job.id}/edit`}
+                    href={`/system-hq/jobs/${job.slug}/edit`}
                     className="flex-1 flex justify-center items-center gap-1 px-2 py-1.5 bg-white border border-blue-100 text-blue-500 rounded-md hover:bg-blue-50 hover:border-blue-200 transition-colors font-medium text-xs shadow-sm"
                     title="Edit Job"
                   >

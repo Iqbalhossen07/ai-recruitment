@@ -122,6 +122,18 @@ export default function JobForm({ job }: JobFormProps) {
               placeholder="e.g. $80k - $120k / year"
             />
           </div>
+
+          {/* Deadline */}
+          <div>
+            <label htmlFor="deadline" className="block text-sm font-bold text-gray-700 mb-2">Application Deadline</label>
+            <input
+              type="date"
+              id="deadline"
+              name="deadline"
+              defaultValue={job?.deadline ? new Date(job.deadline).toISOString().split('T')[0] : ""}
+              className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary transition-all"
+            />
+          </div>
         </div>
 
         {/* Description - Rich Text */}
