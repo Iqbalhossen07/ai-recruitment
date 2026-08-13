@@ -111,7 +111,7 @@ export default function ContactPage() {
       {/* Map Section */}
       <section className="w-full h-[500px] relative border-t border-gray-200">
         <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m3!1d158857.72810629237!2d-0.241681537829286!3d51.52877184083652!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a00baf21de75%3A0x52963a5addd52a99!2sLondon%2C%20UK!5e0!3m2!1sen!2sbd!4v1700000000000!5m2!1sen!2sbd" 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d158858.47339878167!2d-0.2416812060371307!3d51.5285582!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a00baf21de75%3A0x52963a5addd52a99!2sLondon%2C%20UK!5e0!3m2!1sen!2sbd!4v1700000000000!5m2!1sen!2sbd" 
           width="100%" 
           height="100%" 
           style={{ border: 0 }} 
