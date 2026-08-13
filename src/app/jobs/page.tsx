@@ -23,9 +23,9 @@ export default async function JobsPage({ searchParams }: { searchParams: { [key:
     whereClause.AND = [
       {
         OR: [
-          { title: { contains: q, mode: 'insensitive' } },
-          { keywords: { contains: q, mode: 'insensitive' } },
-          { description: { contains: q, mode: 'insensitive' } },
+          { title: { contains: q } },
+          { keywords: { contains: q } },
+          { description: { contains: q } },
         ]
       }
     ];
@@ -33,8 +33,8 @@ export default async function JobsPage({ searchParams }: { searchParams: { [key:
   
   if (loc) {
     const locCondition = loc.toLowerCase() === "remote" 
-      ? { OR: [{ cityId: null }, { location: { contains: "Remote", mode: 'insensitive' } }] }
-      : { city: { name: { equals: loc, mode: 'insensitive' } } };
+      ? { OR: [{ cityId: null }, { location: { contains: "Remote" } }] }
+      : { city: { name: { equals: loc } } };
 
     if (whereClause.AND) {
       whereClause.AND.push(locCondition);
@@ -87,7 +87,7 @@ export default async function JobsPage({ searchParams }: { searchParams: { [key:
       AND: {
         OR: [
           { cityId: null },
-          { location: { contains: "Remote", mode: 'insensitive' } }
+          { location: { contains: "Remote" } }
         ]
       }
     }
