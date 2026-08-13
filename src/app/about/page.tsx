@@ -1,6 +1,7 @@
 import Image from "next/image";
 import BreadcrumbBanner from "@/components/layout/BreadcrumbBanner";
 import Link from "next/link";
+import FaqAccordion from "@/components/ui/FaqAccordion";
 
 export default function AboutPage() {
   return (
@@ -117,33 +118,8 @@ export default function AboutPage() {
             <h2 className="text-3xl md:text-4xl font-bold text-black">Frequently Asked Questions</h2>
           </div>
           
-          <div className="space-y-6">
-            <div className="bg-white border border-gray-200 rounded-md p-6 hover:border-primary transition-colors duration-300 shadow-sm">
-              <h3 className="text-xl font-bold text-black mb-3 flex items-center gap-3">
-                <span className="text-primary text-2xl">•</span> How does the AI CV parser work?
-              </h3>
-              <p className="text-black leading-relaxed pl-7">
-                Our AI uses advanced Natural Language Processing to extract key information like skills, experience, and education from your uploaded CV. It then matches these data points against the requirements of active job postings to find the perfect fit.
-              </p>
-            </div>
-            
-            <div className="bg-white border border-gray-200 rounded-md p-6 hover:border-primary transition-colors duration-300 shadow-sm">
-              <h3 className="text-xl font-bold text-black mb-3 flex items-center gap-3">
-                <span className="text-primary text-2xl">•</span> Is the service free for candidates?
-              </h3>
-              <p className="text-black leading-relaxed pl-7">
-                Yes, completely free! Candidates can create a profile, upload their CVs, and apply for jobs without any charges. We partner with companies who are looking for the best talent.
-              </p>
-            </div>
-            
-            <div className="bg-white border border-gray-200 rounded-md p-6 hover:border-primary transition-colors duration-300 shadow-sm">
-              <h3 className="text-xl font-bold text-black mb-3 flex items-center gap-3">
-                <span className="text-primary text-2xl">•</span> How long does the matching process take?
-              </h3>
-              <p className="text-black leading-relaxed pl-7">
-                The matching is nearly instantaneous. Once your CV is uploaded and parsed (which takes seconds), you will immediately see a list of jobs that match your profile.
-              </p>
-            </div>
+          <div className="mt-8">
+            <FaqAccordion />
           </div>
         </div>
       </section>
