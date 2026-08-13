@@ -52,7 +52,7 @@ export default function AdminBottomNav() {
             <Link 
               key={item.name} 
               href={item.href}
-              className={`flex flex-col items-center justify-center w-16 h-16 rounded-2xl transition-colors ${
+              className={`flex flex-col items-center justify-center w-16 h-16 rounded-md transition-colors ${
                 isActive 
                   ? "bg-primary text-white shadow-md shadow-primary/30" 
                   : `${item.color.bg} ${item.color.text}`
@@ -67,7 +67,7 @@ export default function AdminBottomNav() {
         {/* More Menu Toggle */}
         <button 
           onClick={() => setIsMenuOpen(true)}
-          className="flex flex-col items-center justify-center w-16 h-16 rounded-2xl bg-gray-50 text-gray-700 hover:bg-gray-100 transition-colors"
+          className="flex flex-col items-center justify-center w-16 h-16 rounded-md bg-gray-50 text-gray-700 hover:bg-gray-100 transition-colors"
         >
           <Menu className="h-6 w-6 mb-1" strokeWidth={2.5} />
           <span className="text-[11px] font-bold">Menu</span>
@@ -104,7 +104,7 @@ export default function AdminBottomNav() {
                 key={item.name}
                 href={item.href}
                 onClick={() => setIsMenuOpen(false)}
-                className={`flex items-center gap-4 px-5 py-4 rounded-2xl text-[15px] font-bold transition-all ${
+                className={`flex items-center gap-4 px-5 py-4 rounded-md text-[15px] font-bold transition-all ${
                   isActive 
                     ? "bg-primary text-white shadow-md shadow-primary/20" 
                     : `${item.color.bg} ${item.color.text} hover:opacity-80`
@@ -123,7 +123,7 @@ export default function AdminBottomNav() {
               await logoutAction();
               window.location.href = "/system-hq/login";
             }}
-            className="w-full flex items-center justify-center gap-2 px-5 py-4 bg-red-50 text-red-500 font-bold rounded-2xl hover:bg-red-100 transition-colors"
+            className="w-full flex items-center justify-center gap-2 px-5 py-4 bg-red-50 text-red-500 font-bold rounded-md hover:bg-red-100 transition-colors"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>
             Logout

@@ -32,9 +32,9 @@ export default async function AdminDashboard() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
         {stats.map((stat) => (
           <Link key={stat.name} href={stat.link} className="block group">
-            <div className="bg-[#f8f9fa] p-5 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-all h-full">
+            <div className="bg-[#f8f9fa] p-5 rounded-md shadow-sm border border-gray-100 hover:shadow-md transition-all h-full">
               <div className="flex items-center gap-3 mb-3">
-                <div className={`w-9 h-9 rounded-xl flex items-center justify-center ${stat.bg} ${stat.color} group-hover:scale-110 transition-transform`}>
+                <div className={`w-9 h-9 rounded-md flex items-center justify-center ${stat.bg} ${stat.color} group-hover:scale-110 transition-transform`}>
                   <stat.icon size={18} strokeWidth={2.5} />
                 </div>
                 <h3 className="text-xs font-extrabold text-black">{stat.name}</h3>
@@ -49,7 +49,7 @@ export default async function AdminDashboard() {
 
       {/* Main dashboard content area - Recent Activity */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-8">
-        <div className="lg:col-span-2 bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+        <div className="lg:col-span-2 bg-white rounded-md shadow-sm border border-gray-100 p-6">
           <div className="flex justify-between items-center mb-6">
             <h2 className="text-xl font-bold text-black">Recent Applications</h2>
             <Link href="/system-hq/applications" className="text-sm font-semibold text-primary hover:underline">
@@ -62,7 +62,7 @@ export default async function AdminDashboard() {
               <p className="text-gray-500 text-sm">No applications found.</p>
             ) : (
               recentApplicants.map((app) => (
-                <div key={app.id} className="flex items-center justify-between p-4 rounded-xl border border-gray-100 hover:bg-gray-50 transition-colors">
+                <div key={app.id} className="flex items-center justify-between p-4 rounded-md border border-gray-100 hover:bg-gray-50 transition-colors">
                   <div className="flex items-center gap-4">
                     <div className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 font-bold">
                       {app.name?.charAt(0) || "U"}
@@ -81,18 +81,18 @@ export default async function AdminDashboard() {
           </div>
         </div>
         
-        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+        <div className="bg-white rounded-md shadow-sm border border-gray-100 p-6">
            <h2 className="text-xl font-bold text-black mb-6">Quick Actions</h2>
            <div className="space-y-3">
-              <Link href="/system-hq/jobs/create" className="flex items-center gap-3 w-full p-4 rounded-xl bg-gray-50 hover:bg-primary/5 hover:text-primary transition-colors border border-gray-100 hover:border-primary/20 text-gray-700 font-semibold text-sm">
+              <Link href="/system-hq/jobs/create" className="flex items-center gap-3 w-full p-4 rounded-md bg-gray-50 hover:bg-primary/5 hover:text-primary transition-colors border border-gray-100 hover:border-primary/20 text-gray-700 font-semibold text-sm">
                 <Briefcase size={18} />
                 Post a new Job
               </Link>
-              <Link href="/system-hq/blogs/create" className="flex items-center gap-3 w-full p-4 rounded-xl bg-gray-50 hover:bg-primary/5 hover:text-primary transition-colors border border-gray-100 hover:border-primary/20 text-gray-700 font-semibold text-sm">
+              <Link href="/system-hq/blogs/create" className="flex items-center gap-3 w-full p-4 rounded-md bg-gray-50 hover:bg-primary/5 hover:text-primary transition-colors border border-gray-100 hover:border-primary/20 text-gray-700 font-semibold text-sm">
                 <FileText size={18} />
                 Write a Blog Post
               </Link>
-              <Link href="/system-hq/settings" className="flex items-center gap-3 w-full p-4 rounded-xl bg-gray-50 hover:bg-primary/5 hover:text-primary transition-colors border border-gray-100 hover:border-primary/20 text-gray-700 font-semibold text-sm">
+              <Link href="/system-hq/settings" className="flex items-center gap-3 w-full p-4 rounded-md bg-gray-50 hover:bg-primary/5 hover:text-primary transition-colors border border-gray-100 hover:border-primary/20 text-gray-700 font-semibold text-sm">
                 <Users size={18} />
                 Update Profile
               </Link>

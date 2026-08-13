@@ -26,7 +26,7 @@ export default function ContactPage() {
               </p>
             </div>
             
-            <div className="space-y-8 bg-gray-50 p-8 rounded-xl border border-gray-100">
+            <div className="space-y-8 bg-gray-50 p-8 rounded-md border border-gray-100">
               <div className="flex items-start gap-4">
                 <div className="flex-shrink-0 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm border border-gray-200 text-primary">
                   <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -71,7 +71,7 @@ export default function ContactPage() {
 
           {/* Contact Form */}
           <div className="lg:col-span-7">
-            <div className="bg-white border border-gray-200 rounded-xl shadow-lg p-8 md:p-10">
+            <div className="bg-white border border-gray-200 rounded-md shadow-lg p-8 md:p-10">
               <h3 className="text-2xl font-bold text-black mb-8">Send us a message</h3>
               <form className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

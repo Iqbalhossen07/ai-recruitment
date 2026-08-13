@@ -258,7 +258,7 @@ export default async function Home() {
 
           {/* Blog Grid */}
           {recentBlogs.length === 0 ? (
-            <div className="text-center py-10 text-gray-500 bg-gray-50 rounded-xl border border-dashed border-gray-200">
+            <div className="text-center py-10 text-gray-500 bg-gray-50 rounded-md border border-dashed border-gray-200">
               No blogs published yet.
             </div>
           ) : (

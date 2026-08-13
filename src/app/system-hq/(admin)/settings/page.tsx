@@ -67,12 +67,12 @@ export default function SettingsPage() {
 
   return (
     <div className="space-y-6">
-      <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+      <div className="bg-white p-6 rounded-md shadow-sm border border-gray-100">
         <h1 className="text-2xl font-bold text-gray-900">Admin Settings</h1>
         <p className="text-gray-500 mt-1">Manage your profile and account settings.</p>
       </div>
 
-      <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8 max-w-4xl w-full">
+      <div className="bg-white rounded-md shadow-sm border border-gray-100 p-6 md:p-8 max-w-4xl w-full">
         <form onSubmit={handleSubmit} className="space-y-8">
           
           {/* Profile Picture Section */}
@@ -103,7 +103,7 @@ export default function SettingsPage() {
               <p className="text-sm text-gray-500 mb-4 max-w-md">Upload a new avatar to personalize your account. Recommended size is 256x256px.</p>
               <label 
                 htmlFor="image" 
-                className="px-4 py-2 border border-gray-300 text-gray-700 text-sm font-bold rounded-lg hover:bg-gray-50 transition-colors cursor-pointer inline-block"
+                className="px-4 py-2 border border-gray-300 text-gray-700 text-sm font-bold rounded-md hover:bg-gray-50 transition-colors cursor-pointer inline-block"
               >
                 Change Picture
               </label>
@@ -120,7 +120,7 @@ export default function SettingsPage() {
                 name="name"
                 defaultValue={admin?.name}
                 required
-                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
               />
             </div>
             
@@ -132,7 +132,7 @@ export default function SettingsPage() {
                 name="email"
                 defaultValue={admin?.email}
                 required
-                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all bg-gray-50"
+                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all bg-gray-50"
               />
             </div>
           </div>
@@ -148,7 +148,7 @@ export default function SettingsPage() {
                   id="newPassword"
                   name="newPassword"
                   placeholder="Leave blank to keep current password"
-                  className="w-full px-4 py-3 pr-12 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                  className="w-full px-4 py-3 pr-12 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
                 />
                 <button
                   type="button"
@@ -165,7 +165,7 @@ export default function SettingsPage() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="flex items-center gap-2 px-8 py-3 bg-primary text-white font-bold rounded-xl hover:bg-primary-hover shadow-md hover:shadow-lg transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
+              className="flex items-center gap-2 px-8 py-3 bg-primary text-white font-bold rounded-md hover:bg-primary-hover shadow-md hover:shadow-lg transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
             >
               <Save size={20} />
               {isSubmitting ? "Saving Changes..." : "Save Changes"}

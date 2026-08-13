@@ -23,7 +23,7 @@ export default async function CitiesPage() {
         </div>
         <Link 
           href="/system-hq/cities/create" 
-          className="flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-xl hover:bg-primary-hover transition-colors shadow-sm font-bold"
+          className="flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-md hover:bg-primary-hover transition-colors shadow-sm font-bold"
         >
           <Plus size={20} />
           <span>Add New City</span>
@@ -32,7 +32,7 @@ export default async function CitiesPage() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {cities.map((city) => (
-          <div key={city.id} className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden group hover:border-primary/30 hover:shadow-md transition-all">
+          <div key={city.id} className="bg-white rounded-md shadow-sm border border-gray-100 overflow-hidden group hover:border-primary/30 hover:shadow-md transition-all">
             <div className="relative h-40 w-full bg-gray-100">
               <Image 
                 src={city.image} 
@@ -57,13 +57,13 @@ export default async function CitiesPage() {
         ))}
 
         {cities.length === 0 && (
-          <div className="col-span-full py-20 text-center bg-white rounded-2xl border border-gray-100 border-dashed">
+          <div className="col-span-full py-20 text-center bg-white rounded-md border border-gray-100 border-dashed">
             <MapPin size={48} className="mx-auto text-gray-300 mb-4" />
             <h3 className="text-xl font-bold text-gray-900 mb-2">No cities added yet</h3>
             <p className="text-gray-500 mb-6">Create a city to allow jobs to be associated with it.</p>
             <Link 
               href="/system-hq/cities/create" 
-              className="inline-flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-xl hover:bg-primary-hover transition-colors font-bold"
+              className="inline-flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-md hover:bg-primary-hover transition-colors font-bold"
             >
               <Plus size={20} /> Add First City
             </Link>

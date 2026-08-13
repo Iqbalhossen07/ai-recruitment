@@ -52,7 +52,7 @@ export default function BlogForm({ blog }: BlogFormProps) {
   };
 
   return (
-    <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8 max-w-4xl mx-auto w-full">
+    <div className="bg-white rounded-md shadow-sm border border-gray-100 p-6 md:p-8 max-w-4xl mx-auto w-full">
       <div className="flex items-center gap-4 mb-8">
         <Link href="/system-hq/blogs" className="p-2 bg-gray-50 text-gray-500 rounded-full hover:bg-gray-100 transition-colors">
           <ArrowLeft size={20} />
@@ -72,7 +72,7 @@ export default function BlogForm({ blog }: BlogFormProps) {
               name="title"
               defaultValue={blog?.title || ""}
               required
-              className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
               placeholder="e.g. How to Write a Winning CV"
             />
           </div>
@@ -85,7 +85,7 @@ export default function BlogForm({ blog }: BlogFormProps) {
               name="category"
               defaultValue={blog?.category || ""}
               required
-              className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary transition-all"
+              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary transition-all"
               placeholder="e.g. Career Advice"
             />
           </div>
@@ -98,7 +98,7 @@ export default function BlogForm({ blog }: BlogFormProps) {
               name="date"
               defaultValue={blog?.date ? new Date(blog.date).toISOString().split('T')[0] : new Date().toISOString().split('T')[0]}
               required
-              className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary transition-all"
+              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary transition-all"
             />
           </div>
 
@@ -110,17 +110,17 @@ export default function BlogForm({ blog }: BlogFormProps) {
               name="author"
               value={blog?.author || "Admin"}
               readOnly
-              className="w-full px-4 py-3 border border-gray-300 rounded-xl bg-gray-50 text-gray-500 cursor-not-allowed focus:outline-none transition-all"
+              className="w-full px-4 py-3 border border-gray-300 rounded-md bg-gray-50 text-gray-500 cursor-not-allowed focus:outline-none transition-all"
             />
           </div>
         </div>
 
         <div className="pt-4">
           <label className="block text-sm font-bold text-gray-700 mb-2">Blog Image *</label>
-          <div className="mt-2 flex justify-center rounded-xl border border-dashed border-gray-300 px-6 py-10 hover:bg-gray-50 transition-colors relative">
+          <div className="mt-2 flex justify-center rounded-md border border-dashed border-gray-300 px-6 py-10 hover:bg-gray-50 transition-colors relative">
             <div className="text-center w-full">
               {imagePreview ? (
-                <div className="relative w-full h-64 rounded-xl overflow-hidden shadow-sm mx-auto mb-4 border border-gray-200">
+                <div className="relative w-full h-64 rounded-md overflow-hidden shadow-sm mx-auto mb-4 border border-gray-200">
                   <Image 
                     src={imagePreview} 
                     alt="Blog Cover Preview" 
@@ -176,14 +176,14 @@ export default function BlogForm({ blog }: BlogFormProps) {
         <div className="pt-8 border-t border-gray-100 flex justify-end gap-4">
           <Link 
             href="/system-hq/blogs"
-            className="px-6 py-2.5 border border-gray-300 text-gray-700 font-bold rounded-xl hover:bg-gray-50 transition-colors"
+            className="px-6 py-2.5 border border-gray-300 text-gray-700 font-bold rounded-md hover:bg-gray-50 transition-colors"
           >
             Cancel
           </Link>
           <button
             type="submit"
             disabled={isSubmitting || (!imagePreview && !blog)}
-            className="flex items-center gap-2 px-8 py-2.5 bg-primary text-white font-bold rounded-xl hover:bg-primary-hover shadow-md hover:shadow-lg transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
+            className="flex items-center gap-2 px-8 py-2.5 bg-primary text-white font-bold rounded-md hover:bg-primary-hover shadow-md hover:shadow-lg transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
           >
             <Save size={18} />
             {isSubmitting ? "Saving..." : blog ? "Update Blog" : "Publish Blog"}

@@ -49,7 +49,7 @@ export default function CityForm({ city }: CityFormProps) {
   };
 
   return (
-    <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8 max-w-2xl mx-auto w-full">
+    <div className="bg-white rounded-md shadow-sm border border-gray-100 p-6 md:p-8 max-w-2xl mx-auto w-full">
       <div className="flex items-center gap-4 mb-8">
         <Link href="/system-hq/cities" className="p-2 bg-gray-50 text-gray-500 rounded-full hover:bg-gray-100 transition-colors">
           <ArrowLeft size={20} />
@@ -68,17 +68,17 @@ export default function CityForm({ city }: CityFormProps) {
             name="name"
             defaultValue={city?.name || ""}
             required
-            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+            className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
             placeholder="e.g. London, Dhaka, New York"
           />
         </div>
 
         <div>
           <label className="block text-sm font-bold text-gray-700 mb-2">City Image *</label>
-          <div className="mt-2 flex justify-center rounded-xl border border-dashed border-gray-300 px-6 py-10 hover:bg-gray-50 transition-colors relative">
+          <div className="mt-2 flex justify-center rounded-md border border-dashed border-gray-300 px-6 py-10 hover:bg-gray-50 transition-colors relative">
             <div className="text-center w-full">
               {imagePreview ? (
-                <div className="relative w-full h-48 rounded-xl overflow-hidden shadow-sm mx-auto mb-4 border border-gray-200">
+                <div className="relative w-full h-48 rounded-md overflow-hidden shadow-sm mx-auto mb-4 border border-gray-200">
                   <Image 
                     src={imagePreview} 
                     alt="City Preview" 
@@ -125,14 +125,14 @@ export default function CityForm({ city }: CityFormProps) {
         <div className="pt-8 border-t border-gray-100 flex justify-end gap-4">
           <Link 
             href="/system-hq/cities"
-            className="px-6 py-2.5 border border-gray-300 text-gray-700 font-bold rounded-xl hover:bg-gray-50 transition-colors"
+            className="px-6 py-2.5 border border-gray-300 text-gray-700 font-bold rounded-md hover:bg-gray-50 transition-colors"
           >
             Cancel
           </Link>
           <button
             type="submit"
             disabled={isSubmitting || (!imagePreview && !city)}
-            className="flex items-center gap-2 px-8 py-2.5 bg-primary text-white font-bold rounded-xl hover:bg-primary-hover shadow-md hover:shadow-lg transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
+            className="flex items-center gap-2 px-8 py-2.5 bg-primary text-white font-bold rounded-md hover:bg-primary-hover shadow-md hover:shadow-lg transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
           >
             <Save size={18} />
             {isSubmitting ? "Saving..." : city ? "Update City" : "Add City"}

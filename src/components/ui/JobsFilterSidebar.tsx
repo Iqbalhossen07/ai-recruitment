@@ -75,7 +75,7 @@ export default function JobsFilterSidebar({
               <label key={city.id} className="flex items-center gap-3 cursor-pointer group">
                 <div className="relative flex items-center">
                   <input type="radio" name="loc" value={city.name} defaultChecked={loc === city.name} className="peer sr-only" />
-                  <div className="w-5 h-5 bg-white border-2 border-gray-300 rounded-sm peer-checked:bg-primary peer-checked:border-primary transition-colors"></div>
+                  <div className="w-5 h-5 bg-white border-2 border-gray-300 rounded-md peer-checked:bg-primary peer-checked:border-primary transition-colors"></div>
                   <svg className="w-3.5 h-3.5 text-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 peer-checked:opacity-100 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                   </svg>
@@ -88,7 +88,7 @@ export default function JobsFilterSidebar({
             <label className="flex items-center gap-3 cursor-pointer group">
               <div className="relative flex items-center">
                 <input type="radio" name="loc" value="Remote" defaultChecked={loc === "Remote"} className="peer sr-only" />
-                <div className="w-5 h-5 bg-white border-2 border-gray-300 rounded-sm peer-checked:bg-primary peer-checked:border-primary transition-colors"></div>
+                <div className="w-5 h-5 bg-white border-2 border-gray-300 rounded-md peer-checked:bg-primary peer-checked:border-primary transition-colors"></div>
                 <svg className="w-3.5 h-3.5 text-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 peer-checked:opacity-100 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                 </svg>
@@ -108,7 +108,7 @@ export default function JobsFilterSidebar({
               <label key={t} className="flex items-center gap-3 cursor-pointer group">
                 <div className="relative flex items-center">
                   <input type="radio" name="type" value={t} defaultChecked={type === t} className="peer sr-only" />
-                  <div className="w-5 h-5 bg-white border-2 border-gray-300 rounded-sm peer-checked:bg-primary peer-checked:border-primary transition-colors"></div>
+                  <div className="w-5 h-5 bg-white border-2 border-gray-300 rounded-md peer-checked:bg-primary peer-checked:border-primary transition-colors"></div>
                   <svg className="w-3.5 h-3.5 text-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 peer-checked:opacity-100 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                   </svg>

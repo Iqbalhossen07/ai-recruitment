@@ -18,7 +18,7 @@ export default async function BlogsPage() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full">
         {blogs.length === 0 ? (
-          <div className="text-center py-20 text-gray-500 bg-gray-50 rounded-xl border border-dashed border-gray-200">
+          <div className="text-center py-20 text-gray-500 bg-gray-50 rounded-md border border-dashed border-gray-200">
             No blogs published yet. Please check back later.
           </div>
         ) : (

@@ -36,7 +36,7 @@ export default async function AdminJobDetailsPage({ params }: { params: { slug: 
         </div>
       </div>
 
-      <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 mb-6">
+      <div className="bg-white rounded-md shadow-sm border border-gray-100 p-8 mb-6">
         <div className="border-b border-gray-100 pb-8 mb-8 flex flex-col md:flex-row justify-between md:items-center gap-6">
           <div>
             <h1 className="text-3xl md:text-4xl font-extrabold text-black mb-4 tracking-tight">{job.title}</h1>
@@ -66,7 +66,7 @@ export default async function AdminJobDetailsPage({ params }: { params: { slug: 
               )}
             </div>
           </div>
-          <div className="bg-green-50/50 text-green-700 px-8 py-4 rounded-xl flex flex-col items-center justify-center border border-green-200 min-w-[140px]">
+          <div className="bg-green-50/50 text-green-700 px-8 py-4 rounded-md flex flex-col items-center justify-center border border-green-200 min-w-[140px]">
             <span className="text-4xl font-black leading-none">{job._count.applications}</span>
             <span className="text-xs font-bold uppercase tracking-widest mt-2">Applicants</span>
           </div>

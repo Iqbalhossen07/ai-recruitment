@@ -14,7 +14,7 @@ export default async function ViewAdminBlogPage({ params }: { params: { slug: st
   }
 
   return (
-    <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8 max-w-4xl mx-auto w-full">
+    <div className="bg-white rounded-md shadow-sm border border-gray-100 p-6 md:p-8 max-w-4xl mx-auto w-full">
       <div className="flex items-center justify-between mb-8">
         <div className="flex items-center gap-4">
           <Link href="/system-hq/blogs" className="p-2 bg-gray-50 text-gray-500 rounded-full hover:bg-gray-100 transition-colors">
@@ -24,7 +24,7 @@ export default async function ViewAdminBlogPage({ params }: { params: { slug: st
         </div>
         <Link 
           href={`/system-hq/blogs/${blog.slug}/edit`}
-          className="flex items-center gap-2 px-5 py-2 bg-primary text-white font-bold rounded-xl hover:bg-primary-hover shadow-sm transition-all"
+          className="flex items-center gap-2 px-5 py-2 bg-primary text-white font-bold rounded-md hover:bg-primary-hover shadow-sm transition-all"
         >
           <Edit size={16} /> Edit
         </Link>
@@ -52,7 +52,7 @@ export default async function ViewAdminBlogPage({ params }: { params: { slug: st
 
         {/* Image */}
         {blog.imageUrl && (
-          <div className="relative w-full h-64 md:h-96 rounded-2xl overflow-hidden shadow-sm border border-gray-100">
+          <div className="relative w-full h-64 md:h-96 rounded-md overflow-hidden shadow-sm border border-gray-100">
             <Image 
               src={blog.imageUrl} 
               alt={blog.title} 
@@ -64,7 +64,7 @@ export default async function ViewAdminBlogPage({ params }: { params: { slug: st
 
         {/* Content */}
         <div 
-          className="prose max-w-none prose-img:rounded-xl prose-a:text-primary pt-4 border-t border-gray-100"
+          className="prose max-w-none prose-img:rounded-md prose-a:text-primary pt-4 border-t border-gray-100"
           dangerouslySetInnerHTML={{ __html: blog.content }}
         />
       </div>

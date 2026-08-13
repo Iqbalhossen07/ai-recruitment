@@ -38,9 +38,9 @@ export default async function BlogDetailsPage({ params }: { params: { slug: stri
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
           
           {/* Left Column: Blog Content */}
-          <div className="lg:col-span-2 bg-white p-6 md:p-10 rounded-2xl shadow-sm border border-gray-100">
+          <div className="lg:col-span-2 bg-white p-6 md:p-10 rounded-md shadow-sm border border-gray-100">
             {blog.imageUrl && (
-              <div className="relative w-full h-[300px] md:h-[450px] rounded-2xl overflow-hidden mb-12 shadow-sm">
+              <div className="relative w-full h-[300px] md:h-[450px] rounded-md overflow-hidden mb-12 shadow-sm">
                 <Image 
                   src={blog.imageUrl} 
                   alt={blog.title} 
@@ -57,14 +57,14 @@ export default async function BlogDetailsPage({ params }: { params: { slug: stri
             )}
 
             <div 
-              className="prose prose-lg max-w-none prose-img:rounded-xl prose-a:text-primary prose-headings:text-gray-900 prose-p:text-gray-700"
+              className="prose prose-lg max-w-none prose-img:rounded-md prose-a:text-primary prose-headings:text-gray-900 prose-p:text-gray-700"
               dangerouslySetInnerHTML={{ __html: blog.content }}
             />
           </div>
 
           {/* Right Column: Sidebar (Recent Blogs) */}
           <div className="lg:col-span-1 space-y-6">
-            <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+            <div className="bg-white p-6 rounded-md shadow-sm border border-gray-100">
               <h3 className="text-xl font-bold text-gray-900 mb-6 border-b border-gray-100 pb-3">
                 Recent Articles
               </h3>
@@ -72,7 +72,7 @@ export default async function BlogDetailsPage({ params }: { params: { slug: stri
               <div className="space-y-6">
                 {recentBlogs.map((recentBlog) => (
                   <Link href={`/blogs/${recentBlog.slug}`} key={recentBlog.id} className="flex gap-4 group">
-                    <div className="relative w-24 h-20 rounded-lg overflow-hidden flex-shrink-0 bg-primary/5">
+                    <div className="relative w-24 h-20 rounded-md overflow-hidden flex-shrink-0 bg-primary/5">
                       {recentBlog.imageUrl ? (
                         <Image 
                           src={recentBlog.imageUrl} 

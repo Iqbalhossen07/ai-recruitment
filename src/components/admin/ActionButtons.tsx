@@ -16,7 +16,7 @@ export default function ActionButtons({ editUrl, viewUrl, onDelete, deleteTitle 
       {viewUrl && (
         <Link 
           href={viewUrl}
-          className="flex items-center justify-center gap-1.5 px-3 py-1.5 bg-gray-50 text-gray-600 border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-gray-900 transition-colors text-xs font-semibold"
+          className="flex items-center justify-center gap-1.5 px-3 py-1.5 bg-gray-50 text-gray-600 border border-gray-200 rounded-md hover:bg-gray-100 hover:text-gray-900 transition-colors text-xs font-semibold"
           title="View Details"
         >
           <Eye size={14} /> View
@@ -26,7 +26,7 @@ export default function ActionButtons({ editUrl, viewUrl, onDelete, deleteTitle 
       {editUrl && (
         <Link 
           href={editUrl}
-          className="flex items-center justify-center gap-1.5 px-3 py-1.5 bg-blue-50 text-blue-600 border border-blue-100 rounded-lg hover:bg-blue-100 transition-colors text-xs font-semibold"
+          className="flex items-center justify-center gap-1.5 px-3 py-1.5 bg-blue-50 text-blue-600 border border-blue-100 rounded-md hover:bg-blue-100 transition-colors text-xs font-semibold"
           title="Edit"
         >
           <Edit size={14} /> Edit
@@ -36,7 +36,7 @@ export default function ActionButtons({ editUrl, viewUrl, onDelete, deleteTitle 
       {onDelete && (
         <button 
           onClick={onDelete}
-          className="flex items-center justify-center gap-1.5 px-3 py-1.5 bg-red-50 text-red-600 border border-red-100 rounded-lg hover:bg-red-100 transition-colors text-xs font-semibold"
+          className="flex items-center justify-center gap-1.5 px-3 py-1.5 bg-red-50 text-red-600 border border-red-100 rounded-md hover:bg-red-100 transition-colors text-xs font-semibold"
           title={deleteTitle}
         >
           <Trash2 size={14} /> Delete

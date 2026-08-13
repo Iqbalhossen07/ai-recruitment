@@ -31,7 +31,7 @@ export default function JobsGridClient({ initialJobs }: { initialJobs: Job[] }) 
   });
 
   return (
-    <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+    <div className="bg-white rounded-md shadow-sm border border-gray-100 p-6">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
         <div>
           <h2 className="text-xl font-bold text-black">Jobs Management</h2>
@@ -49,13 +49,13 @@ export default function JobsGridClient({ initialJobs }: { initialJobs: Job[] }) 
               placeholder="Search jobs..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+              className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
             />
           </div>
 
           <Link 
             href="/system-hq/jobs/create" 
-            className="bg-primary hover:bg-primary-hover text-white px-5 py-2.5 rounded-lg font-semibold text-sm transition-colors flex items-center gap-2 flex-shrink-0"
+            className="bg-primary hover:bg-primary-hover text-white px-5 py-2.5 rounded-md font-semibold text-sm transition-colors flex items-center gap-2 flex-shrink-0"
           >
             <Plus size={18} />
             Post New Job
@@ -64,7 +64,7 @@ export default function JobsGridClient({ initialJobs }: { initialJobs: Job[] }) 
       </div>
 
       {filteredJobs.length === 0 ? (
-        <div className="py-12 text-center text-gray-500 bg-gray-50 rounded-xl border border-gray-100">
+        <div className="py-12 text-center text-gray-500 bg-gray-50 rounded-md border border-gray-100">
           No jobs found.
         </div>
       ) : (

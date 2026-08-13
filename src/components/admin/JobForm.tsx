@@ -61,7 +61,7 @@ export default function JobForm({ job, cities }: JobFormProps) {
   };
 
   return (
-    <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8">
+    <div className="bg-white rounded-md shadow-sm border border-gray-100 p-6 md:p-8">
       <div className="flex items-center gap-4 mb-8 max-w-4xl mx-auto w-full">
         <Link href="/system-hq/jobs" className="p-2 bg-gray-50 text-gray-500 rounded-full hover:bg-gray-100 transition-colors">
           <ArrowLeft size={20} />
@@ -82,7 +82,7 @@ export default function JobForm({ job, cities }: JobFormProps) {
               name="title"
               defaultValue={job?.title || ""}
               required
-              className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
               placeholder="e.g. Senior Frontend Developer"
             />
           </div>
@@ -94,7 +94,7 @@ export default function JobForm({ job, cities }: JobFormProps) {
               id="cityId"
               name="cityId"
               defaultValue={job?.cityId || ""}
-              className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary transition-all bg-white"
+              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary transition-all bg-white"
             >
               <option value="">Remote / Global</option>
               {cities.map((city) => (
@@ -112,7 +112,7 @@ export default function JobForm({ job, cities }: JobFormProps) {
               id="jobType"
               name="jobType"
               defaultValue={job?.jobType || ""}
-              className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary transition-all bg-white"
+              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary transition-all bg-white"
             >
               <option value="">Select Type</option>
               <option value="Full-time">Full-time</option>
@@ -131,7 +131,7 @@ export default function JobForm({ job, cities }: JobFormProps) {
               id="salaryRange"
               name="salaryRange"
               defaultValue={job?.salaryRange || ""}
-              className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary transition-all"
+              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary transition-all"
               placeholder="e.g. $80k - $120k / year"
             />
           </div>
@@ -144,7 +144,7 @@ export default function JobForm({ job, cities }: JobFormProps) {
               id="deadline"
               name="deadline"
               defaultValue={job?.deadline ? new Date(job.deadline).toISOString().split('T')[0] : ""}
-              className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary transition-all"
+              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary transition-all"
             />
           </div>
         </div>
@@ -207,14 +207,14 @@ export default function JobForm({ job, cities }: JobFormProps) {
         <div className="pt-8 flex justify-end gap-4 mt-8 border-t border-gray-100 md:col-span-2">
           <Link 
             href="/system-hq/jobs"
-            className="px-6 py-2.5 border border-gray-300 text-gray-700 font-bold rounded-xl hover:bg-gray-50 transition-colors"
+            className="px-6 py-2.5 border border-gray-300 text-gray-700 font-bold rounded-md hover:bg-gray-50 transition-colors"
           >
             Cancel
           </Link>
           <button
             type="submit"
             disabled={isSubmitting}
-            className="flex items-center gap-2 px-8 py-2.5 bg-primary text-white font-bold rounded-xl hover:bg-primary-hover shadow-md hover:shadow-lg transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
+            className="flex items-center gap-2 px-8 py-2.5 bg-primary text-white font-bold rounded-md hover:bg-primary-hover shadow-md hover:shadow-lg transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
           >
             <Save size={18} />
             {isSubmitting ? "Saving..." : job ? "Update Job" : "Publish Job"}

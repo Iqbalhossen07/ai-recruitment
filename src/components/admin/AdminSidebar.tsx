@@ -54,7 +54,7 @@ export default function AdminSidebar() {
             <Link
               key={item.name}
               href={item.href}
-              className={`flex items-center gap-4 px-5 py-4 rounded-2xl text-[15px] font-bold transition-all duration-300 ${
+              className={`flex items-center gap-4 px-5 py-4 rounded-md text-[15px] font-bold transition-all duration-300 ${
                 isActive
                   ? "bg-primary text-white shadow-md shadow-primary/20 scale-[1.02]"
                   : `bg-white text-gray-700 shadow-sm border border-gray-50 hover:shadow-md hover:scale-[1.02]`
@@ -75,7 +75,7 @@ export default function AdminSidebar() {
         <Link 
           href="/" 
           target="_blank"
-          className="flex justify-center items-center gap-2 w-full py-2.5 text-sm font-medium text-gray-600 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors border border-gray-200"
+          className="flex justify-center items-center gap-2 w-full py-2.5 text-sm font-medium text-gray-600 bg-gray-50 hover:bg-gray-100 rounded-md transition-colors border border-gray-200"
         >
           View Website
         </Link>

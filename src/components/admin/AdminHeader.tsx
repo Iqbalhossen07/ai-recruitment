@@ -78,7 +78,7 @@ export default function AdminHeader() {
 
           {/* Dropdown Menu */}
           {dropdownOpen && (
-            <div className="absolute right-0 mt-0 w-48 bg-white rounded-xl shadow-xl border border-gray-100 py-2 z-50 animate-in fade-in zoom-in duration-200">
+            <div className="absolute right-0 mt-0 w-48 bg-white rounded-md shadow-xl border border-gray-100 py-2 z-50 animate-in fade-in zoom-in duration-200">
               <div className="px-4 py-3 border-b border-gray-50 mb-1">
                 <p className="text-sm font-bold text-gray-900 truncate">{admin?.name || "Admin User"}</p>
                 <p className="text-xs text-gray-500 truncate">{admin?.email || "admin@airecruit.com"}</p>
@@ -104,7 +104,7 @@ export default function AdminHeader() {
       {/* Welcome & Info Section - Only on Dashboard */}
       {isDashboard && (
         <div className="px-4 md:px-8 py-6 md:py-8 relative z-10">
-          <div className="bg-primary/5 border border-primary/10 rounded-2xl p-5 md:p-6 w-full flex flex-col md:flex-row justify-between items-center shadow-sm">
+          <div className="bg-primary/5 border border-primary/10 rounded-md p-5 md:p-6 w-full flex flex-col md:flex-row justify-between items-center shadow-sm">
             
             <div className="mb-6 md:mb-0 text-center md:text-left w-full md:w-auto">
               <h1 className="text-2xl md:text-3xl font-extrabold text-black mb-2">
@@ -116,7 +116,7 @@ export default function AdminHeader() {
             </div>
 
             {/* Date & Time Widget */}
-            <div className="bg-white rounded-xl py-3 px-5 shadow-sm border border-gray-100 flex items-center gap-4 min-w-[260px]">
+            <div className="bg-white rounded-md py-3 px-5 shadow-sm border border-gray-100 flex items-center gap-4 min-w-[260px]">
               <div className="h-10 w-10 rounded-full border-2 border-black flex items-center justify-center bg-gray-50">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-black">
                   <circle cx="12" cy="12" r="10"></circle>
