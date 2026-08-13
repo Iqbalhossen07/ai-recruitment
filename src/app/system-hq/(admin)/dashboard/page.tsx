@@ -29,17 +29,17 @@ export default async function AdminDashboard() {
     <div className="space-y-6">
       
       {/* Stat Cards Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
         {stats.map((stat) => (
           <Link key={stat.name} href={stat.link} className="block group">
-            <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-all h-full">
-              <div className="flex items-center gap-4 mb-4">
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${stat.bg} ${stat.color} group-hover:scale-110 transition-transform`}>
-                  <stat.icon size={24} strokeWidth={2.5} />
+            <div className="bg-[#f8f9fa] p-5 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-all h-full">
+              <div className="flex items-center gap-3 mb-3">
+                <div className={`w-9 h-9 rounded-xl flex items-center justify-center ${stat.bg} ${stat.color} group-hover:scale-110 transition-transform`}>
+                  <stat.icon size={18} strokeWidth={2.5} />
                 </div>
-                <h3 className="text-sm font-bold text-gray-500">{stat.name}</h3>
+                <h3 className="text-xs font-extrabold text-black">{stat.name}</h3>
               </div>
-              <p className="text-3xl font-extrabold text-black">
+              <p className="text-[28px] font-normal text-black tracking-tight">
                 {stat.value}
               </p>
             </div>

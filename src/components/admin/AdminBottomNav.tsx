@@ -14,24 +14,36 @@ export default function AdminBottomNav() {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const mainNav = [
-    { name: "Home", href: "/system-hq/dashboard", icon: LayoutDashboard },
-    { name: "Jobs", href: "/system-hq/jobs", icon: Briefcase },
-    { name: "Users", href: "/system-hq/applications", icon: Users },
+  const pastelColors = [
+    { text: "text-blue-500", bg: "bg-blue-50" },
+    { text: "text-rose-500", bg: "bg-rose-50" },
+    { text: "text-emerald-500", bg: "bg-emerald-50" },
+    { text: "text-amber-500", bg: "bg-amber-50" },
+    { text: "text-purple-500", bg: "bg-purple-50" },
+    { text: "text-indigo-500", bg: "bg-indigo-50" },
+    { text: "text-cyan-500", bg: "bg-cyan-50" },
+    { text: "text-slate-500", bg: "bg-slate-50" },
   ];
 
-  const secondaryNav = [
-    { name: "Blogs", href: "/system-hq/blogs" },
-    { name: "Messages", href: "/system-hq/messages" },
-    { name: "FAQs", href: "/system-hq/faqs" },
-    { name: "Settings", href: "/system-hq/settings" },
+  const allNav = [
+    { name: "Home", href: "/system-hq/dashboard", icon: LayoutDashboard, color: pastelColors[0] },
+    { name: "Cities", href: "/system-hq/cities", icon: LayoutDashboard, color: pastelColors[1] },
+    { name: "Jobs", href: "/system-hq/jobs", icon: Briefcase, color: pastelColors[2] },
+    { name: "Users", href: "/system-hq/applications", icon: Users, color: pastelColors[3] },
+    { name: "Blogs", href: "/system-hq/blogs", icon: LayoutDashboard, color: pastelColors[4] },
+    { name: "Messages", href: "/system-hq/messages", icon: LayoutDashboard, color: pastelColors[5] },
+    { name: "FAQs", href: "/system-hq/faqs", icon: LayoutDashboard, color: pastelColors[6] },
+    { name: "Settings", href: "/system-hq/settings", icon: LayoutDashboard, color: pastelColors[7] },
   ];
+
+  // For bottom bar, show first 4 items + Menu
+  const bottomNavItems = allNav.slice(0, 4);
 
   return (
     <>
       {/* Mobile Bottom Navigation Bar */}
-      <div className="md:hidden fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 z-50 px-2 py-2 flex justify-between items-center shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
-        {mainNav.map((item) => {
+      <div className="md:hidden fixed bottom-0 left-0 w-full bg-white z-50 px-3 py-3 flex justify-between items-center shadow-[0_-10px_15px_-3px_rgba(0,0,0,0.05)] border-t border-gray-100">
+        {bottomNavItems.map((item) => {
           const isActive = pathname === item.href || pathname.startsWith(item.href + "/");
           const Icon = item.icon;
           
@@ -39,68 +51,93 @@ export default function AdminBottomNav() {
             <Link 
               key={item.name} 
               href={item.href}
-              className={`flex flex-col items-center justify-center w-full py-2 px-1 rounded-xl transition-colors ${
-                isActive ? "bg-primary/10 text-primary" : "text-gray-500 hover:bg-gray-50 hover:text-gray-900"
+              className={`flex flex-col items-center justify-center w-16 h-16 rounded-2xl transition-colors ${
+                isActive 
+                  ? "bg-primary text-white shadow-md shadow-primary/30" 
+                  : `${item.color.bg} ${item.color.text}`
               }`}
             >
               <Icon className="h-6 w-6 mb-1" strokeWidth={isActive ? 2.5 : 2} />
-              <span className="text-[10px] font-bold">{item.name}</span>
+              <span className="text-[11px] font-bold">{item.name}</span>
             </Link>
           );
         })}
         
         {/* More Menu Toggle */}
         <button 
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className={`flex flex-col items-center justify-center w-full py-2 px-1 rounded-xl transition-colors ${
-            isMenuOpen ? "bg-gray-100 text-black" : "text-gray-500 hover:bg-gray-50 hover:text-gray-900"
-          }`}
+          onClick={() => setIsMenuOpen(true)}
+          className="flex flex-col items-center justify-center w-16 h-16 rounded-2xl bg-gray-50 text-gray-700 hover:bg-gray-100 transition-colors"
         >
-          <Menu className="h-6 w-6 mb-1" strokeWidth={isMenuOpen ? 2.5 : 2} />
-          <span className="text-[10px] font-bold">Menu</span>
+          <Menu className="h-6 w-6 mb-1" strokeWidth={2.5} />
+          <span className="text-[11px] font-bold">Menu</span>
         </button>
       </div>
 
-      {/* Expanded Mobile Menu */}
-      {isMenuOpen && (
-        <div className="md:hidden fixed bottom-20 left-0 w-full bg-white border-t border-gray-200 shadow-xl z-40 rounded-t-3xl overflow-hidden animate-in slide-in-from-bottom-5">
-          <div className="p-6">
-            <h3 className="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">More Options</h3>
-            <div className="grid grid-cols-2 gap-3">
-              {secondaryNav.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  onClick={() => setIsMenuOpen(false)}
-                  className="bg-gray-50 border border-gray-100 rounded-xl p-4 text-center font-bold text-gray-700 hover:bg-primary/10 hover:text-primary hover:border-primary/20 transition-colors"
-                >
-                  {item.name}
-                </Link>
-              ))}
+      {/* Off-canvas Mobile Sidebar */}
+      <div 
+        className={`md:hidden fixed inset-y-0 left-0 z-50 w-[280px] bg-[#f8f9fa] shadow-2xl transform transition-transform duration-300 ease-in-out flex flex-col ${
+          isMenuOpen ? "translate-x-0" : "-translate-x-full"
+        }`}
+      >
+        <div className="flex items-center justify-between px-6 py-5 bg-white border-b border-gray-100">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary">
+              <Users className="h-5 w-5" />
             </div>
-            
-            <div className="mt-6 pt-6 border-t border-gray-100 flex justify-center">
-              <button 
-                onClick={() => {
-                  document.cookie = "session=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-                  window.location.href = "/login";
-                }}
-                className="text-red-500 font-bold px-6 py-2 bg-red-50 rounded-full hover:bg-red-100 transition-colors"
-              >
-                Log Out
-              </button>
-            </div>
+            <span className="font-extrabold text-gray-900">AI Recruit</span>
           </div>
+          <button 
+            onClick={() => setIsMenuOpen(false)}
+            className="w-8 h-8 flex items-center justify-center bg-gray-100 text-gray-500 rounded-full hover:bg-gray-200"
+          >
+            ✕
+          </button>
         </div>
-      )}
+
+        <div className="flex-1 overflow-y-auto px-4 py-6 space-y-3">
+          {allNav.map((item) => {
+            const isActive = pathname === item.href || pathname.startsWith(item.href + "/");
+            const Icon = item.icon;
+            return (
+              <Link
+                key={item.name}
+                href={item.href}
+                onClick={() => setIsMenuOpen(false)}
+                className={`flex items-center gap-4 px-5 py-4 rounded-2xl text-[15px] font-bold transition-all ${
+                  isActive 
+                    ? "bg-primary text-white shadow-md shadow-primary/20" 
+                    : `${item.color.bg} ${item.color.text} hover:opacity-80`
+                }`}
+              >
+                <Icon className={`h-5 w-5 ${isActive ? "text-white" : ""}`} strokeWidth={isActive ? 2.5 : 2} />
+                {item.name}
+              </Link>
+            );
+          })}
+        </div>
+        
+        <div className="p-5 border-t border-gray-200 bg-white">
+          <button 
+            onClick={() => {
+              document.cookie = "session=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+              window.location.href = "/system-hq/login";
+            }}
+            className="w-full flex items-center justify-center gap-2 px-5 py-4 bg-red-50 text-red-500 font-bold rounded-2xl hover:bg-red-100 transition-colors"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>
+            Logout
+          </button>
+        </div>
+      </div>
       
-      {/* Overlay for expanded menu */}
+      {/* Overlay for off-canvas menu */}
       {isMenuOpen && (
         <div 
-          className="md:hidden fixed inset-0 bg-black/20 z-30" 
+          className="md:hidden fixed inset-0 bg-black/30 backdrop-blur-sm z-40 transition-opacity" 
           onClick={() => setIsMenuOpen(false)}
         />
       )}
+    </>
     </>
   );
 }
