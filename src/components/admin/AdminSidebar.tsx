@@ -17,20 +17,20 @@ export default function AdminSidebar() {
   const pathname = usePathname();
 
   const navItems = [
-    { name: "Dashboard", href: "/admin/dashboard", icon: LayoutDashboard },
-    { name: "Jobs", href: "/admin/jobs", icon: Briefcase },
-    { name: "Applications", href: "/admin/applications", icon: Users },
-    { name: "Blogs", href: "/admin/blogs", icon: FileText },
-    { name: "Messages", href: "/admin/messages", icon: MessageSquare },
-    { name: "FAQs", href: "/admin/faqs", icon: HelpCircle },
-    { name: "Settings", href: "/admin/settings", icon: Settings },
+    { name: "Dashboard", href: "/system-hq/dashboard", icon: LayoutDashboard },
+    { name: "Jobs", href: "/system-hq/jobs", icon: Briefcase },
+    { name: "Applications", href: "/system-hq/applications", icon: Users },
+    { name: "Blogs", href: "/system-hq/blogs", icon: FileText },
+    { name: "Messages", href: "/system-hq/messages", icon: MessageSquare },
+    { name: "FAQs", href: "/system-hq/faqs", icon: HelpCircle },
+    { name: "Settings", href: "/system-hq/settings", icon: Settings },
   ];
 
   return (
     <aside className="hidden md:flex flex-col w-64 h-screen bg-gray-50 border-r border-gray-200 fixed left-0 top-0 z-40">
       {/* Brand */}
       <div className="h-20 flex items-center px-6 border-b border-gray-200 bg-white">
-        <Link href="/admin/dashboard" className="flex items-center gap-3">
+        <Link href="/system-hq/dashboard" className="flex items-center gap-3">
           <Image
             src="/logo.jpg"
             alt="AI Recruit Logo"

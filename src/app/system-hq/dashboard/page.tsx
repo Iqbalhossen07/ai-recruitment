@@ -12,10 +12,10 @@ export default async function AdminDashboard() {
   ]);
 
   const stats = [
-    { name: "Total Jobs", value: totalJobs, icon: Briefcase, color: "text-blue-500", bg: "bg-blue-50", link: "/admin/jobs" },
-    { name: "Total Applicants", value: totalApplicants, icon: Users, color: "text-green-500", bg: "bg-green-50", link: "/admin/applications" },
-    { name: "Total Blogs", value: totalBlogs, icon: FileText, color: "text-purple-500", bg: "bg-purple-50", link: "/admin/blogs" },
-    { name: "Unread Messages", value: unreadMessages, icon: MessageSquare, color: "text-orange-500", bg: "bg-orange-50", link: "/admin/messages" },
+    { name: "Total Jobs", value: totalJobs, icon: Briefcase, color: "text-blue-500", bg: "bg-blue-50", link: "/system-hq/jobs" },
+    { name: "Total Applicants", value: totalApplicants, icon: Users, color: "text-green-500", bg: "bg-green-50", link: "/system-hq/applications" },
+    { name: "Total Blogs", value: totalBlogs, icon: FileText, color: "text-purple-500", bg: "bg-purple-50", link: "/system-hq/blogs" },
+    { name: "Unread Messages", value: unreadMessages, icon: MessageSquare, color: "text-orange-500", bg: "bg-orange-50", link: "/system-hq/messages" },
   ];
 
   // Fetch recent activity (just a combination of latest applicants and messages for demo)
@@ -52,7 +52,7 @@ export default async function AdminDashboard() {
         <div className="lg:col-span-2 bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
           <div className="flex justify-between items-center mb-6">
             <h2 className="text-xl font-bold text-black">Recent Applications</h2>
-            <Link href="/admin/applications" className="text-sm font-semibold text-primary hover:underline">
+            <Link href="/system-hq/applications" className="text-sm font-semibold text-primary hover:underline">
               View all
             </Link>
           </div>
@@ -84,15 +84,15 @@ export default async function AdminDashboard() {
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
            <h2 className="text-xl font-bold text-black mb-6">Quick Actions</h2>
            <div className="space-y-3">
-              <Link href="/admin/jobs/create" className="flex items-center gap-3 w-full p-4 rounded-xl bg-gray-50 hover:bg-primary/5 hover:text-primary transition-colors border border-gray-100 hover:border-primary/20 text-gray-700 font-semibold text-sm">
+              <Link href="/system-hq/jobs/create" className="flex items-center gap-3 w-full p-4 rounded-xl bg-gray-50 hover:bg-primary/5 hover:text-primary transition-colors border border-gray-100 hover:border-primary/20 text-gray-700 font-semibold text-sm">
                 <Briefcase size={18} />
                 Post a new Job
               </Link>
-              <Link href="/admin/blogs/create" className="flex items-center gap-3 w-full p-4 rounded-xl bg-gray-50 hover:bg-primary/5 hover:text-primary transition-colors border border-gray-100 hover:border-primary/20 text-gray-700 font-semibold text-sm">
+              <Link href="/system-hq/blogs/create" className="flex items-center gap-3 w-full p-4 rounded-xl bg-gray-50 hover:bg-primary/5 hover:text-primary transition-colors border border-gray-100 hover:border-primary/20 text-gray-700 font-semibold text-sm">
                 <FileText size={18} />
                 Write a Blog Post
               </Link>
-              <Link href="/admin/settings" className="flex items-center gap-3 w-full p-4 rounded-xl bg-gray-50 hover:bg-primary/5 hover:text-primary transition-colors border border-gray-100 hover:border-primary/20 text-gray-700 font-semibold text-sm">
+              <Link href="/system-hq/settings" className="flex items-center gap-3 w-full p-4 rounded-xl bg-gray-50 hover:bg-primary/5 hover:text-primary transition-colors border border-gray-100 hover:border-primary/20 text-gray-700 font-semibold text-sm">
                 <Users size={18} />
                 Update Profile
               </Link>

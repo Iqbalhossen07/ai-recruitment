@@ -4,7 +4,7 @@ import { decrypt } from '@/lib/session';
 
 export async function middleware(request: NextRequest) {
   const path = request.nextUrl.pathname;
-  const isProtected = path.startsWith('/admin');
+  const isProtected = path.startsWith('/system-hq');
   
   if (isProtected) {
     const sessionCookie = request.cookies.get('session')?.value;
@@ -27,5 +27,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/admin/:path*'],
+  matcher: ['/system-hq/:path*'],
 };

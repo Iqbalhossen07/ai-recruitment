@@ -1,6 +1,6 @@
 "use server";
 
-import { prisma } from "@/lib/prisma";
+import prisma from "@/lib/prisma";
 import { createSession } from "@/lib/session";
 
 export async function loginAction(prevState: any, formData: FormData) {

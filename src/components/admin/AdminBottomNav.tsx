@@ -15,16 +15,16 @@ export default function AdminBottomNav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const mainNav = [
-    { name: "Home", href: "/admin/dashboard", icon: LayoutDashboard },
-    { name: "Jobs", href: "/admin/jobs", icon: Briefcase },
-    { name: "Users", href: "/admin/applications", icon: Users },
+    { name: "Home", href: "/system-hq/dashboard", icon: LayoutDashboard },
+    { name: "Jobs", href: "/system-hq/jobs", icon: Briefcase },
+    { name: "Users", href: "/system-hq/applications", icon: Users },
   ];
 
   const secondaryNav = [
-    { name: "Blogs", href: "/admin/blogs" },
-    { name: "Messages", href: "/admin/messages" },
-    { name: "FAQs", href: "/admin/faqs" },
-    { name: "Settings", href: "/admin/settings" },
+    { name: "Blogs", href: "/system-hq/blogs" },
+    { name: "Messages", href: "/system-hq/messages" },
+    { name: "FAQs", href: "/system-hq/faqs" },
+    { name: "Settings", href: "/system-hq/settings" },
   ];
 
   return (

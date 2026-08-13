@@ -1,18 +1,32 @@
 "use client";
 
-import { useActionState, useEffect } from "react";
+import { useEffect } from "react";
+import { useFormState, useFormStatus } from "react-dom";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { loginAction } from "../actions/auth";
 
+function SubmitButton() {
+  const { pending } = useFormStatus();
+  return (
+    <button
+      type="submit"
+      disabled={pending}
+      className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-primary hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors disabled:opacity-70"
+    >
+      {pending ? "Signing in..." : "Sign in"}
+    </button>
+  );
+}
+
 export default function LoginPage() {
   const router = useRouter();
-  const [state, formAction, isPending] = useActionState(loginAction, null);
+  const [state, formAction] = useFormState(loginAction, null);
 
   useEffect(() => {
     if (state?.success) {
       if (state.role === "ADMIN") {
-        router.push("/admin/dashboard");
+        router.push("/system-hq/dashboard");
       } else {
         router.push("/");
       }
@@ -72,13 +86,7 @@ export default function LoginPage() {
           )}
 
           <div>
-            <button
-              type="submit"
-              disabled={isPending}
-              className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-primary hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors disabled:opacity-70"
-            >
-              {isPending ? "Signing in..." : "Sign in"}
-            </button>
+            <SubmitButton />
           </div>
           
           <div className="text-center mt-4">
