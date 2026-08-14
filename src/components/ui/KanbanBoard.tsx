@@ -323,7 +323,13 @@ export default function KanbanBoard({ initialApplications }: { initialApplicatio
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6 bg-gray-50 p-4 rounded-md border border-gray-100">
                 <div>
                   <p className="text-sm text-gray-500 mb-1">Job Applied For:</p>
-                  <p className="font-semibold text-black">{selectedApp.job.title}</p>
+                  <a href={`/system-hq/jobs/${selectedApp.job.slug}`} target="_blank" rel="noopener noreferrer" className="font-semibold text-primary hover:underline flex items-center gap-1">
+                    {selectedApp.job.title}
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                  </a>
+                  {selectedApp.job.salaryRange && (
+                    <p className="text-xs text-gray-600 mt-1">Salary: {selectedApp.job.salaryRange}</p>
+                  )}
                 </div>
                 <div>
                   <p className="text-sm text-gray-500 mb-1">Email:</p>
@@ -338,13 +344,20 @@ export default function KanbanBoard({ initialApplications }: { initialApplicatio
                   <p className="font-semibold text-black">{selectedApp.expectedSalary || 'N/A'}</p>
                 </div>
                 {selectedApp.linkedinUrl && (
-                  <div className="md:col-span-2">
+                  <div>
                     <p className="text-sm text-gray-500 mb-1">LinkedIn:</p>
                     <a href={selectedApp.linkedinUrl} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline break-all">
                       {selectedApp.linkedinUrl}
                     </a>
                   </div>
                 )}
+                
+                <div className="md:col-span-2 pt-2 border-t border-gray-200 mt-2">
+                  <a href={selectedApp.cvUrl} target="_blank" rel="noopener noreferrer" className="bg-primary text-white px-4 py-2 rounded-md font-bold text-sm hover:bg-primary-hover transition-colors inline-flex items-center gap-2 w-max">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>
+                    View Original CV
+                  </a>
+                </div>
               </div>
 
               {/* Education & Experience */}
@@ -373,7 +386,7 @@ export default function KanbanBoard({ initialApplications }: { initialApplicatio
               <div className="mb-6">
                 <h3 className="text-lg font-bold text-black mb-2 flex items-center gap-2">
                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
-                  Required Skills Evaluated
+                  Job Required Skills
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {selectedApp.job.keywords 

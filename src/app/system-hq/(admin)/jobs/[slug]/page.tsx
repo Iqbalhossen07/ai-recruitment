@@ -64,6 +64,12 @@ export default async function AdminJobDetailsPage({ params }: { params: { slug: 
                   <span className="flex items-center gap-1"><Briefcase size={14} /> {job.jobType}</span>
                 </>
               )}
+              {job.salaryRange && (
+                <>
+                  <span>•</span>
+                  <span className="flex items-center gap-1 text-primary font-bold">Salary: {job.salaryRange}</span>
+                </>
+              )}
             </div>
           </div>
           <div className="bg-green-50/50 text-green-700 px-8 py-4 rounded-md flex flex-col items-center justify-center border border-green-200 min-w-[140px]">

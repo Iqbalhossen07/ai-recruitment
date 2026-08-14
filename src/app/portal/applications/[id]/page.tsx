@@ -69,7 +69,7 @@ export default async function ApplicationDetails({ params }: { params: { id: str
             <div className="flex flex-wrap items-center gap-4 md:gap-6 text-sm text-gray-600">
               <span className="flex items-center gap-1.5 font-medium">
                 <Briefcase className="w-4 h-4 text-primary" />
-                {application.job.type || "Full Time"}
+                {application.job.jobType || "Full Time"}
               </span>
               <span className="flex items-center gap-1.5 font-medium">
                 <Calendar className="w-4 h-4 text-primary" />
@@ -78,15 +78,17 @@ export default async function ApplicationDetails({ params }: { params: { id: str
             </div>
           </div>
           
-          <div className="flex gap-3">
+          <div className="flex gap-3 mt-4 md:mt-0">
             {application.cvUrl && (
-              <Link 
-                href={application.cvUrl} 
+              <a 
+                href={application.cvUrl.startsWith('/') || application.cvUrl.startsWith('http') ? application.cvUrl : `/${application.cvUrl}`}
                 target="_blank"
-                className="px-4 py-2 border border-gray-300 rounded-md text-sm font-bold text-gray-700 bg-white hover:bg-gray-50 transition-colors shadow-sm"
+                rel="noopener noreferrer"
+                className="px-4 py-2 border border-gray-300 rounded-md text-sm font-bold text-gray-700 bg-white hover:bg-gray-50 transition-colors shadow-sm inline-flex items-center gap-2"
               >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>
                 View Submitted CV
-              </Link>
+              </a>
             )}
           </div>
         </div>

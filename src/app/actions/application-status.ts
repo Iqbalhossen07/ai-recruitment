@@ -87,9 +87,28 @@ export async function updateApplicationStatus(
 
 export async function deleteApplication(applicationId: string) {
   try {
+    const application = await prisma.application.findUnique({
+      where: { id: applicationId },
+      select: { userId: true }
+    });
+
     await prisma.application.delete({
       where: { id: applicationId }
     });
+
+    // Check if we need to delete the user account
+    if (application?.userId) {
+      const remainingApps = await prisma.application.count({
+        where: { userId: application.userId }
+      });
+
+      if (remainingApps === 0) {
+        await prisma.user.delete({
+          where: { id: application.userId }
+        });
+      }
+    }
+
     revalidatePath("/system-hq/applications");
     return { success: true, message: "Application deleted successfully." };
   } catch (error: any) {
