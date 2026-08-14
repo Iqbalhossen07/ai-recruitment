@@ -151,7 +151,7 @@ export default async function JobsPage({ searchParams }: { searchParams: { [key:
                 </div>
                 <h3 className="text-xl font-bold text-black mb-2">No jobs found</h3>
                 <p className="text-gray-500">Try adjusting your filters or search query.</p>
-                <Link href="/jobs" className="inline-block mt-6 bg-primary text-black font-bold px-6 py-2 rounded-md hover:opacity-90">
+                <Link href="/jobs" className="inline-block mt-6 bg-primary text-white font-bold px-6 py-2 rounded-md hover:opacity-90">
                   Clear Filters
                 </Link>
               </div>

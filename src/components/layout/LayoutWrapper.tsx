@@ -7,8 +7,9 @@ import Footer from "./Footer";
 export default function LayoutWrapper({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const isSystemHQ = pathname.startsWith("/system-hq");
+  const isPortal = pathname.startsWith("/portal");
 
-  if (isSystemHQ) {
+  if (isSystemHQ || isPortal) {
     return <>{children}</>;
   }
 

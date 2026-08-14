@@ -31,7 +31,7 @@ model User {
   email    String  @unique
   password String
   role     Role    @default(APPLICANT)
-  image    String? // For profile picture
+  image    String? @db.LongText // For profile picture
 
   // Relations
   applications Application[]
@@ -87,6 +87,7 @@ model Application {
   linkedinUrl    String?
   education      String? @db.Text
   experience     String? @db.Text
+  aiSummary      String? @db.Text
 
   cvUrl  String // Path/URL to the uploaded PDF CV
   status ApplicationStatus @default(NOT_MATCHED)
