@@ -62,7 +62,11 @@ export default function PortalLoginPage() {
     <div className="min-h-[calc(100vh-130px)] flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8 bg-white p-10 rounded-md shadow-lg border border-gray-100">
         <div className="flex flex-col items-center">
-          <h2 className="mt-4 text-center text-3xl font-extrabold text-black">
+          <Link href="/" className="flex items-center gap-2 mb-6">
+            <svg className="w-8 h-8 text-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <span className="font-bold text-2xl text-primary tracking-tight">AI<span className="text-black">Recruit</span></span>
+          </Link>
+          <h2 className="text-center text-3xl font-extrabold text-black">
             Candidate Login
           </h2>
           <p className="mt-2 text-center text-sm text-gray-600">

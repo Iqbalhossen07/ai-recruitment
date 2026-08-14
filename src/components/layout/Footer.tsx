@@ -1,6 +1,20 @@
+"use client";
+
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { getContactInfo } from "@/app/actions/siteSettings";
 
 export default function Footer() {
+  const [contactInfo, setContactInfo] = useState({
+    email: "support@airecruit.co.uk",
+    phone: "+44 20 7946 0958",
+    address: "London, United Kingdom"
+  });
+
+  useEffect(() => {
+    getContactInfo().then(setContactInfo).catch(console.error);
+  }, []);
+
   return (
     <footer className="bg-white border-t border-gray-200 py-12 mt-auto">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -47,25 +61,21 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-bold mb-4 text-black">Contact Info</h3>
             <ul className="space-y-2 text-gray-600 font-medium">
-              <li>support@airecruit.co.uk</li>
-              <li>+44 20 7946 0958</li>
-              <li>London, United Kingdom</li>
+              <li>{contactInfo.email}</li>
+              <li>{contactInfo.phone}</li>
+              <li>{contactInfo.address}</li>
             </ul>
           </div>
 
         </div>
 
-        <div className="border-t border-gray-200 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <div className="border-t border-gray-200 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-gray-500 font-medium text-sm">
             &copy; {new Date().getFullYear()} AI Recruit. All rights reserved.
           </p>
-          <div className="flex space-x-6 mt-4 md:mt-0 font-medium">
-            <Link href="/privacy" className="text-gray-500 hover:text-primary text-sm transition-colors">
-              Privacy Policy
-            </Link>
-            <Link href="/terms" className="text-gray-500 hover:text-primary text-sm transition-colors">
-              Terms of Service
-            </Link>
+          <div className="flex gap-6 text-sm font-medium text-gray-500">
+            <Link href="/privacy-policy" className="hover:text-primary transition-colors">Privacy Policy</Link>
+            <Link href="/terms-conditions" className="hover:text-primary transition-colors">Terms & Conditions</Link>
           </div>
         </div>
       </div>

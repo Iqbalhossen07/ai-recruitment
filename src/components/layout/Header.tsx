@@ -59,7 +59,7 @@ export default function Header() {
           {/* Action Buttons */}
           <div className="hidden md:flex items-center space-x-4">
             <Link 
-              href="/login" 
+              href="/portal/login" 
               className="px-5 py-2 text-primary font-medium hover:bg-primary-light rounded-md transition-colors"
             >
               Log in
@@ -115,7 +115,7 @@ export default function Header() {
             })}
             <div className="pt-4 flex flex-col space-y-3 mt-4 border-t border-gray-100">
               <Link 
-                href="/login"
+                href="/portal/login"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="w-full text-center px-5 py-3 text-primary border border-primary font-medium rounded-md transition-colors"
               >
