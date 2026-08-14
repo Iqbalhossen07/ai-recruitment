@@ -313,7 +313,7 @@ export default async function Home() {
           </div>
 
           {/* Heading */}
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-black">
+          <h2 className="text-2xl md:text-4xl  font-bold mb-6 leading-tight text-black">
             Ready to land your{" "}
             <span className="text-primary relative">
               dream job
@@ -332,7 +332,7 @@ export default async function Home() {
           <div className="flex justify-center">
             <Link
               href="/jobs"
-              className="inline-flex items-center justify-center gap-2 bg-primary text-black font-bold px-10 py-4 rounded-md hover:opacity-90 transition-all duration-300 shadow-lg shadow-primary/30 hover:shadow-primary/50 hover:-translate-y-0.5 text-lg"
+              className="inline-flex items-center justify-center gap-2 bg-primary text-white font-bold px-4 py-2.5 rounded-md hover:opacity-90 transition-all duration-300 shadow-lg shadow-gray-300 hover:shadow-gray-300/50 hover:-translate-y-0.5 text-lg"
             >
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
               Browse Jobs

@@ -20,7 +20,7 @@ export default async function PortalDashboard() {
     }
   });
 
-  if (!user) redirect("/portal/login");
+  if (!user) redirect("/api/auth/logout");
 
   const totalApplications = user.applications.length;
   const totalInterviews = user.applications.filter(a => a.status === 'INTERVIEW_SCHEDULED').length;

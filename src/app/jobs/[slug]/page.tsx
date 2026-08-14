@@ -64,13 +64,7 @@ export default async function JobDetailsPage({ params }: { params: { slug: strin
           </div>
         )}
 
-        {/* Keywords / Tags (Now Rich Text) */}
-        {job.keywords && (
-          <div className="mb-10 prose prose-blue max-w-none">
-            <h2 className="text-xl font-bold text-black mb-4 border-b border-gray-100 pb-2">Keywords & Tags</h2>
-            <div className="text-gray-700 leading-relaxed" dangerouslySetInnerHTML={{ __html: job.keywords }} />
-          </div>
-        )}
+
 
         {/* Application Form */}
         <ApplicationForm jobId={job.id} />
