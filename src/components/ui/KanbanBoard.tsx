@@ -382,38 +382,38 @@ export default function KanbanBoard({ initialApplications }: { initialApplicatio
                 </div>
               </div>
 
-              {/* Skills Section */}
+              {/* Applicant's Extracted Skills */}
               <div className="mb-6">
                 <h3 className="text-lg font-bold text-black mb-2 flex items-center gap-2">
                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
-                  Applicant's Skills Match
+                  Applicant's Skills
                 </h3>
                 <div className="flex flex-wrap gap-2">
-                  {selectedApp.job.keywords 
-                    ? selectedApp.job.keywords.replace(/<[^>]*>?/gm, '').split(',').map((skill: string, i: number) => {
-                        const skillName = skill.trim();
-                        if (!skillName) return null;
-                        
-                        const cvTextLower = (selectedApp.cvText || '').toLowerCase();
-                        const aiSummaryLower = (selectedApp.aiSummary || '').toLowerCase();
-                        const hasSkill = cvTextLower.includes(skillName.toLowerCase()) || aiSummaryLower.includes(skillName.toLowerCase());
-                        
-                        return (
-                          <span key={i} className={`border px-3 py-1 rounded-md text-sm font-bold flex items-center gap-1.5 ${
-                            hasSkill 
-                              ? 'bg-green-50 text-green-700 border-green-200' 
-                              : 'bg-red-50 text-red-700 border-red-200'
-                          }`}>
-                            {skillName}
-                            {hasSkill 
-                              ? <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                              : <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-                            }
-                          </span>
-                        );
-                      })
-                    : <span className="text-sm text-gray-500">No specific skills listed for this job.</span>
-                  }
+                  {(() => {
+                    const POPULAR_SKILLS = [
+                      "JavaScript", "TypeScript", "React", "Next.js", "Node.js", "Express", "NestJS", 
+                      "Python", "Django", "Flask", "FastAPI", "Java", "Spring Boot", "C++", "C#", ".NET",
+                      "Ruby", "Ruby on Rails", "PHP", "Laravel", "Go", "Rust", "Swift", "Kotlin", "React Native", "Flutter",
+                      "SQL", "MySQL", "PostgreSQL", "MongoDB", "Redis", "Elasticsearch", "Prisma ORM", "Prisma", "Mongoose",
+                      "AWS", "Google Cloud", "GCP", "Azure", "Docker", "Kubernetes", "CI/CD", "Jenkins", "GitHub Actions",
+                      "HTML", "CSS", "Tailwind CSS", "SASS", "Bootstrap", "GraphQL", "REST API",
+                      "Figma", "UI/UX", "SEO", "Google Analytics", "Marketing", "Content Strategy", "Machine Learning", "AI"
+                    ];
+                    
+                    const combinedText = ((selectedApp.cvText || '') + ' ' + (selectedApp.aiSummary || '') + ' ' + (selectedApp.experience || '')).toLowerCase();
+                    const extractedSkills = POPULAR_SKILLS.filter(skill => combinedText.includes(skill.toLowerCase()));
+                    
+                    if (extractedSkills.length === 0) {
+                      return <span className="text-sm text-gray-500">No specific tech skills detected automatically. Check CV for details.</span>;
+                    }
+                    
+                    return extractedSkills.map((skill, i) => (
+                      <span key={i} className="bg-blue-50 text-blue-700 border border-blue-200 px-3 py-1 rounded-md text-sm font-bold flex items-center gap-1.5">
+                        {skill}
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                      </span>
+                    ));
+                  })()}
                 </div>
               </div>
 
