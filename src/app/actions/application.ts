@@ -4,6 +4,8 @@ import prisma from "@/lib/prisma";
 import { evaluateResume } from "@/lib/ai";
 import { ApplicationStatus, Role } from "@prisma/client";
 import nodemailer from "nodemailer";
+import { writeFile, mkdir } from "fs/promises";
+import path from "path";
 
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST,
@@ -67,10 +69,20 @@ export async function submitApplication(prevState: any, formData: FormData) {
        experience = aiResult.experience;
     }
 
-    // Since we don't have a real file upload service (like S3) set up yet, 
-    // we'll just save a placeholder or base64 for now, but for production 
-    // it should be uploaded to a bucket. We will just use a dummy URL for MVP.
-    const cvUrl = "/uploads/dummy-cv.pdf"; 
+    // Save the uploaded CV to disk
+    const uniqueFilename = `${Date.now()}-${Math.random().toString(36).substring(2, 9)}.pdf`;
+    const uploadsDir = path.join(process.cwd(), "public", "uploads");
+    
+    // Ensure uploads directory exists
+    try {
+      await mkdir(uploadsDir, { recursive: true });
+    } catch (e) {
+      console.error("Could not create uploads directory", e);
+    }
+    
+    const filePath = path.join(uploadsDir, uniqueFilename);
+    await writeFile(filePath, buffer);
+    const cvUrl = `/uploads/${uniqueFilename}`; 
 
     // 3. Save Application without creating user account yet
     const application = await prisma.application.create({
