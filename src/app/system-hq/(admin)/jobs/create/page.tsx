@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import JobForm from "@/components/admin/JobForm";
 import prisma from "@/lib/prisma";
 

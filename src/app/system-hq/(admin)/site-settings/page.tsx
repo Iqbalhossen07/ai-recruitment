@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import { getSiteSettings } from "@/lib/settings";
 import SiteSettingsClient from "@/components/admin/SiteSettingsClient";
 

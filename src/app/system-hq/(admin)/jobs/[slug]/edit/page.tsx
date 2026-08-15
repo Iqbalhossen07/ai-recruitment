@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import prisma from "@/lib/prisma";
 import JobForm from "@/components/admin/JobForm";
 import { notFound } from "next/navigation";

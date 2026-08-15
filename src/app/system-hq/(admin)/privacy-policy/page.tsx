@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import { getPrivacyPolicy } from "@/app/actions/legal";
 import LegalForm from "@/components/admin/LegalForm";
 

@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import CityForm from "@/components/admin/CityForm";
 import prisma from "@/lib/prisma";
 import { notFound } from "next/navigation";

@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import FaqForm from "@/components/admin/FaqForm";
 
 export default function CreateFaqPage() {

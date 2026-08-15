@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import CityForm from "@/components/admin/CityForm";
 
 export default function CreateCityPage() {
