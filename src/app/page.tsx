@@ -62,7 +62,7 @@ export default async function Home() {
               Next-Gen Hiring Platform
             </span>
             <h1 className="text-2xl sm:text-4xl font-bold text-white mb-4 md:mb-6 leading-[1.1] tracking-tight">
-              Get hired by <span className="text-primary relative inline-block">top companies<svg className="absolute w-full h-3 md:h-4 -bottom-1 md:-bottom-2 left-0 text-primary opacity-50" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 5 Q 50 15 100 5" stroke="currentColor" strokeWidth="8" fill="transparent"/></svg></span><br/>using Advanced Platform
+              Get hired by <span className="text-primary relative inline-block">top companies<svg className="absolute w-full h-3 md:h-4 -bottom-1 md:-bottom-2 left-0 text-primary opacity-50" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 5 Q 50 15 100 5" stroke="currentColor" strokeWidth="8" fill="transparent"/></svg></span>
             </h1>
             <p className="text-base sm:text-lg md:text-xl text-gray-300 mb-8 md:mb-10 leading-relaxed font-light max-w-2xl">
               Explore thousands of job opportunities. Our intelligent platform matches your unique skills with the perfect roles automatically.
