@@ -62,7 +62,7 @@ export default async function Home() {
               AI-Powered Hiring Platform
             </span>
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-white mb-4 md:mb-6 leading-[1.1] tracking-tight">
-              Find the most <span className="text-primary relative inline-block">exciting jobs<svg className="absolute w-full h-3 md:h-4 -bottom-1 md:-bottom-2 left-0 text-primary opacity-50" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 5 Q 50 15 100 5" stroke="currentColor" strokeWidth="8" fill="transparent"/></svg></span><br/>with Smart AI
+              Get hired by <span className="text-primary relative inline-block">top companies<svg className="absolute w-full h-3 md:h-4 -bottom-1 md:-bottom-2 left-0 text-primary opacity-50" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 5 Q 50 15 100 5" stroke="currentColor" strokeWidth="8" fill="transparent"/></svg></span><br/>using Smart AI
             </h1>
             <p className="text-base sm:text-lg md:text-xl text-gray-300 mb-8 md:mb-10 leading-relaxed font-light max-w-2xl">
               Explore thousands of job opportunities. Our intelligent platform matches your unique skills with the perfect roles automatically.
@@ -214,8 +214,8 @@ export default async function Home() {
       <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white border-y border-gray-100">
         <div className="max-w-7xl mx-auto text-center">
           <span className="text-primary font-bold tracking-wider text-sm uppercase mb-2 block">Why Choose AI Recruit</span>
-          <h2 className="text-4xl font-bold text-black mb-4">The Future of Recruitment</h2>
-          <p className="text-black mb-16 max-w-2xl mx-auto text-lg">We combine human intuition with machine precision to bring you the best talent and the best opportunities.</p>
+          <h2 className="text-4xl font-bold text-black mb-4">Fast-Track Your Career</h2>
+          <p className="text-black mb-16 max-w-2xl mx-auto text-lg">We use advanced AI technology to highlight your unique skills and connect you instantly with the companies that need you.</p>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {/* Feature 1 */}
@@ -225,9 +225,9 @@ export default async function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-black mb-3">AI Powered Matching</h3>
+              <h3 className="text-xl font-bold text-black mb-3">Instant Skill Matching</h3>
               <p className="text-black leading-relaxed">
-                Our smart algorithms parse CVs instantly and match candidates with jobs based on deep keyword and contextual analysis.
+                Upload your CV and let our AI extract your best skills to match you with exciting jobs that perfectly fit your profile.
               </p>
             </div>
             
@@ -238,9 +238,9 @@ export default async function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-black mb-3">Time Saving</h3>
+              <h3 className="text-xl font-bold text-black mb-3">Save Your Time</h3>
               <p className="text-black leading-relaxed">
-                No more manual screening. Our AI pipeline saves HR departments hundreds of hours by surfacing only the most qualified candidates.
+                No more scrolling through hundreds of irrelevant jobs. We bring the most relevant opportunities straight to your dashboard.
               </p>
             </div>
             
@@ -248,12 +248,12 @@ export default async function Home() {
             <div className="bg-white p-8 rounded-md shadow-md border border-gray-200 hover:border-primary hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group">
               <div className="w-16 h-16 bg-primary/10 text-primary rounded-md flex items-center justify-center mx-auto mb-6 group-hover:bg-primary group-hover:text-white group-hover:scale-110 transition-all duration-300">
                 <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-black mb-3">Unbiased Selection</h3>
+              <h3 className="text-xl font-bold text-black mb-3">Fair Evaluation</h3>
               <p className="text-black leading-relaxed">
-                Remove human bias from the initial screening process. Our AI evaluates every application purely on merit and skills.
+                Get evaluated purely based on your merit, skills, and experience, eliminating human bias from the initial screening process.
               </p>
             </div>
           </div>
