@@ -64,7 +64,7 @@ export default async function PortalLayout({ children }: { children: ReactNode }
 
       <footer className="bg-white border-t border-gray-200 py-6">
         <div className="max-w-7xl mx-auto px-4 text-center text-sm text-gray-500">
-          &copy; {new Date().getFullYear()} AI Recruit. All rights reserved.
+          &copy; {new Date().getFullYear()} Elite Recruit. All rights reserved.
         </div>
       </footer>
     </div>

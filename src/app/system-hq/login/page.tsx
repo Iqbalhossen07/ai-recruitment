@@ -54,18 +54,18 @@ export default function LoginPage() {
           <Link href="/" className="flex items-center gap-2.5 mb-2">
             <Image
               src="/logo.jpg"
-              alt="AI Recruit Logo"
+              alt="Elite Recruit Logo"
               width={48}
               height={48}
               className="rounded-md object-cover"
             />
-            <span className="text-2xl font-bold text-primary tracking-tight">AI Recruit</span>
+            <span className="text-2xl font-bold text-primary tracking-tight">Elite Recruit</span>
           </Link>
           <h2 className="mt-4 text-center text-3xl font-extrabold text-black">
             Sign in to your account
           </h2>
           <p className="mt-2 text-center text-sm text-gray-600">
-            Welcome back to AI Recruit
+            Welcome back to Elite Recruit
           </p>
         </div>
         

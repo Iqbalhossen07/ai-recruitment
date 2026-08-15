@@ -42,7 +42,7 @@ export async function sendContactMessage(formData: FormData) {
 
     // 3. Send Email to Admin
     const adminMailOptions = {
-      from: `"AI Recruit" <${process.env.SMTP_USER}>`,
+      from: `"Elite Recruit" <${process.env.SMTP_USER}>`,
       to: adminEmail,
       subject: `New Contact Message: ${subject}`,
       html: `
@@ -59,7 +59,7 @@ export async function sendContactMessage(formData: FormData) {
             </div>
           </div>
           <div style="background-color: #f1f1f1; padding: 15px; text-align: center; font-size: 12px; color: #888;">
-            This is an automated message from AI Recruit Contact Form.
+            This is an automated message from Elite Recruit Contact Form.
           </div>
         </div>
       `,
@@ -67,7 +67,7 @@ export async function sendContactMessage(formData: FormData) {
 
     // 4. Send Confirmation Email to User
     const userMailOptions = {
-      from: `"AI Recruit Support" <${process.env.SMTP_USER}>`,
+      from: `"Elite Recruit Support" <${process.env.SMTP_USER}>`,
       to: email,
       subject: `We received your message: ${subject}`,
       html: `
@@ -87,11 +87,11 @@ export async function sendContactMessage(formData: FormData) {
             </div>
             <p style="font-size: 16px; color: #555; line-height: 1.6; margin-top: 20px;">
               Best regards,<br>
-              <strong>The AI Recruit Team</strong>
+              <strong>The Elite Recruit Team</strong>
             </p>
           </div>
           <div style="background-color: #f1f1f1; padding: 15px; text-align: center; font-size: 12px; color: #888;">
-            AI Recruit - London, UK
+            Elite Recruit - London, UK
           </div>
         </div>
       `,

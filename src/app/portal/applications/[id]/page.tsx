@@ -176,11 +176,11 @@ export default async function ApplicationDetails({ params }: { params: { id: str
         <div className="p-6 md:p-8 border-t border-gray-100 bg-gray-50/30">
           <h3 className="text-lg font-bold text-black mb-4 flex items-center gap-2">
             <Star className="w-5 h-5 text-primary" />
-            AI Evaluation Summary
+            Candidate Evaluation Summary
           </h3>
           <div className="bg-white p-5 rounded-md border border-gray-200 shadow-sm">
             <p className="text-gray-700 leading-relaxed">
-              {application.aiSummary || "Your resume is currently under review by our AI matching system."}
+              {application.aiSummary || "Your resume is currently under review by our system matching system."}
             </p>
           </div>
         </div>

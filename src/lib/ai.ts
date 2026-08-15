@@ -77,11 +77,11 @@ Respond ONLY with a valid JSON object. No markdown wrappers.
       summary: String(parsed.summary) || "No summary provided.",
     };
   } catch (error: any) {
-    console.error("AI Evaluation Error:", error);
+    console.error("Candidate Evaluation Error:", error);
     return {
       matched: false,
       score: 0,
-      summary: `AI evaluation failed: ${error.message || error}. Manual review required.`,
+      summary: `candidate evaluation failed: ${error.message || error}. Manual review required.`,
     };
   }
 }

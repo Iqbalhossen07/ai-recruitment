@@ -42,7 +42,7 @@ export default async function Home() {
         <div className="absolute inset-0 z-0">
           <Image 
             src="/hero-bg.jpg" 
-            alt="AI Recruitment Technology" 
+            alt="Elite Recruitment Technology" 
             fill 
             className="object-cover"
             priority
@@ -59,10 +59,10 @@ export default async function Home() {
           {/* Centered Text Content */}
           <div className="text-center max-w-4xl mt-10 md:mt-0 flex flex-col items-center">
             <span className="inline-block py-1 px-4 rounded-full bg-primary/20 text-primary border border-primary/30 text-xs md:text-sm font-bold tracking-wider uppercase mb-4 md:mb-6 backdrop-blur-md shadow-sm">
-              AI-Powered Hiring Platform
+              Next-Gen Hiring Platform
             </span>
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-white mb-4 md:mb-6 leading-[1.1] tracking-tight">
-              Get hired by <span className="text-primary relative inline-block">top companies<svg className="absolute w-full h-3 md:h-4 -bottom-1 md:-bottom-2 left-0 text-primary opacity-50" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 5 Q 50 15 100 5" stroke="currentColor" strokeWidth="8" fill="transparent"/></svg></span><br/>using Smart AI
+              Get hired by <span className="text-primary relative inline-block">top companies<svg className="absolute w-full h-3 md:h-4 -bottom-1 md:-bottom-2 left-0 text-primary opacity-50" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 5 Q 50 15 100 5" stroke="currentColor" strokeWidth="8" fill="transparent"/></svg></span><br/>using Advanced Platform
             </h1>
             <p className="text-base sm:text-lg md:text-xl text-gray-300 mb-8 md:mb-10 leading-relaxed font-light max-w-2xl">
               Explore thousands of job opportunities. Our intelligent platform matches your unique skills with the perfect roles automatically.
@@ -213,9 +213,9 @@ export default async function Home() {
       {/* 4. Why Choose Us */}
       <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white border-y border-gray-100">
         <div className="max-w-7xl mx-auto text-center">
-          <span className="text-primary font-bold tracking-wider text-sm uppercase mb-2 block">Why Choose AI Recruit</span>
+          <span className="text-primary font-bold tracking-wider text-sm uppercase mb-2 block">Why Choose Elite Recruit</span>
           <h2 className="text-4xl font-bold text-black mb-4">Fast-Track Your Career</h2>
-          <p className="text-black mb-16 max-w-2xl mx-auto text-lg">We use advanced AI technology to highlight your unique skills and connect you instantly with the companies that need you.</p>
+          <p className="text-black mb-16 max-w-2xl mx-auto text-lg">We use advanced matching technology to highlight your unique skills and connect you instantly with the companies that need you.</p>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {/* Feature 1 */}
@@ -227,7 +227,7 @@ export default async function Home() {
               </div>
               <h3 className="text-xl font-bold text-black mb-3">Instant Skill Matching</h3>
               <p className="text-black leading-relaxed">
-                Upload your CV and let our AI extract your best skills to match you with exciting jobs that perfectly fit your profile.
+                Upload your CV and let our system extract your best skills to match you with exciting jobs that perfectly fit your profile.
               </p>
             </div>
             
@@ -309,7 +309,7 @@ export default async function Home() {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 text-primary-hover text-xs font-bold px-4 py-1.5 rounded-md mb-6 backdrop-blur-sm">
             <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd" /></svg>
-            AI-Powered Recruitment
+            Next-Gen Recruitment
           </div>
 
           {/* Heading */}
@@ -325,7 +325,7 @@ export default async function Home() {
           </h2>
 
           <p className="text-lg md:text-xl text-gray-700 mb-10 max-w-2xl mx-auto leading-relaxed">
-            Upload your CV and let our intelligent AI match you with the best roles across London, Manchester, Birmingham and beyond — in seconds.
+            Upload your CV and let our intelligent platform match you with the best roles across London, Manchester, Birmingham and beyond — in seconds.
           </p>
 
           {/* Button */}
@@ -351,7 +351,7 @@ export default async function Home() {
             </div>
             <div className="flex items-center gap-2">
               <svg className="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" /></svg>
-              AI matched in seconds
+              Instantly matched in seconds
             </div>
             <div className="flex items-center gap-2">
               <svg className="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" /></svg>

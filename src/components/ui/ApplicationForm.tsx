@@ -71,7 +71,7 @@ export default function ApplicationForm({ jobId }: { jobId: string }) {
     <div className="bg-gray-50 p-6 rounded-md border border-gray-200" id="apply">
       <h2 className="text-2xl font-bold text-black mb-2">Apply for this Position</h2>
       <p className="text-gray-600 mb-6 text-sm">
-        Fill out the form below. Our AI will automatically scan your CV for the exact keywords required for this role.
+        Fill out the form below. Our system will automatically scan your CV for the exact keywords required for this role.
       </p>
 
       <form action={formAction} onSubmit={handleSubmit} className="space-y-4">
@@ -158,7 +158,7 @@ function SubmitButton() {
             <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
             <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
           </svg>
-          AI is Scanning your Resume...
+          System is Scanning your Resume...
         </span>
       ) : "Submit Application"}
     </button>

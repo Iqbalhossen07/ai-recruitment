@@ -4,8 +4,8 @@ import AdminBottomNav from "@/components/admin/AdminBottomNav";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Admin Dashboard | AI Recruit",
-  description: "Admin panel for AI Recruit platform",
+  title: "Admin Dashboard | Elite Recruit",
+  description: "Admin panel for Elite Recruit platform",
 };
 
 export default function AdminLayout({

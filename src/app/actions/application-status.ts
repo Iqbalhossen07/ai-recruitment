@@ -212,7 +212,7 @@ async function sendStatusEmail(application: any, newStatus: ApplicationStatus, g
   try {
     // Send to applicant
     await transporter.sendMail({
-      from: `AI Recruit <${process.env.SMTP_USER}>`,
+      from: `Elite Recruit <${process.env.SMTP_USER}>`,
       to: application.email,
       subject,
       html: htmlBody
@@ -221,7 +221,7 @@ async function sendStatusEmail(application: any, newStatus: ApplicationStatus, g
     // Send notification to Admin
     if (adminSubject && adminHtmlBody) {
       await transporter.sendMail({
-        from: `AI Recruit System <${process.env.SMTP_USER}>`,
+        from: `Elite Recruit System <${process.env.SMTP_USER}>`,
         to: "iqbalhossen0711@gmail.com",
         subject: adminSubject,
         html: adminHtmlBody

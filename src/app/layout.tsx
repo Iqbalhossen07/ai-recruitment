@@ -17,7 +17,7 @@ const inter = Inter({
 import LayoutWrapper from "@/components/layout/LayoutWrapper";
 
 export const metadata: Metadata = {
-  title: "AI Recruit | Smart Hiring Platform",
+  title: "Elite Recruit | Smart Hiring Platform",
   description: "Next-generation AI-powered Recruitment System. Find top talent or your dream job using intelligent CV matching.",
   icons: {
     icon: "/favicon.svg",

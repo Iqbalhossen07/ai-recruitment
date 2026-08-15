@@ -23,7 +23,7 @@ export default function Footer() {
           {/* Brand & Description */}
           <div className="col-span-1 md:col-span-2">
             <Link href="/" className="text-2xl font-bold text-primary mb-4 block">
-              AI Recruit
+              Elite Recruit
             </Link>
             <p className="text-gray-600 mt-4 max-w-md">
               We leverage advanced artificial intelligence to match top talent with leading companies. Streamlining recruitment with transparency and precision.
@@ -71,7 +71,7 @@ export default function Footer() {
 
         <div className="border-t border-gray-200 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-gray-500 font-medium text-sm">
-            &copy; {new Date().getFullYear()} AI Recruit. All rights reserved.
+            &copy; {new Date().getFullYear()} Elite Recruit. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm font-medium text-gray-500">
             <Link href="/privacy-policy" className="hover:text-primary transition-colors">Privacy Policy</Link>

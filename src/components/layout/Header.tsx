@@ -27,12 +27,12 @@ export default function Header() {
             <Link href="/" className="flex items-center gap-2.5">
               <Image
                 src="/logo.jpg"
-                alt="AI Recruit Logo"
+                alt="Elite Recruit Logo"
                 width={36}
                 height={36}
                 className="rounded-md object-cover"
               />
-              <span className="text-xl font-bold text-primary tracking-tight">AI Recruit</span>
+              <span className="text-xl font-bold text-primary tracking-tight">Elite Recruit</span>
             </Link>
           </div>
 

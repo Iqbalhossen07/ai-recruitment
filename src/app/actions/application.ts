@@ -105,7 +105,7 @@ export async function submitApplication(prevState: any, formData: FormData) {
     // 4. Send Email Notification to Admin
     try {
       await transporter.sendMail({
-        from: `AI Recruit <${process.env.SMTP_USER}>`,
+        from: `Elite Recruit <${process.env.SMTP_USER}>`,
         to: "iqbalhossen0711@gmail.com", // Admin Email
         subject: `New Application Received: ${name} for ${job.title}`,
         html: `
@@ -118,7 +118,7 @@ export async function submitApplication(prevState: any, formData: FormData) {
               <p style="margin: 0 0 10px 0;"><strong>Phone:</strong> ${phone}</p>
               <p style="margin: 0 0 10px 0;"><strong>Status:</strong> ${isMatched ? '<span style="color:#2563EB;font-weight:bold;">MATCHED</span>' : '<span style="color:#F59E0B;font-weight:bold;">NOT MATCHED</span>'}</p>
             </div>
-            <p>Log in to the <a href="${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}/system-hq/applications">Admin Dashboard</a> to review the candidate's details and AI evaluation.</p>
+            <p>Log in to the <a href="${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}/system-hq/applications">Admin Dashboard</a> to review the candidate's details and candidate evaluation.</p>
           </div>
         `,
       });

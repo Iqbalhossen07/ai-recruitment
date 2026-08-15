@@ -90,7 +90,7 @@ export default function AdminBottomNav() {
             <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary">
               <Users className="h-5 w-5" />
             </div>
-            <span className="font-extrabold text-gray-900">AI Recruit</span>
+            <span className="font-extrabold text-gray-900">Elite Recruit</span>
           </div>
           <button 
             onClick={() => setIsMenuOpen(false)}

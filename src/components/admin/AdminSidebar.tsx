@@ -41,12 +41,12 @@ export default function AdminSidebar() {
         <Link href="/system-hq/dashboard" className="flex items-center gap-3">
           <Image
             src="/logo.jpg"
-            alt="AI Recruit Logo"
+            alt="Elite Recruit Logo"
             width={32}
             height={32}
             className="rounded-md object-cover"
           />
-          <span className="text-xl font-extrabold text-black tracking-tight">AI Recruit</span>
+          <span className="text-xl font-extrabold text-black tracking-tight">Elite Recruit</span>
         </Link>
       </div>
 
